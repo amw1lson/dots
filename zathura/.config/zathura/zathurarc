@@ -1,0 +1,8 @@
+set status-bar-v-padding 0
+set status-bar-h-padding 0
+map i recolor
+set page-padding 1
+map I zoom in
+map U zoom out
+
+set recolor
