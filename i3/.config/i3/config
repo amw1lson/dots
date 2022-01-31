@@ -52,10 +52,10 @@ bindsym $modkey+d exec --no-startup-id rofi -show run -config ~/.config/rofi/con
 # bindsym $modkey+d exec --no-startup-id --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $modkey+$left focus left
-bindsym $modkey+$down focus down
-bindsym $modkey+$up focus up
-bindsym $modkey+$right focus right
+bindsym $modkey+h focus left
+bindsym $modkey+j focus down
+bindsym $modkey+k focus up
+bindsym $modkey+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $modkey+Left focus left
@@ -76,7 +76,7 @@ bindsym $modkey+Shift+Up move up
 bindsym $modkey+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $modkey+h split h
+bindsym $modkey+Shift+h split h
 
 # split in vertical orientation
 bindsym $modkey+v split v
