@@ -153,11 +153,11 @@ bindsym $modkey+minus scratchpad show
 # black theme
 set $xforeground #ffffff
 set $xbackground #000000
-set $xcursor #ffffff
-set $xcolor0 #000000
+set $xcursor #cc55ff
+set $xcolor0 #00ffff
 set $xcolor8 #202020
 set $xcolor1 #6b6b6b
-set $xcolor9 #464646
+set $xcolor9 #cc55ff
 set $xcolor2 #c4c4c4
 set $xcolor10 #f8f8f8
 set $xcolor3 #b3b3b3
@@ -167,7 +167,7 @@ set $xcolor12 #7c7c7c
 set $xcolor5 #717171
 set $xcolor13 #adadad
 set $xcolor6 #8a8a8a
-set $xcolor14 #c0c0c0
+set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
@@ -363,4 +363,4 @@ mode "$mode_gaps_outer" {
 }
 exec picom -b
 exec alacritty
-exec nitrogen --set-zoom-fill ~/Misc/backgrounds/forest.jpg
+exec nitrogen --set-zoom-fill ~/Misc/backgrounds/retrowave.jpg

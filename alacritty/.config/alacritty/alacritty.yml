@@ -1,12 +1,11 @@
-colors:
-  hyper: &hyper
+colors: 
     # Default colors
     primary:
       background: '0x000000'
       foreground: '0xffffff'
     cursor:
-      text: '0xF81CE5'
-      cursor: '0xffffff'
+      text: '0x00ff00'
+      cursor: '0x0000ff'
   
     # Normal colors
     normal:
@@ -14,8 +13,8 @@ colors:
       red:     '0xfe0100'
       green:   '0x33ff00'
       yellow:  '0xfeff00'
-      blue:    '0x0066ff'
-      magenta: '0xcc00ff'
+      blue:    '0xcc00ff'
+      magenta: '0xcc55ff'
       cyan:    '0x00ffff'
       white:   '0xd0d0d0'
   
@@ -46,7 +45,7 @@ font:
   bold_italic:
     family: Terminus
     style: Bold Italic
-  size: 14
+  size: 15
 window.opacity: 0.8
 key_bindings:
   - key: Equals

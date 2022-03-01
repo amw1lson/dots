@@ -11,7 +11,7 @@ set showcmd
 set showmatch
 set noerrorbells
 set smartindent
-set nohlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -21,12 +21,13 @@ set noswapfile
 set nowrap
 set relativenumber
 set number
-"colorscheme sourcerer
-colorscheme badwolf
-set cursorline
-hi Cursorline ctermfg=none cterm=none guifg=NONE
-set guicursor=
+colorscheme synthblack
+
+hi StatusLine ctermbg=blue ctermfg=lightblue
 set statusline=%f
+set cursorline
+
+set guicursor=
 
 highlight ColorColumn ctermbg=red ctermfg=white
 set colorcolumn=80
@@ -49,6 +50,7 @@ call plug#end()
 " nerdtree stuff
 au VimEnter * NERDTree
 au BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+au BufWinEnter * NERDTreeMirror
 let NERDTreeShowHidden=1
 
 " Telescope Remaps
@@ -59,6 +61,12 @@ let g:UltiSnipsExpandTrigger="<c-s>"
 " term stuff
 nnoremap <leader>t :split \| resize 15 \| terminal<CR>
 tnoremap <Esc> <C-\><C-n>
+
+" tab stuff
+nnoremap <Tab> gt
+nnoremap <silent> <A-t> :tabnew<CR>
+nnoremap <silent> <S-Tab> :tabmove +<CR>
+nnoremap <silent> <A-Tab> :tabmove -<CR>
 
 " don't need no arrow keys 
 nnoremap <Up> <nop>
