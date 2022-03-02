@@ -1,0 +1,4 @@
+#!/bin/sh
+xrandr --newmode "1920x1000_75.00" 203.25 1920 2056 2256 2592  1000 1003 1013 1047 -hsync +vsync 
+xrandr --addmode Virtual1 1920x1000_75.00
+xrandr --output Virtual1 --mode 1920x1000_75.00
