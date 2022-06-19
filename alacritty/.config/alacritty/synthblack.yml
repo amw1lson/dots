@@ -1,3 +1,4 @@
+# SYNTHBLACK
 colors: 
     # Default colors
     primary:
@@ -10,10 +11,10 @@ colors:
     # Normal colors
     normal:
       black:   '0x000000'
-      red:     '0xfe0100'
-      green:   '0x33ff00'
-      yellow:  '0xfeff00'
-      blue:    '0xcc00ff'
+      red:     '0xfe4444'
+      green:   '0x22ff00'
+      yellow:  '0xfeff66'
+      blue:    '0x0088ff'
       magenta: '0xcc55ff'
       cyan:    '0x00ffff'
       white:   '0xd0d0d0'
@@ -21,12 +22,12 @@ colors:
     # Bright colors
     bright:
       black:   '0x808080'
-      red:     '0xfe0100'
-      green:   '0x33ff00'
+      red:     '0xfe0000'
+      green:   '0x11aa00'
       yellow:  '0xfeff00'
       blue:    '0x0066ff'
       magenta: '0xcc00ff'
-      cyan:    '0x00ffff'
+      cyan:    '0x00bbbb'
       white:   '0xFFFFFF'
 window:
   padding:

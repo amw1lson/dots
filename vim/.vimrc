@@ -22,11 +22,10 @@ set nowrap
 set relativenumber
 set number
 
-colorscheme synthblack
 
 set guicursor=
 
-highlight ColorColumn ctermbg=red ctermfg=white
+highlight ColorColumn ctermbg=red 
 set colorcolumn=80
 
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -34,59 +33,60 @@ au FileType markdown set wrap
 
 nnoremap <SPACE> <Nop>
 let mapleader = " "
+let maplocalleader = ","
 
 call plug#begin()
+Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 Plug 'preservim/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
 Plug 'dylanaraps/wal.vim'
-"Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 call plug#end()
-"colorscheme wal
 
-hi StatusLine ctermbg=lightgrey ctermfg=black
+colorscheme wal
+
+hi StatusLine ctermbg=196 ctermfg=88
+hi StatusLineNC ctermbg=160 ctermfg=52
 set statusline=%f
 
 " nerdtree stuff
-"au VimEnter * NERDTreDTree
-"au BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-"au BufWinEnter * NERDTreeMirror
-nnoremap <C-p> :NERDTree<cr>
+nnoremap <C-n> :NERDTree<cr>
 let NERDTreeShowHidden=1
 
-"synstastic
-"let g:syntastic_ocaml_checkers = ['merlin']
-"let g:syntastic_cpp_checkers = ['gcc']
-"let g:syntastic_c_checkers = ['gcc']
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
-
 "ale
-highlight ALEWarning ctermbg=109
-highlight ALEError ctermbg=88
+highlight ALEWarning ctermbg=109 ctermfg=15
+highlight ALEError ctermbg=88 ctermfg=15
+highlight ALEErrorSign ctermbg=88 ctermfg=15
+highlight ALEWarningSign ctermbg=88 ctermfg=15
 
 "VimCompletesMe
 filetype plugin on
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 
 " Telescope Remaps
-"nnoremap <C-p> :Telescope find_files<CR>
-nnoremap fb :Telescope buffers<cr>
+nnoremap <C-p> :Telescope find_files<CR>
+nnoremap <leader>gf :lua require('telescope.builtin').git_files()<CR> 
+nnoremap bf :Telescope buffers<cr>
+nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>lg :lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fx :lua require('telescope.builtin').quickfix()<cr>
 
 " term stuff
 nnoremap <leader>t :split \| resize 15 \| terminal<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " autocompile
-au FileType c nnoremap <F5> :w<CR> :!gcc -g % -o %< <CR>
-au FileType c nnoremap <F8> :w<CR> :!gcc -g % -o %< && ./%< 
-au FileType cpp nnoremap <F5> :w<CR> :!g++ -g % -o %< <CR>
-au FileType cpp nnoremap <F8> :w<CR> :!g++ -g % -o %< && ./%< 
-au FileType ocaml nnoremap <F5> :w<CR> :!ocamlbuild -use-ocamlfind %<.byte <CR>
-au FileType ocaml nnoremap <F8> :w<CR> :!ocamlbuild -use-ocamlfind %<.byte && ./%<.byte
-
+au FileType c nnoremap <F5> :w<CR> :split \| term gcc -g % -o %< <CR>
+au FileType c nnoremap <F8> :w<CR> :split \| term gcc -g % -o %< && ./%< 
+au FileType cpp nnoremap <F5> :w<CR> :split \| term g++ -g % -o %< <CR>
+au FileType cpp nnoremap <F8> :w<CR> :split \| term g++ -g % -o %< && ./%< 
+au FileType ocaml nnoremap <F5> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte <CR>
+au FileType ocaml nnoremap <F8> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte && ./%<.byte
+"templates
+au BufNewFile *.c 0r ~/.vim/templates/template.c
 
 " tab stuff
 nnoremap <Tab> gt
@@ -113,14 +113,17 @@ nnoremap <leader>L :wincmd L<CR>
 " ocaml stuff
 "set rtp+=/home/austin/.opam/default/share/merlin/vim
 au FileType ocaml set shiftwidth=2 
+au FileType ocaml vnoremap <C-M> :MerlinTypeOfSel <CR>
 
-" latex
-au FileType tex map I :!pdflatex %<CR><CR>
-au FileType tex map S :!zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR>
+" vimtex"
+"au FileType tex map I :!pdflatex %<CR><CR>
+"au FileType tex map S :!zathura $(echo % \| sed 's/tex$/pdf/') & disown<CR>
 let g:tex_flavor = "latex"
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_method = 'latexmk'
+au BufWinLeave *.tex VimtexStop
+au BufWinLeave *.tex VimtexClean
 
-" compiling
-nnoremap <leader>r :split \| resize 15 \| term R -s -f %<CR>
 
 " Merlin
 "let g:opamshare = substitute(system('opam config var share'),'\n$','','''')

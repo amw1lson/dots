@@ -1,5 +1,5 @@
 #!/bin/sh
-template="/home/austin/papers/templates/$BASH_ARGV.tex"
+template="/home/austin/templates/$BASH_ARGV.tex"
 set -- "${@:1:$(($#-1))}"
 
 case "$*" in
