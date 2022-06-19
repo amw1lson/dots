@@ -15,7 +15,7 @@ set $modkey Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Glass TTY VT220 14
+font pango: Terminus VT220 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -156,10 +156,8 @@ bindsym $modkey+minus scratchpad show
 set $xforeground #ffffff
 set $xbackground #000000
 set $xcursor #cc55ff
-set $xcolor0 #00ffff
+set $xcolor0 #3fcc6c
 set $xcolor8 #202020
-set $xcolor1 #6b6b6b
-set $xcolor9 #cc55ff
 set $xcolor2 #c4c4c4
 set $xcolor10 #f8f8f8
 set $xcolor3 #b3b3b3
@@ -173,7 +171,7 @@ set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
-set $fg #FFFFFF
+set $fg #3fcc6c
 set $bg #444444
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #000000     $fg     $fg     
@@ -279,7 +277,7 @@ bar {
     mode dock
     position top
     strip_workspace_numbers yes
-    font pango: Glass TTY VT220 14
+    font pango: Terminus 14
     separator_symbol ")("
 
     colors {
@@ -288,10 +286,10 @@ bar {
         statusline  $xforeground
 
         #Where              #Border         #Background     #Text
-        focused_workspace   $xbackground    $xcolor1        $xbackground
+        focused_workspace   $xbackground    $xcolor0        $xbackground
         #urgent_workspace    $xbackground    $xcolor9        $xbackground
-        urgent_workspace    $xbackground    $xcolor1        $xbackground
-        inactive_workspace  $xbackground    $xcolor0        $xforeground
+        urgent_workspace    $xbackground    $xcolor0        $xbackground
+        inactive_workspace  $xbackground    $xcolor1        $xforeground
     }
 }
 
