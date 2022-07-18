@@ -3,7 +3,7 @@
 # [user@hostname]-[~]
 # >>>
 autoload -U colors && colors
-PS1="%{$fg[blue]%}%B[%b%{$fg[magenta]%}%n%{$fg[blue]%}%B@%b%{$fg[magenta]%}%m%{$fg[blue]%}%B]-%b%{$fg[blue]%}%B[%b%{$fg[white]%}%~%{$fg[blue]%}%B]%b
+PS1="%{$fg[cyan]%}%B[%b%{$fg[red]%}%n%{$fg[cyan]%}%B@%b%{$fg[red]%}%m%{$fg[cyan]%}%B]-%b%{$fg[cyan]%}%B[%b%{$fg[white]%}%~%{$fg[cyan]%}%B]%b
 %{$fg[cyan]%}%B>>>%b%{$reset_color%} "
 
 # ZSH history file

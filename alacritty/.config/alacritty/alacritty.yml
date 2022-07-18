@@ -1,60 +1,4 @@
-window:
-  padding:
-    x: 10
-    y: 10
-font:
-  normal:
-    family: Glass TTY VT220
-    style: Regular
-  bold:
-    family: Glass TTY VT220
-    style: Bold
-  italic:
-    family: Glass TTY VT220
-    style: Italic
-  bold_italic:
-    family: Glass TTY VT220
-    style: Bold Italic
-  size: 15
-window.opacity: 0.8
-key_bindings:
-  - key: Equals
-    mods: Control
-    action: IncreaseFontSize
-  - key: Plus
-    mods: Control
-    action: DecreaseFontSize
-
-# GREENSCREEN
-colors:
-  # Default colors
-  primary:
-    background: '0x001100'
-    foreground: '0x00bb00'
-
-  # Normal colors
-  normal:
-    black:   '0x001100'
-    red:     '0x007700'
-    green:   '0x00bb00'
-    yellow:  '0x007700'
-    blue:    '0x009900'
-    magenta: '0x00bb00'
-    cyan:    '0x005500'
-    white:   '0x00bb00'
-
-  # Bright colors
-  bright:
-    black:   '0x007700'
-    red:     '0x007700'
-    green:   '0x00bb00'
-    yellow:  '0x007700'
-    blue:    '0x009900'
-    magenta: '0x00bb00'
-    cyan:    '0x005500'
-    white:   '0x00ff00'
-
-# NOIR
+# Noir
 colors: 
     # Default colors
     primary:
@@ -67,23 +11,25 @@ colors:
     # Normal colors
     normal:
       black:   '0x000000'
-      red:     '0x626262'
-      green:   '0xd70000'
-      yellow:  '0x808080'
-      blue:    '0x868686'
-      magenta: '0x949494'
-      cyan:    '0x9b9b9b'
-      white:   '0xA0A0A0'
+      red:     '0xFF0000'
+      green:   '0xFFBFBF'
+      yellow:  '0xEFEFEF'
+      blue:    '0xC0C0C0'
+      magenta: '0xA0A0A0'
+      cyan:    '0x808080'
+      white:   '0xFFFFFF'
   
+#000000 #ff0000 #ffbfbf #efefef #c0c0c0 #a0a0a0 #808080 #ffffff
+#300000 #af0000 #ff9999 #d0d0d0 #b0b0b0 #909090 #707070 #ffffff
     # Bright colors
     bright:
-      black:   '0x000000'
-      red:     '0x949494'
-      green:   '0xff0000'
-      yellow:  '0xa0a0a0'
-      blue:    '0xb2b2b2'
-      magenta: '0xdddddd'
-      cyan:    '0xeeeeee'
+      black:   '0x300000'
+      red:     '0xAF0000'
+      green:   '0xFF9999'
+      yellow:  "0xD0D0D0"
+      blue:    '0xB0B0B0'
+      magenta: '0x909090'
+      cyan:    '0x707070'
       white:   '0xFFFFFF'
 
 window:
@@ -92,77 +38,18 @@ window:
     y: 10
 font:
   normal:
-    family: Terminus
-    style: Regular
+    family: Px437 IBM VGA 8x16
+    style: Normal
   bold:
-    family: Terminus
+    family: Px437 IBM VGA 8x16
     style: Bold
   italic:
-    family: Terminus
+    family: Px437 IBM VGA 8x16
     style: Italic
   bold_italic:
-    family: Terminus
+    family: Px437 IBM VGA 8x16
     style: Bold Italic
-  size: 15
-window.opacity: 0.8
-key_bindings:
-  - key: Equals
-    mods: Control
-    action: IncreaseFontSize
-  - key: Plus
-    mods: Control
-    action: DecreaseFontSize
-
-# OK
-colors: 
-    # Default colors
-    primary:
-      background: '0x0b0d10'
-      foreground: '0xd2daf4'
-    cursor:
-      text: '0x000000'
-      cursor: '0xffffff'
-  
-    # Normal colors
-    normal:
-      black:   '0x636c7e'
-      red:     '0xc44949'
-      green:   '0x3fcc6c'
-      yellow:  '0xdfa93f'
-      blue:    '0x3580c1'
-      magenta: '0xac45cc'
-      cyan:    '0x36b5a4'
-      white:   '0xb5cdbd'
-  
-    # Bright colors
-    bright:
-      black:   '0x636c7e'
-      red:     '0xe15858'
-      green:   '0x53db7f'
-      yellow:  "0xdaa640"
-      blue:    '0x4796d9'
-      magenta: '0xb057cb'
-      cyan:    '0x51d5c3'
-      white:   '0xe5ddcd'
-
-window:
-  padding:
-    x: 10
-    y: 10
-font:
-  normal:
-    family: Terminus
-    style: Regular
-  bold:
-    family: Terminus
-    style: Bold
-  italic:
-    family: Terminus
-    style: Italic
-  bold_italic:
-    family: Terminus
-    style: Bold Italic
-  size: 15
+  size: 18
 window.opacity: 0.8
 key_bindings:
   - key: Equals

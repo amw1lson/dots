@@ -15,7 +15,7 @@ set $modkey Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango: Terminus VT220 14
+font pango: Px437 IBM VGA 8x16 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -39,7 +39,7 @@ set $right semicolon
 floating_modifier $modkey
 
 # start a terminal
-bindsym $modkey+Return exec alacritty
+bindsym $modkey+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $modkey+Shift+q kill
@@ -78,7 +78,7 @@ bindsym $modkey+Shift+Up move up
 bindsym $modkey+Shift+Right move right
 
 # split in horizontal orientation
-#bindsym $modkey+Shift+h split h
+bindsym $modkey+m split h
 
 # split in vertical orientation
 bindsym $modkey+v split v
@@ -171,8 +171,8 @@ set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
-set $fg #3fcc6c
-set $bg #444444
+set $fg #bf0000
+set $bg #333333
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #000000     $fg     $fg     
 client.focused_inactive $bg             $bg     #000000     $bg     $bg
@@ -234,6 +234,57 @@ bindsym $modkey+Shift+r restart
 # exit i3 (logs you out of your X session) | Changes was made here.
 #bindsym $modkey+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+    #status_command i3status
+    #mode dock
+    #position top
+    #strip_workspace_numbers yes
+    #font pango: Px437 IBM VGA 8x16 14
+    #separator_symbol ")("
+
+    #colors {
+        #Where      #Color
+        #background  $xbackground
+        #statusline  $xforeground
+
+        #Where              #Border         #Background     #Text
+        #focused_workspace   $xbackground    $xcolor0        $xbackground
+        #urgent_workspace    $xbackground    $xcolor9        $xbackground
+        #urgent_workspace    $xbackground    $xcolor0        $xbackground
+        #inactive_workspace  $xbackground    $xcolor1        $xforeground
+    #}
+#}
+
+# Toggle bar
+##bindsym $modkey+m bar mode toggle
+
+# Back and forth when pressing the same workspace keybind
+workspace_auto_back_and_forth yes
+
+# Display urgent notification on windows
+force_display_urgency_hint 500 ms
+
+# Locker configuration
+set $Locker i3lock -d -c $black0 -f
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown, (b) off-screen
+mode "$mode_system" {
+    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym b exec --no-startup-id sleep 1 && xset dpms force off, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+
+    #back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
@@ -265,111 +316,64 @@ mode "resize" {
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
-    bindsym Escape mode "default"
+    bindsym Escape mode "default" 
 }
 
 bindsym $modkey+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command i3status
-    mode dock
-    position top
-    strip_workspace_numbers yes
-    font pango: Terminus 14
-    separator_symbol ")("
-
-    colors {
-        #Where      #Color
-        background  $xbackground
-        statusline  $xforeground
-
-        #Where              #Border         #Background     #Text
-        focused_workspace   $xbackground    $xcolor0        $xbackground
-        #urgent_workspace    $xbackground    $xcolor9        $xbackground
-        urgent_workspace    $xbackground    $xcolor0        $xbackground
-        inactive_workspace  $xbackground    $xcolor1        $xforeground
-    }
-}
-
-# Toggle bar
-bindsym $modkey+m bar mode toggle
-
-# Back and forth when pressing the same workspace keybind
-workspace_auto_back_and_forth yes
-
-# Display urgent notification on windows
-force_display_urgency_hint 500 ms
-
-# Locker configuration
-set $Locker i3lock -d -c $black0 -f
-
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown, (b) off-screen
-mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym b exec --no-startup-id sleep 1 && xset dpms force off, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 bindsym $modkey+Shift+e mode "$mode_system"
 
 # Misc (above)
 new_window pixel 4
 
+# Border
+bindsym $modkey+b border normal
+bindsym $modkey+p border pixel 2
 # Floating dialogs
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
+
 # i3-gaps configuration
-gaps inner 0
-gaps outer 0
-smart_gaps on
+gaps inner 10
+gaps outer 10
 
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $modkey+Shift+g mode "$mode_gaps"
+#set $mode_gaps Gaps: (o) outer, (i) inner
+#set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+#bindsym $modkey+Shift+g mode "$mode_gaps"
 
-mode "$mode_gaps" {
-    bindsym o      mode "$mode_gaps_outer"
-    bindsym i      mode "$mode_gaps_inner"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+#    mode "$mode_gaps" {
+#        bindsym o      mode "$mode_gaps_outer"
+#        bindsym i      mode "$mode_gaps_inner"
+#        bindsym Return mode "default"
+#        bindsym Escape mode "default"
+#    }
 
-mode "$mode_gaps_inner" {
-    bindsym plus  gaps inner current plus 5
-    bindsym minus gaps inner current minus 5
-    bindsym 0     gaps inner current set 0
+#mode "$mode_gaps_inner" {
+#    bindsym plus  gaps inner current plus 5
+#    bindsym minus gaps inner current minus 5
+#    bindsym 0     gaps inner current set 0
+#
+#   bindsym Shift+plus  gaps inner all plus 5
+#   bindsym Shift+minus gaps inner all minus 5
+#    bindsym Shift+0     gaps inner all set 0
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#mode "$mode_gaps_outer" {
+#    bindsym plus  gaps outer current plus 5
+#    bindsym minus gaps outer current minus 5
+#    bindsym 0     gaps outer current set 0
 
-    bindsym Shift+plus  gaps inner all plus 5
-    bindsym Shift+minus gaps inner all minus 5
-    bindsym Shift+0     gaps inner all set 0
+#    bindsym Shift+plus  gaps outer all plus 5
+#    bindsym Shift+minus gaps outer all minus 5
+#    bindsym Shift+0     gaps outer all set 0
 
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-mode "$mode_gaps_outer" {
-    bindsym plus  gaps outer current plus 5
-    bindsym minus gaps outer current minus 5
-    bindsym 0     gaps outer current set 0
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
 
-    bindsym Shift+plus  gaps outer all plus 5
-    bindsym Shift+minus gaps outer all minus 5
-    bindsym Shift+0     gaps outer all set 0
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-exec picom -b
-exec alacritty
-#exec nitrogen --set-zoom-fill ~/Misc/backgrounds/retrowave.jpg
+exec_always --no-startup-id picom -b &> /home/austin/error.tmp
+exec --no-startup-id alacritty
+exec_always --no-startup-id nitrogen --set-zoom-fill /home/austin/Misc/backgrounds/temple.png
+exec_always --no-startup-id /home/austin/.config/polybar/launch.sh

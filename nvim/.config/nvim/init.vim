@@ -54,8 +54,8 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 call plug#end()
 
-
-colorscheme ok
+set termguicolors
+colorscheme 256_noir
 
 
 "gdb
