@@ -373,7 +373,7 @@ gaps outer 10
 #    bindsym Escape mode "default"
 #}
 
-exec_always --no-startup-id picom -b &> /home/austin/error.tmp
+exec_always --no-startup-id picom -b
 exec --no-startup-id alacritty
-exec_always --no-startup-id nitrogen --set-zoom-fill /home/austin/Misc/backgrounds/temple.png
+exec_always --no-startup-id nitrogen --set-zoom-fill /home/austin/misc/backgrounds/temple.png
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh
