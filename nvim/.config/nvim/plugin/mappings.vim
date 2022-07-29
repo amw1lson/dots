@@ -4,6 +4,7 @@ nnoremap <C-j> :lnext<cr>
 nnoremap <C-k> :lprev<cr>
 nnoremap <C-q> :call ToggleQFList(0)<CR>
 nnoremap <leader>q :call ToggleQFList(1)<CR>
+nnoremap <leader>e :Ex<CR>
 
 let g:plxg_qf_l = 0
 let g:plxg_qf_g = 0
