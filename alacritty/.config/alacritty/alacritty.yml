@@ -39,15 +39,19 @@ window:
 font:
   normal:
     family: Px437 IBM VGA 8x16
+      #family: GohuFont
     style: Normal
   bold:
     family: Px437 IBM VGA 8x16
+      #family: GohuFont
     style: Bold
   italic:
     family: Px437 IBM VGA 8x16
+      #family: GohuFont
     style: Italic
   bold_italic:
     family: Px437 IBM VGA 8x16
+      #family: GohuFont
     style: Bold Italic
   size: 18
 window.opacity: 0.8
