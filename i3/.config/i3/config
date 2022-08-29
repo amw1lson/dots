@@ -171,7 +171,7 @@ set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
-set $fg #bf0000
+set $fg #dddddd
 set $bg #333333
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #000000     $fg     $fg     
@@ -323,7 +323,7 @@ bindsym $modkey+r mode "resize"
 bindsym $modkey+Shift+e mode "$mode_system"
 
 # Misc (above)
-new_window pixel 4
+new_window pixel 2
 
 # Border
 bindsym $modkey+b border normal
@@ -372,8 +372,11 @@ gaps outer 10
 #    bindsym Return mode "default"
 #    bindsym Escape mode "default"
 #}
+# screenshots
+bindsym $modkey+Print exec flameshot full
+bindsym Print exec flameshot gui
 
 exec_always --no-startup-id picom -b
 exec --no-startup-id alacritty
-exec_always --no-startup-id nitrogen --set-zoom-fill /home/austin/misc/backgrounds/temple.png
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/fuji.jpg
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh

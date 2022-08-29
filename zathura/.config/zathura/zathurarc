@@ -1,5 +1,3 @@
-set status-bar-v-padding 0
-set status-bar-h-padding 0
 set recolor-darkcolor \#FFFFFF
 map i recolor
 set page-padding 1

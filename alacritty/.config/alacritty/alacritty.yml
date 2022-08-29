@@ -10,27 +10,25 @@ colors:
   
     # Normal colors
     normal:
-      black:   '0x000000'
-      red:     '0xFF0000'
-      green:   '0xFFBFBF'
-      yellow:  '0xEFEFEF'
-      blue:    '0xC0C0C0'
-      magenta: '0xA0A0A0'
-      cyan:    '0x808080'
-      white:   '0xFFFFFF'
-  
-#000000 #ff0000 #ffbfbf #efefef #c0c0c0 #a0a0a0 #808080 #ffffff
-#300000 #af0000 #ff9999 #d0d0d0 #b0b0b0 #909090 #707070 #ffffff
+      black:   '0x111111'
+      red: '0x333333'
+      green:     '0x555555'
+      yellow:   '0x666666'
+      blue:  '0x888888'
+      magenta:  '0xaaaaaa'
+      cyan: '0xcccccc'
+      white:    '0xffffff'
     # Bright colors
     bright:
-      black:   '0x300000'
-      red:     '0xAF0000'
-      green:   '0xFF9999'
-      yellow:  "0xD0D0D0"
-      blue:    '0xB0B0B0'
-      magenta: '0x909090'
-      cyan:    '0x707070'
-      white:   '0xFFFFFF'
+      black:   '0x000000'
+      red: '0x222222'
+      green:     '0x444444'
+      yellow:   '0x555555'
+      blue:  "0x777777"
+      magenta:    '0x999999'
+      cyan: '0xbbbbbb'
+      white:    '0xeeeeee'
+
 
 window:
   padding:
@@ -53,7 +51,7 @@ font:
     family: Px437 IBM VGA 8x16
       #family: GohuFont
     style: Bold Italic
-  size: 18
+  size: 10
 window.opacity: 0.8
 key_bindings:
   - key: Equals

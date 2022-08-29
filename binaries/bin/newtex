@@ -1,7 +1,6 @@
 #!/bin/sh
-template="/home/austin/templates/$BASH_ARGV.tex"
+template="/home/austin/.tex/templates/$BASH_ARGV.tex"
 set -- "${@:1:$(($#-1))}"
-
 case "$*" in
     *.tex) filename="$*";;
     *) filename="$*.tex";;

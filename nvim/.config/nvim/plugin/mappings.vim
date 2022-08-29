@@ -1,5 +1,6 @@
-nnoremap <leader>n :cnext<cr>
-nnoremap <leader>p :cprev<cr>
+
+nnoremap <leader>N :cnext<cr>
+nnoremap <leader>P :cprev<cr>
 nnoremap <C-j> :lnext<cr>
 nnoremap <C-k> :lprev<cr>
 nnoremap <C-q> :call ToggleQFList(0)<CR>
@@ -41,11 +42,8 @@ au FileType cpp nnoremap <F8> :w<CR> :split \| term g++ -g % -o %< && ./%< <CR>
 au FileType ocaml nnoremap <F5> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte <CR>
 au FileType ocaml nnoremap <F8> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte && ./%<.byte
 
-"templates
-au BufNewFile *.c 0r ~/.vim/templates/template.c
-
 " tab stuff
-nnoremap <Tab> gt
+"nnoremap <Tab> gt
 nnoremap <silent> <A-t> :tabnew<CR>
 nnoremap <silent> <S-Tab> :tabmove +<CR>
 nnoremap <silent> <A-Tab> :tabmove -<CR>
@@ -59,3 +57,7 @@ nnoremap <leader>H :wincmd H<CR>
 nnoremap <leader>K :wincmd K<CR> 
 nnoremap <leader>J :wincmd J<CR> 
 nnoremap <leader>L :wincmd L<CR> 
+
+"move text
+vnoremap J :move '>+1<CR>gv=gv
+vnoremap K :move '<-2<CR>gv=gv
