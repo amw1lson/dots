@@ -1,0 +1,64 @@
+# Noir
+colors: 
+    # Default colors
+    primary:
+      background: '0x000000'
+      foreground: '0xFFFFFF'
+    cursor:
+      text: '0x000000'
+      cursor: '0xFFFFFF'
+  
+    # Normal colors
+    normal:
+      black:   '0x000000'
+      red: '0x8f0000'
+      green:     '0xFF0000'
+      yellow:   '0xFFBFBF'
+      blue:  '0xefefef'
+      magenta:    '0xC0C0C0'
+      cyan: '0xA0A0A0'
+      white:    '0x808080'
+  
+#000000 #8f0000 #ff0000 #ffbfbf #efefef #c0c0c0 #a0a0a0 #808080 
+#300000 #780000 #af0000 #ff9999 #d0d0d0 #b0b0b0 #909090 #707070 
+    # Bright colors
+    bright:
+      black:   '0x300000'
+      red: '0x780000'
+      green:     '0xAF0000'
+      yellow:   '0xFF9999'
+      blue:  "0xd0d0d0"
+      magenta:    '0xB0B0B0'
+      cyan: '0x909090'
+      white:    '0x707070'
+
+window:
+  padding:
+    x: 10
+    y: 10
+font:
+  normal:
+    family: Px437 IBM VGA 8x16
+      #family: GohuFont
+    style: Normal
+  bold:
+    family: Px437 IBM VGA 8x16
+      #family: GohuFont
+    style: Bold
+  italic:
+    family: Px437 IBM VGA 8x16
+      #family: GohuFont
+    style: Italic
+  bold_italic:
+    family: Px437 IBM VGA 8x16
+      #family: GohuFont
+    style: Bold Italic
+  size: 10
+window.opacity: 0.8
+key_bindings:
+  - key: Equals
+    mods: Control
+    action: IncreaseFontSize
+  - key: Plus
+    mods: Control
+    action: DecreaseFontSize

@@ -1,0 +1,55 @@
+snippet ;eq "equation" A
+\begin{equation*}
+    ${1:<body>}
+\end{equation*}
+${0:<end>}
+endsnippet
+
+snippet ;qu "italic quote" A
+\begin{quote}
+    ${1:<body>}
+\end{quote}
+${0:<end>}
+endsnippet
+
+snippet n| "crossed pipe" A
+\nmid $0
+endsnippet
+
+snippet ;ce "ceiling" A
+\ceil[]{${1:<body>}}$0
+endsnippet
+
+snippet ;fl "floor" A
+\floor[]{${1:<body>}} $0
+endsnippet
+
+snippet ;al "align" A
+\begin{align}
+    ${1:<body>}
+\end{align}
+$0
+endsnippet
+
+snippet ;en "enumerate" A
+\begin{enumerate}
+    \item{${1:<item>}}
+\end{enumerate}
+$0
+endsnippet
+
+snippet ;it "itemize" A
+\begin{itemize}
+    \item{${1:<item>}}
+\end{itemize}
+$0
+endsnippet
+
+snippet ;se "section" A
+\section{${1:<title>}}
+$0
+endsnippet
+
+snippet ;$ "inline equation" A
+$${1:<eq>}$$0
+endsnippet
