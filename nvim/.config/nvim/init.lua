@@ -15,12 +15,12 @@ vim.opt.softtabstop = 4
 vim.opt.hidden = true
 vim.opt.ruler = true
 vim.opt.showmode = true
-vim.opt.splitbelow = true
 vim.opt.showcmd = true
 vim.opt.showmatch = true
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.splitbelow = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.relativenumber = true
@@ -30,17 +30,29 @@ vim.opt.history = 1000
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
 
+require("no-clown-fiesta").setup(
+{
+    comments = "NONE",
+}
+)
+--vim.lsp.set_log_level('debug')
+
 require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
-
 vim.cmd([[
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "?"
 
+set backupcopy=yes
 set termguicolors
-colorscheme bloodred
+set background=dark
+hi StatusLine guifg=#3f3f3f guibg=#bFbFbF 
+hi StatusLineNC guifg=#2f2f2f guibg=#9f9f9f
+"hi CursorLine guibg=#252525
+set colorcolumn=80
+hi ColorColumn guibg=#2f2f2f
 let g:UltiSnipsExpandTrigger = ",,"
 let g:UltiSnipsJumpForwardTrigger = ",,"
 let g:UltiSnipsListSnippets = ""

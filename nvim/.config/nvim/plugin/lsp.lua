@@ -1,3 +1,4 @@
+local nnoremap = require("plxg.keymap").nnoremap
 -- Setup nvim-cmp.
 local cmp = require 'cmp'
 
@@ -5,6 +6,8 @@ vim.diagnostic.config {
     underline = false
 }
 
+require("mason").setup()
+require("mason-lspconfig").setup()
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -36,7 +39,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp', keyword_length = 2 },
         { name = 'nvim_lua', keyword_length = 3 },
-        { name = 'buffer' },
+        --{ name = 'buffer' },
         { name = 'ultisnips' }, -- For ultisnips users.
     })
 })
@@ -45,13 +48,13 @@ local lsp_defaults = {
     flags = {
         debounce_text_changes = 150,
     },
-    capabilities = require('cmp_nvim_lsp').update_capabilities(
+    capabilities = require('cmp_nvim_lsp').default_capabilities(
         vim.lsp.protocol.make_client_capabilities()
     ),
     on_attach = function(client, bufnr)
         --vim.api.nvim_command('set updatetime=100')
         --vim.api.nvim_command('autocmd CursorHold * :lua vim.lsp.buf.hover({focusable = false})')
-        vim.api.nvim_command('autocmd BufWritePre * :lua vim.lsp.buf.formatting_sync()')
+        --vim.api.nvim_command('autocmd BufWritePre * :lua vim.lsp.buf.formatting_sync()')
     end
 }
 
@@ -64,7 +67,7 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 )
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 lspconfig.sumneko_lua.setup({
     on_attach = lsp_defaults.on_attach,
     capabilities = capabilities
@@ -75,8 +78,6 @@ lspconfig.clangd.setup {
     capabilities = capabilities
 }
 
-lspconfig.asm_lsp.setup {
-}
 
 lspconfig.arduino_language_server.setup {
     cmd = {
@@ -89,18 +90,83 @@ lspconfig.arduino_language_server.setup {
 }
 
 lspconfig.texlab.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities
 }
 
 lspconfig.pyright.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities
 }
 
 lspconfig.tsserver.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities,
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end
 }
 
 lspconfig.ocamllsp.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities,
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end
 }
 
 lspconfig.hls.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities,
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end
+}
+lspconfig.asm_lsp.setup {
+    cmd = { "asm-lsp" },
+    filetypes = { "asm", "vmasm" },
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities,
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end
 }
 
 require 'colorizer'.setup()
+
+-- DAP
+require("nvim-dap-virtual-text").setup()
+require("dapui").setup()
+nnoremap("<leader>dc", function() require 'dap'.continue() end)
+nnoremap("<leader>dn", function() require 'dap'.step_over() end)
+nnoremap("<leader>ds", function() require 'dap'.step_into() end)
+nnoremap("<F12>", function() require 'dap'.step_out() end)
+nnoremap("<Leader>b", function() require 'dap'.toggle_breakpoint() end)
+nnoremap("<Leader>B", function() require 'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: ')) end)
+nnoremap("<Leader>dp", function() require 'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
+nnoremap("<Leader>dr", function() require 'dap'.repl.open() end)
+nnoremap("<Leader>dl", function() require 'dap'._last() end)
+nnoremap("<Leader>do", function() require 'dapui'.open() end)
+nnoremap("<Leader>dbc", function() require 'dapui'.close() end)
+require("dap-go").setup()
+
+local dap = require("dap")
+dap.adapters.cppdbg = {
+    id = 'cppdbg',
+    type = 'executable',
+    command = '/home/austin/.local/share/nvim/mason/packages/cpptools/extension/debugAdapters/bin/OpenDebugAD7'
+}
+dap.configurations.cpp = {
+    {
+        name = "Launch file",
+        type = "cppdbg",
+        request = "launch",
+        program = function()
+            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        cwd = '${workspaceFolder}',
+        stopAtEntry = true,
+    },
+}
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp

@@ -25,10 +25,9 @@ snippet ;fl "floor" A
 endsnippet
 
 snippet ;al "align" A
-\begin{align}
+\begin{align*}
     ${1:<body>}
-\end{align}
-$0
+\end{align*}$0
 endsnippet
 
 snippet ;en "enumerate" A
@@ -46,10 +45,31 @@ $0
 endsnippet
 
 snippet ;se "section" A
-\section{${1:<title>}}
-$0
+\section{${1:<title>}}$0
 endsnippet
 
 snippet ;$ "inline equation" A
 $${1:<eq>}$$0
+endsnippet
+
+snippet ;sys "system of equations" A 
+\begin{equation*}
+    \sysdelim..\systeme{
+    $1
+    }
+\end{equation*}$0
+endsnippet
+
+snippet ;bm "bracket matrix" A
+\begin{bmatrix}
+$1
+\end{bmatrix}$0
+endsnippet
+
+snippet ;fr "fraction" A
+\frac{$1}{$2} $0
+endsnippet
+
+snippet ;mb "mathbb" A
+\mathbb{$1}$0
 endsnippet

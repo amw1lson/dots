@@ -12,8 +12,8 @@ nnoremap <leader>vrf :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>vrn :lua vim.lsp.buf.rename()<CR>
 nnoremap K :lua vim.lsp.buf.hover()<CR>
 nnoremap <leader>vc :lua vim.lsp.buf.code_action()<CR>
-nnoremap <leader>vn :lua vim.lsp.diagnostic.goto_next()<CR>
-nnoremap <leader>vp :lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <leader>vn :lua vim.diagnostic.goto_next()<CR>
+nnoremap <leader>vp :lua vim.diagnostic.goto_prev()<CR>
 
 filetype plugin on
 

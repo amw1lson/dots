@@ -3,3 +3,4 @@ map i recolor
 set page-padding 1
 map I zoom in
 map U zoom out
+set selection-clipboard clipboard

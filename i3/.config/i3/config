@@ -134,7 +134,7 @@ bindsym $modkey+minus scratchpad show
 # Manual color settings.
 # red theme
 #set $xforeground #c5c8c6
-#set $xbackground #1d1f21
+#set $xbackground #1dc451
 #set $xcursor #c5c8c6
 #set $xcolor0 #282a2e
 #set $xcolor8 #373b41
@@ -171,8 +171,8 @@ set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
-set $fg #dddddd
-set $bg #333333
+set $fg #e1e1e1
+set $bg #111111
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #000000     $fg     $fg     
 client.focused_inactive $bg             $bg     #000000     $bg     $bg
@@ -334,9 +334,10 @@ for_window [window_role="task_dialog"] floating enable
 
 
 # i3-gaps configuration
-gaps inner 10
-gaps outer 10
+gaps inner 0
+gaps outer 0
 
+for_window [class="^.*"] border pixel 2
 #set $mode_gaps Gaps: (o) outer, (i) inner
 #set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 #set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -375,8 +376,6 @@ gaps outer 10
 # screenshots
 bindsym $modkey+Print exec flameshot full
 bindsym Print exec flameshot gui
-
-exec_always --no-startup-id picom -b
 exec --no-startup-id alacritty
 exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/fuji.jpg
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh

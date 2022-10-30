@@ -32,6 +32,38 @@ colors:
       cyan:    '0x707070'
       white:   '0xFFFFFF'
 
+
+    #WHITE
+
+    # Default colors
+    primary:
+      background: '0x000000'
+      foreground: '0xFFFFFF'
+    cursor:
+      text: '0x000000'
+      cursor: '0xFFFFFF'
+  
+    # Normal colors
+    normal:
+      black:   '0x111111'
+      red: '0x333333'
+      green:     '0x555555'
+      yellow:   '0x666666'
+      blue:  '0x888888'
+      magenta:  '0xaaaaaa'
+      cyan: '0xcccccc'
+      white:    '0xffffff'
+    # Bright colors
+    bright:
+      black:   '0x000000'
+      red: '0x222222'
+      green:     '0x444444'
+      yellow:   '0x555555'
+      blue:  "0x777777"
+      magenta:    '0x999999'
+      cyan: '0xbbbbbb'
+      white:    '0xeeeeee'
+
 window:
   padding:
     x: 10

@@ -25,7 +25,8 @@ let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
 let s:dark_pink       = { "gui": "#ff5f87", "cterm": "204" }
 let s:light_pink      = { "gui": "#d75f87", "cterm": "168" }
-let s:dark_red        = { "gui": "#780000", "cterm": "1"   }
+let s:dark_red        = { "gui": "#c80000", "cterm": "1"   }
+let s:dark_dark_red   = { "gui": "#780000", "cterm": "1"   }
 let s:red             = { "gui": "#cf0000", "cterm": "160" }
 let s:light_red       = { "gui": "#ff3333", "cterm": "9"   }
 let s:orange          = { "gui": "#D75F5F", "cterm": "167" }
@@ -130,7 +131,7 @@ hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
 call s:h("CursorLineNr",  {"fg": s:red, "bg": s:bg})
 call s:h("Question",      {"fg": s:light_red})
-call s:h("StatusLine",    {"bg": s:dark_red, "fg": s:actual_white})
+call s:h("StatusLine",    {"bg": s:dark_dark_red, "fg": s:actual_white})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:medium_gray})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
 call s:h("Title",         {"fg": s:dark_red})

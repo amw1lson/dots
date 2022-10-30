@@ -1,55 +1,46 @@
-# Noir
-colors: 
-    # Default colors
-    primary:
-      background: '0x000000'
-      foreground: '0xFFFFFF'
-    cursor:
-      text: '0x000000'
-      cursor: '0xFFFFFF'
-  
-    # Normal colors
-    normal:
-      black:   '0x111111'
-      red: '0x333333'
-      green:     '0x555555'
-      yellow:   '0x666666'
-      blue:  '0x888888'
-      magenta:  '0xaaaaaa'
-      cyan: '0xcccccc'
-      white:    '0xffffff'
-    # Bright colors
-    bright:
-      black:   '0x000000'
-      red: '0x222222'
-      green:     '0x444444'
-      yellow:   '0x555555'
-      blue:  "0x777777"
-      magenta:    '0x999999'
-      cyan: '0xbbbbbb'
-      white:    '0xeeeeee'
-
-
+# no-clown
+colors:
+  primary:
+    background: '#181818'
+    foreground: '#e1e1e1'
+    bright_foreground: '#e1e1e1'
+  cursor:
+    text: CellBackground
+    cursor: CellForeground
+  normal:
+    black: '#272727'
+    red: '#cc6666'
+    green: '#90a959'
+    yellow: '#f4bf75'
+    blue: '#a5d6ff'
+    magenta: '#aa759f'
+    cyan: '#88afa2'
+    white: '#e1e1e1'
+  bright:
+    black: '#272727'
+    red: '#ec6666'
+    green: '#90c959'
+    yellow: '#f4bf75'
+    blue: '#95c6ff'
+    magenta: '#ca75bf'
+    cyan: '#a8cfc2'
+    white: '#f1f1f1'
 window:
   padding:
-    x: 10
-    y: 10
+    x: 5
+    y: 5
 font:
   normal:
     family: Px437 IBM VGA 8x16
-      #family: GohuFont
     style: Normal
   bold:
     family: Px437 IBM VGA 8x16
-      #family: GohuFont
     style: Bold
   italic:
     family: Px437 IBM VGA 8x16
-      #family: GohuFont
     style: Italic
   bold_italic:
     family: Px437 IBM VGA 8x16
-      #family: GohuFont
     style: Bold Italic
   size: 10
 window.opacity: 0.8

@@ -39,8 +39,6 @@ au FileType c nnoremap <F5> :w<CR> :split \| term gcc -g % -o %< <CR>
 au FileType c nnoremap <F8> :w<CR> :split \| term gcc -g % -o %< && ./%< <CR>
 au FileType cpp nnoremap <F5> :w<CR> :split \| term g++ -g % -o %< <CR>
 au FileType cpp nnoremap <F8> :w<CR> :split \| term g++ -g % -o %< && ./%< <CR>
-au FileType ocaml nnoremap <F5> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte <CR>
-au FileType ocaml nnoremap <F8> :w<CR> :split \| term ocamlbuild -use-ocamlfind %<.byte && ./%<.byte
 
 " tab stuff
 "nnoremap <Tab> gt
@@ -54,8 +52,8 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>H :wincmd H<CR> 
-nnoremap <leader>K :wincmd K<CR> 
 nnoremap <leader>J :wincmd J<CR> 
+nnoremap <leader>K :wincmd K<CR> 
 nnoremap <leader>L :wincmd L<CR> 
 
 "move text

@@ -1,5 +1,5 @@
-~~~TODO~~~
-1: Finish JS App for PFI.
-2: WarGames
-somepoint: apply to summer 2023 internships
-3: Read book
+Pset 2 for Math 22 (9/14)
+Pset 1 CS120 (9/14)
+Pset 1 Stat110 (9/16)
+WarGames
+Internships

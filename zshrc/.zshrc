@@ -3,7 +3,7 @@
 # [user@hostname]-[~]
 # >>>
 autoload -U colors && colors
-PS1="%{$fg[white]%}%B[%b%{$fg[blue]%}%n%{$fg[white]%}%B@%b%{$fg[blue]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[blue]%}%~%{$fg[white]%}%B]%b
+PS1="%{$fg[white]%}%B[%b%{$fg[cyan]%}%n%{$fg[white]%}%B@%b%{$fg[cyan]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[green]%}%~%{$fg[white]%}%B]%b
 %{$fg[white]%}%B>>>%b%{$reset_color%} "
 
 # ZSH history file
@@ -51,20 +51,13 @@ export EDITOR="vim"
 export PATH="$HOME/bin:/home/austin/.local/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$HOME/.cargo/bin:$PATH"
 
 # alias
+alias sl="ls --color=auto"
 alias c="clear"
 alias cd..="cd .."
 alias curl="curl --user-agent 'noleak'"
 alias l="ls -ahls --color=auto"
 alias r="reset"
 alias shred="shred -zf"
-alias sl="ls --color=auto"
-alias vi="nvim"
-alias vim="nvim"
-alias ls="ls --color=auto"
-alias dir="dir --color=auto"
-alias vdir="vdir --color=auto"
-alias grep="grep --color=auto"
-alias fgrep="fgrep --color=auto"
 alias egrep="egrep --color=auto"
 alias wget="wget -c --user-agent 'noleak'"
 alias dd="dd status=progress"
@@ -74,8 +67,16 @@ alias mv="mv -i"
 alias df="df -h"                          # human-readable sizes
 alias free="free -h"
 alias du="du -h"
+alias vi="nvim"
+alias vim="nvim"
+alias ls="ls --color=auto"
+alias dir="dir --color=auto"
+alias vdir="vdir --color=auto"
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
 alias todo="cat /home/austin/misc/todo.txt"
 alias zathura="zathura --fork"
+
 
 export TERM=alacritty
 if [ -e /home/austin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/austin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -94,7 +95,7 @@ if [ -e /home/austin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/austin/.n
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 #NORMAL 00 # no color code at all
 #FILE 00 # regular file: use no color at all
-export LS_COLORS="di=01;38;5;241:ln=01;38;5;247:ex=01;38;5;160:"
+#export LS_COLORS="di=01;38;5;241:ln=01;38;5;247:ex=01;38;5;160:"
 
 
 
