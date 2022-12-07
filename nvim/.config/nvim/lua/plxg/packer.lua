@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
     --aesthetics
+    use 'navarasu/onedark.nvim'
     use { "ellisonleao/gruvbox.nvim" }
     use 'Mofiqul/dracula.nvim'
     use 'norcalli/nvim-colorizer.lua'
@@ -36,7 +37,7 @@ return require('packer').startup(function(use)
     use 'lervag/vimtex'
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
-     use {
+    use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()

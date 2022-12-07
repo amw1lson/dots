@@ -171,7 +171,7 @@ set $xcolor14 #cc55ff
 set $xcolor7 #baf5be
 set $xcolor15 #86b589
 
-set $fg #e1e1e1
+set $fg #cc55cf
 set $bg #111111
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #000000     $fg     $fg     
@@ -190,16 +190,27 @@ client.background       $bg
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:I"
-set $ws2 "2:II"
-set $ws3 "3:III"
-set $ws4 "4:IV"
-set $ws5 "5:V"
-set $ws6 "6:VI"
-set $ws7 "7:VII"
-set $ws8 "8:VIII"
-set $ws9 "9:IX"
-set $ws10 "10:X"
+# set $ws1 "1:I"
+# set $ws2 "2:II"
+# set $ws3 "3:III"
+# set $ws4 "4:IV"
+# set $ws5 "5:V"
+# set $ws6 "6:VI"
+# set $ws7 "7:VII"
+# set $ws8 "8:VIII"
+# set $ws9 "9:IX"
+# set $ws10 "10:X"
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
 
 # switch to workspace
 bindsym $modkey+1 workspace $ws1
@@ -328,13 +339,14 @@ new_window pixel 2
 # Border
 bindsym $modkey+b border normal
 bindsym $modkey+p border pixel 2
+
 # Floating dialogs
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 
 
 # i3-gaps configuration
-gaps inner 0
+gaps inner 15
 gaps outer 0
 
 for_window [class="^.*"] border pixel 2
@@ -376,6 +388,7 @@ for_window [class="^.*"] border pixel 2
 # screenshots
 bindsym $modkey+Print exec flameshot full
 bindsym Print exec flameshot gui
+exec --no-startup-id picom -f --blur-method dual_kawase --blur-strength 7
 exec --no-startup-id alacritty
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/fuji.jpg
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/neon.png
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh

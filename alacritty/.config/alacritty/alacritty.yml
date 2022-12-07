@@ -1,7 +1,6 @@
 # no-clown
 colors:
   primary:
-    background: '#181818'
     foreground: '#e1e1e1'
     bright_foreground: '#e1e1e1'
   cursor:
@@ -25,10 +24,54 @@ colors:
     magenta: '#ca75bf'
     cyan: '#a8cfc2'
     white: '#f1f1f1'
+colors:
+  # Default colors
+  primary:
+    background: '#000000'
+    foreground: '0xabb2bf'
+
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not present.
+    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
+    # is `false`, the normal foreground color will be used.
+    #dim_foreground: '0x9a9a9a'
+    bright_foreground: '0xe6efff'
+
+  # Cursor colors
+  #
+  # Colors which should be used to draw the terminal cursor. If these are unset,
+  # the cursor color will be the inverse of the cell color.
+  #cursor:
+  #  text: '0x000000'
+  #  cursor: '0xffffff'
+
+  # Normal colors
+  normal:
+    black:   '0x1e2127'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0x828791'
+
+  # Bright colors
+  bright:
+    black:   '0x5c6370'
+    red:     '0xe06c75'
+    green:   '0x98c379'
+    yellow:  '0xd19a66'
+    blue:    '0x61afef'
+    magenta: '0xc678dd'
+    cyan:    '0x56b6c2'
+    white:   '0xe6efff'
 window:
   padding:
     x: 5
     y: 5
+  opacity: 0.75
 font:
   normal:
     family: Px437 IBM VGA 8x16
@@ -43,7 +86,6 @@ font:
     family: Px437 IBM VGA 8x16
     style: Bold Italic
   size: 10
-window.opacity: 0.8
 key_bindings:
   - key: Equals
     mods: Control

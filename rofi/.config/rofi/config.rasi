@@ -2,11 +2,11 @@
 * {
     
     font: "Px437 IBM VGA 8x16 15";
-    active-background: #DDDDDD;
+    active-background: #0d244d;
     active-foreground: @foreground;
     normal-background: @background;
     normal-foreground: @foreground;
-    urgent-background: #7f7f7f;
+    urgent-background: #0d244d;
     urgent-foreground: @foreground;
 
     alternate-active-background: @background;
@@ -24,10 +24,10 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: @background;
-    background: #181818;
-    foreground: #E1E1E1;
-    sel-background:#E1E1E1;
-    sel-foreground:#181818;
+    background: #091833;
+    foreground: #0abdc6;
+    sel-background:#0abdc6;
+    sel-foreground:#091833;
     border-color: @background;
     spacing: 2;
 }
@@ -35,7 +35,7 @@
 #window {
     background-color: @background;
     border: 2;
-    border-color: @sel-background;
+    border-color: @foreground;
     padding: 2.5ch;
 }
 
@@ -170,3 +170,4 @@
     spacing: 0;
     text-color: @normal-foreground;
 }
+

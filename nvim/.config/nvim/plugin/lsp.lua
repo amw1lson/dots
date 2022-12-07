@@ -54,7 +54,7 @@ local lsp_defaults = {
     on_attach = function(client, bufnr)
         --vim.api.nvim_command('set updatetime=100')
         --vim.api.nvim_command('autocmd CursorHold * :lua vim.lsp.buf.hover({focusable = false})')
-        --vim.api.nvim_command('autocmd BufWritePre * :lua vim.lsp.buf.formatting_sync()')
+        vim.api.nvim_command('autocmd BufWritePre * :lua vim.lsp.buf.format()')
     end
 }
 
@@ -74,7 +74,9 @@ lspconfig.sumneko_lua.setup({
 })
 
 lspconfig.clangd.setup {
-    on_attach = lsp_defaults.on_attach,
+    on_attach = function()
+        nnoremap("<C-h>", ":ClangdSwitchSourceHeader<CR>")
+    end,
     capabilities = capabilities
 }
 

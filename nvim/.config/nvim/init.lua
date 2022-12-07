@@ -16,7 +16,7 @@ vim.opt.hidden = true
 vim.opt.ruler = true
 vim.opt.showmode = true
 vim.opt.showcmd = true
-vim.opt.showmatch = true
+vim.opt.showmatch = false
 vim.opt.autoindent = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -30,11 +30,16 @@ vim.opt.history = 1000
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
 
-require("no-clown-fiesta").setup(
-{
-    comments = "NONE",
+-- require("no-clown-fiesta").setup(
+--     {
+--         comments = "NONE",
+--     }
+-- )
+require('onedark').setup {
+    style = 'darker'
 }
-)
+require('onedark').load()
+
 --vim.lsp.set_log_level('debug')
 
 require("plxg.packer")
@@ -47,17 +52,24 @@ let maplocalleader = "?"
 
 set backupcopy=yes
 set termguicolors
-set background=dark
 hi StatusLine guifg=#3f3f3f guibg=#bFbFbF 
 hi StatusLineNC guifg=#2f2f2f guibg=#9f9f9f
-"hi CursorLine guibg=#252525
-set colorcolumn=80
-hi ColorColumn guibg=#2f2f2f
+hi Normal guibg=NONE ctermbg=NONE
+hi MsgArea guibg=NONE ctermbg=NONE
+hi ModeMsg guibg=NONE ctermbg=NONE
+hi NormalNC guibg=NONE ctermbg=NONE
+hi CursorLine guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
+hi DiagnosticError guibg=NONE ctermbg=NONE
+hi DiagnosticWarn guibg=NONE ctermbg=NONE
+"set colorcolumn=80
+"hi ColorColumn guibg=#2f2f2f
 let g:UltiSnipsExpandTrigger = ",,"
 let g:UltiSnipsJumpForwardTrigger = ",,"
 let g:UltiSnipsListSnippets = ""
 let g:UltiSnipsSnippetDirectories=["/home/austin/.config/nvim/UltiSnips"]
-
+let g:vimtex_view_forward_search_on_start = 0
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 "gdb
 packadd termdebug
 

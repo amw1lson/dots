@@ -6,11 +6,11 @@
 
 
 hi clear
-if exists("syntax_on")
-	syntax reset
-endif
+" if exists("syntax_on")
+" 	syntax reset
+" endif
 
-let colors_name = "synthblack"
+let colors_name = "yamama"
 
 hi Normal	ctermfg=lightblue ctermbg=black
 hi ErrorMsg	ctermfg=red ctermbg=bg
