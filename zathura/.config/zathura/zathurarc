@@ -4,6 +4,6 @@ set page-padding 1
 map I zoom in
 map U zoom out
 set selection-clipboard clipboard
-set default-bg rgba(0,0,0,0.90)
+set default-bg rgba(0,0,0,0.80)
 set recolor-lightcolor rgba(0,0,0,0)
 set recolor

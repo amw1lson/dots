@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
     --aesthetics
+    use "rafamadriz/neon"
     use 'navarasu/onedark.nvim'
     use { "ellisonleao/gruvbox.nvim" }
     use 'Mofiqul/dracula.nvim'
@@ -31,6 +32,10 @@ return require('packer').startup(function(use)
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
+    }
+    use {
+        'yamatsum/nvim-nonicons',
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
     use 'xero/sourcerer.vim'
     --misc plugs

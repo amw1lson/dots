@@ -145,6 +145,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/monochrome.nvim",
     url = "https://github.com/kdheepak/monochrome.nvim"
   },
+  neon = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/neon",
+    url = "https://github.com/rafamadriz/neon"
+  },
   ["no-clown-fiesta.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/no-clown-fiesta.nvim",
@@ -190,10 +195,20 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-markdown-preview",
     url = "https://github.com/davidgranstrom/nvim-markdown-preview"
   },
+  ["nvim-nonicons"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-nonicons",
+    url = "https://github.com/yamatsum/nvim-nonicons"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["onedark.nvim"] = {
     loaded = true,

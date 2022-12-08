@@ -2,18 +2,18 @@
 * {
     
     font: "Px437 IBM VGA 8x16 15";
-    active-background: #0d244d;
+    active-background: #00000000;
     active-foreground: @foreground;
-    normal-background: @background;
+    normal-background: #00000000;
     normal-foreground: @foreground;
-    urgent-background: #0d244d;
+    urgent-background: #00000000;
     urgent-foreground: @foreground;
 
-    alternate-active-background: @background;
+    alternate-active-background: #00000000;
     alternate-active-foreground: @foreground;
-    alternate-normal-background: @background;
+    alternate-normal-background: #00000000;
     alternate-normal-foreground: @foreground;
-    alternate-urgent-background: @background;
+    alternate-urgent-background: #00000000;
     alternate-urgent-foreground: @foreground;
 
     selected-active-background: @sel-background;
@@ -23,12 +23,12 @@
     selected-urgent-background: @sel-background;
     selected-urgent-foreground: @sel-foreground;
 
-    background-color: @background;
-    background: #091833;
-    foreground: #0abdc6;
-    sel-background:#0abdc6;
-    sel-foreground:#091833;
-    border-color: @background;
+    background-color: #00000000;
+    foreground: #F5166A;
+    background:#00000099;
+    sel-background:#F5166A;
+    sel-foreground:#000000;
+    border-color: #00000000;
     spacing: 2;
 }
 

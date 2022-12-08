@@ -52,8 +52,8 @@ let maplocalleader = "?"
 
 set backupcopy=yes
 set termguicolors
-hi StatusLine guifg=#3f3f3f guibg=#bFbFbF 
-hi StatusLineNC guifg=#2f2f2f guibg=#9f9f9f
+hi StatusLine guifg=#F5166A guibg = #111111
+hi StatusLineNC guifg=#cfcfcf guibg = #000000
 hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
