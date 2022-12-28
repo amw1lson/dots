@@ -23,8 +23,11 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
     --aesthetics
-    use "rafamadriz/neon"
-    use 'navarasu/onedark.nvim'
+    use {
+        "jesseleite/nvim-noirbuddy",
+        requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
+    }
+    use { "catppuccin/nvim", as = "catppuccin" }
     use { "ellisonleao/gruvbox.nvim" }
     use 'Mofiqul/dracula.nvim'
     use 'norcalli/nvim-colorizer.lua'

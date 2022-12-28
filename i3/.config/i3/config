@@ -392,5 +392,5 @@ bindsym $modkey+Print exec flameshot full
 bindsym Print exec flameshot gui
 exec --no-startup-id picom -f --blur-method dual_kawase --blur-strength 7
 exec --no-startup-id alacritty
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/neon.png
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/kanagawa.png
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh

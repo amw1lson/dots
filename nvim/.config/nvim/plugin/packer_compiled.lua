@@ -80,6 +80,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  catppuccin = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/catppuccin",
+    url = "https://github.com/catppuccin/nvim"
+  },
   ["clipboard-image.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim",
@@ -115,6 +120,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["colorbuddy.nvim"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
+    url = "https://github.com/tjdevries/colorbuddy.nvim"
+  },
   ["dracula.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/dracula.nvim",
@@ -144,11 +154,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/monochrome.nvim",
     url = "https://github.com/kdheepak/monochrome.nvim"
-  },
-  neon = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/neon",
-    url = "https://github.com/rafamadriz/neon"
   },
   ["no-clown-fiesta.nvim"] = {
     loaded = true,
@@ -195,6 +200,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-markdown-preview",
     url = "https://github.com/davidgranstrom/nvim-markdown-preview"
   },
+  ["nvim-noirbuddy"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-noirbuddy",
+    url = "https://github.com/jesseleite/nvim-noirbuddy"
+  },
   ["nvim-nonicons"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-nonicons",
@@ -209,11 +219,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
-  },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,

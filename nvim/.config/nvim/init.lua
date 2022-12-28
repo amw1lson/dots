@@ -35,10 +35,16 @@ vim.opt.signcolumn = "no"
 --         comments = "NONE",
 --     }
 -- )
-require('onedark').setup {
-    style = 'darker'
+-- require('onedark').setup {
+--     style = 'darker'
+-- }
+-- require('onedark').load()
+require('noirbuddy').setup {
+    colors = {
+        primary = '#6EE2FF',
+        secondary = '#267FB5',
+    },
 }
-require('onedark').load()
 
 --vim.lsp.set_log_level('debug')
 
@@ -52,16 +58,22 @@ let maplocalleader = "?"
 
 set backupcopy=yes
 set termguicolors
-hi StatusLine guifg=#F5166A guibg = #111111
-hi StatusLineNC guifg=#cfcfcf guibg = #000000
+hi StatusLine guifg=#267FB5 guibg = #111111
+hi StatusLineNC guibg=#cfcfcf guifg = #000000
 hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE
 hi CursorLine guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi DiagnosticError guibg=NONE ctermbg=NONE
-hi DiagnosticWarn guibg=NONE ctermbg=NONE
+hi LineNr guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE
+" hi Visual guibg=#323641 guifg=#bfbfbf
+" hi VisualNC guibg=#323641 guifg=#bfbfbf
+hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE
 "set colorcolumn=80
 "hi ColorColumn guibg=#2f2f2f
 let g:UltiSnipsExpandTrigger = ",,"

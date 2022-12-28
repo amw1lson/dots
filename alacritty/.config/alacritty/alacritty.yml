@@ -1,117 +1,35 @@
-# no-clown
-colors:
-  primary:
-    foreground: '#e1e1e1'
-    bright_foreground: '#e1e1e1'
-  cursor:
-    text: CellBackground
-    cursor: CellForeground
-  normal:
-    black: '#272727'
-    red: '#cc6666'
-    green: '#90a959'
-    yellow: '#f4bf75'
-    blue: '#a5d6ff'
-    magenta: '#aa759f'
-    cyan: '#88afa2'
-    white: '#e1e1e1'
-  bright:
-    black: '#272727'
-    red: '#ec6666'
-    green: '#90c959'
-    yellow: '#f4bf75'
-    blue: '#95c6ff'
-    magenta: '#ca75bf'
-    cyan: '#a8cfc2'
-    white: '#f1f1f1'
-colors:
-  # Default colors
-  primary:
-    background: '#000000'
-    foreground: '#abb2bf'
+# import:
+  # uncomment the flavour you want below:
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+# Noir
+colors: 
+    # Default colors
+    primary:
+      background: '#000000'
+      foreground: '#FFFFFF'
+  
+    bright:
+      black:   '#111111'
+      red: '#166Fa5'
+      green:     '#444444'
+      yellow:   '#666666'
+      blue:  '#888888'
+      magenta:  '#aaaaaa'
+      cyan: '#5Ed2eF'
+      white:    '#ffffff'
+    normal:
+      black:   '#000000'
+      red: '#267FB5'
+      green:     '#333333'
+      yellow:   '#555555'
+      blue:  "#777777"
+      magenta:    '#999999'
+      cyan: '#6EE2FF'
+      white:    '#eeeeee'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '#9a9a9a'
-    bright_foreground: '#e6efff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '#000000'
-  #  cursor: '#ffffff'
-
-  # Normal colors
-  normal:
-    black:   '#1e2127'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#d19a66'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#828791'
-
-  # Bright colors
-  bright:
-    black:   '#5c6370'
-    red:     '#e06c75'
-    green:   '#98c379'
-    yellow:  '#d19a66'
-    blue:    '#61afef'
-    magenta: '#c678dd'
-    cyan:    '#56b6c2'
-    white:   '#e6efff'
-# colors:
-#   # Default colours
-#   primary:
-#     background: '#000000'
-#     foreground: '#FFFFFF'
-#
-#   # Colors that should be used to draw the terminal cursor. If these are unset,
-#   # the cursor colour will be the inverse of the cell colour.
-#   # cursor:
-#   #   text: '0x2e2e2d'
-#   #   # text: '0x000000'
-#   #   cursor: '0xffffff'
-#
-#   # Normal colors
-#   normal:
-#     black:   '#1c61c2'
-#     red:     '#ff0000'
-#     green:   '#d300c4'
-#     yellow:  '#f57800'
-#     blue:    '#123e7c'
-#     magenta: '#711c91'
-#     cyan:    '#0abdc6'
-#     white:   '#d7d7d5'
-#
-#   # Bright colors
-#   bright:
-#     black:   '#1c61c2'
-#     red:     '#ff0000'
-#     green:   '#d300c4'
-#     yellow:  '#f57800'
-#     blue:    '#00ff00'
-#     magenta: '#711c91'
-#     cyan:    '#0abdc6'
-#     white:   '#d7d7d5'
-#
-#   # dim colors
-#   dim:
-#     black:   '#1c61c2'
-#     red:     '#ff0000'
-#     green:   '#d300c4'
-#     yellow:  '#f57800'
-#     blue:    '#123e7c'
-#     magenta: '#711c91'
-#     cyan:    '#0abdc6'
-#     white:   '#d7d7d5'
 window:
   padding:
     x: 5
