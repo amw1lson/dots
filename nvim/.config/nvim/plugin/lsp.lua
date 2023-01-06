@@ -133,7 +133,13 @@ lspconfig.asm_lsp.setup {
         return vim.fn.getcwd()
     end
 }
-
+lspconfig.jdtls.setup {
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities,
+    root_dir = function(fname)
+        return vim.fn.getcwd()
+    end
+}
 require 'colorizer'.setup()
 
 -- DAP

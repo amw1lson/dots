@@ -24,10 +24,10 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: #00000000;
-    foreground: #6EE2FF;
+    foreground: #666666;
     background:#000000;
     sel-foreground:#000000;
-    sel-background:#6EE2FF;
+    sel-background:#267FB5;
     border-color: #000000;
     spacing: 2;
 }
@@ -35,7 +35,7 @@
 #window {
     background-color: @background;
     border: 2;
-    border-color: #267FB5;
+    border-color: #666666;
     padding: 2.5ch;
 }
 

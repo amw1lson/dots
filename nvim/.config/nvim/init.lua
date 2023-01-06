@@ -58,7 +58,7 @@ let maplocalleader = "?"
 
 set backupcopy=yes
 set termguicolors
-hi StatusLine guifg=#267FB5 guibg = #111111
+hi StatusLine guifg=#3eb2cf guibg = #111111
 hi StatusLineNC guibg=#cfcfcf guifg = #000000
 hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
@@ -66,14 +66,17 @@ hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE
 hi CursorLine guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
-hi CursorLineNr guibg=NONE ctermbg=NONE
+hi LineNr guifg=#063F75 guibg=NONE ctermbg=NONE
+hi CursorLineNr guifg=#267FB5 guibg=NONE ctermbg=NONE
+hi ErrorMsg guifg=#111111
 " hi Visual guibg=#323641 guifg=#bfbfbf
 " hi VisualNC guibg=#323641 guifg=#bfbfbf
 hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE
+hi Pmenu guifg=#cfcfcf guibg=#222222
+hi PmenuSel guifg=#6ee2ff guibg=#343434
 "set colorcolumn=80
 "hi ColorColumn guibg=#2f2f2f
 let g:UltiSnipsExpandTrigger = ",,"
