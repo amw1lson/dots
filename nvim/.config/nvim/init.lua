@@ -29,56 +29,42 @@ vim.opt.number = true
 vim.opt.history = 1000
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
+vim.opt.termguicolors = true
 
--- require("no-clown-fiesta").setup(
---     {
---         comments = "NONE",
---     }
--- )
--- require('onedark').setup {
---     style = 'darker'
--- }
--- require('onedark').load()
-require('noirbuddy').setup {
-    colors = {
-        primary = '#6EE2FF',
-        secondary = '#267FB5',
-    },
-}
-
---vim.lsp.set_log_level('debug')
+-- vim.lsp.set_log_level('debug')
 
 require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
+
+require('colorizer').setup()
+require("startup").setup({ theme = "evil" })
+
+
 vim.cmd([[
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "?"
 
+colorscheme oxocarbon
 set backupcopy=yes
-set termguicolors
-hi StatusLine guifg=#3eb2cf guibg = #111111
-hi StatusLineNC guibg=#cfcfcf guifg = #000000
+
+hi StatusLine gui=bold guifg=#3ddbd9 guibg=#0b0b0b
+hi StatusLineNC gui=bold guibg=#212121
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE
 hi CursorLine guibg=NONE ctermbg=NONE
-hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi LineNr guifg=#063F75 guibg=NONE ctermbg=NONE
-hi CursorLineNr guifg=#267FB5 guibg=NONE ctermbg=NONE
-hi ErrorMsg guifg=#111111
-" hi Visual guibg=#323641 guifg=#bfbfbf
-" hi VisualNC guibg=#323641 guifg=#bfbfbf
-hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE
-hi Pmenu guifg=#cfcfcf guibg=#222222
-hi PmenuSel guifg=#6ee2ff guibg=#343434
-"set colorcolumn=80
-"hi ColorColumn guibg=#2f2f2f
+hi LineNr guibg=NONE ctermbg=NONE
+hi CursorLineNr guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextHint guifg=#52be65 guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextInfo guifg=#bfbfbf guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextWarn guifg=#fff07c guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextError guifg=#ed474a guibg=NONE ctermbg=NONE
+hi @comment gui=NONE
+set colorcolumn=80
 let g:UltiSnipsExpandTrigger = ",,"
 let g:UltiSnipsJumpForwardTrigger = ",,"
 let g:UltiSnipsListSnippets = ""

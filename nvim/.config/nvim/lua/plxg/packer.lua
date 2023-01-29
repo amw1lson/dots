@@ -3,13 +3,13 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    use { 'nyoom-engineering/oxocarbon.nvim' }
     --dap
     use 'mfussenegger/nvim-dap'
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'theHamsta/nvim-dap-virtual-text'
     use 'leoluz/nvim-dap-go'
-    use 'aktersnurra/no-clown-fiesta.nvim'
-    -- --lsp
+    --lsp
     use "williamboman/mason.nvim"
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-nvim-lua'
@@ -24,14 +24,13 @@ return require('packer').startup(function(use)
     use 'quangnguyen30192/cmp-nvim-ultisnips'
     --aesthetics
     use {
-        "jesseleite/nvim-noirbuddy",
-        requires = { "tjdevries/colorbuddy.nvim", branch = "dev" }
+        "startup-nvim/startup.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+        config = function()
+            require "startup".setup()
+        end
     }
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { "ellisonleao/gruvbox.nvim" }
-    use 'Mofiqul/dracula.nvim'
     use 'norcalli/nvim-colorizer.lua'
-    use 'kdheepak/monochrome.nvim'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
@@ -40,7 +39,6 @@ return require('packer').startup(function(use)
         'yamatsum/nvim-nonicons',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
-    use 'xero/sourcerer.vim'
     --misc plugs
     use 'lervag/vimtex'
     use 'nvim-lua/popup.nvim'
@@ -51,13 +49,10 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    --note taking
-    use 'ekickx/clipboard-image.nvim'
-    use 'davidgranstrom/nvim-markdown-preview'
-    use("mickael-menu/zk-nvim")
     --navigation
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-dap.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
+    use { "nvim-telescope/telescope-file-browser.nvim" }
     use 'ThePrimeagen/harpoon'
 end)

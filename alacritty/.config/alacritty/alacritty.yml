@@ -1,61 +1,56 @@
-# import:
-  # uncomment the flavour you want below:
-  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
-# Noir
+
+        # TODO
 colors: 
     # Default colors
     primary:
-      background: '#000000'
-      foreground: '#dfdfdf'
+      background: '#101010'
+      foreground: '#ffffff'
   
     bright:
-      black:   '#111111'
-      red: '#166Fa5'
-      green:     '#444444'
-      yellow:   '#666666'
-      blue:  '#888888'
-      magenta:  '#aaaaaa'
-      cyan: '#5Ed2eF'
+      black:    '#000000'
+      red:      '#ee5396'
+      green:    '#42be65'
+      yellow:   '#FF6F00'
+      blue:     '#0f62fe'
+      magenta:  '#673AB7'
+      cyan:     '#08bdba'
       white:    '#ffffff'
     normal:
-      black:   '#000000'
-      red: '#267FB5'
-      green:     '#333333'
-      yellow:   '#555555'
-      blue:  "#777777"
-      magenta:    '#999999'
-      cyan: '#6EE2FF'
+      black:    '#161616'
+      red:      '#ff7eb6'
+      green:    '#52ce69'
+      yellow:   '#FFAB91'
+      blue:     '#33b1ff'
+      magenta:  '#be95ff'
+      cyan:     '#3ddbd9'
       white:    '#eeeeee'
-
 window:
   padding:
     x: 5
     y: 5
-  opacity: 0.75
+  opacity: 1.00
 font:
   normal:
     family: Px437 IBM VGA 9x16 
     family: Px437 IBM EGA 9x14
+    family: Liga SFMono Nerd Font
     style: Normal
   bold:
     family: Px437 IBM VGA 9x16
     family: Px437 IBM EGA 9x14
+    family: Liga SFMono Nerd Font
     style: Bold
-    style: Normal
   italic:
     family: Px437 IBM VGA 9x16
     family: Px437 IBM EGA 9x14
+    family: Liga SFMono Nerd Font
     style: Italic
-    style: Normal
   bold_italic:
     family: Px437 IBM VGA 9x16
     family: Px437 IBM EGA 9x14
+    family: Liga SFMono Nerd Font
     style: Bold Italic
-    style: Normal
-  size: 9
+  size: 8
 key_bindings:
   - key: Equals
     mods: Control

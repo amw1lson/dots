@@ -1,7 +1,6 @@
-
 * {
     
-    font: "Px437 IBM VGA 8x16 15";
+    font: "Liga SFMono Nerd Font 12";
     active-background: #00000000;
     active-foreground: @foreground;
     normal-background: #00000000;
@@ -24,10 +23,10 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: #00000000;
-    foreground: #666666;
-    background:#000000;
-    sel-foreground:#000000;
-    sel-background:#267FB5;
+    foreground: #be95ff;
+    background: #000000;
+    sel-foreground: #08bdba;
+    sel-background: #000000;
     border-color: #000000;
     spacing: 2;
 }
@@ -35,7 +34,7 @@
 #window {
     background-color: @background;
     border: 2;
-    border-color: #666666;
+    border-color: #673AB7;
     padding: 2.5ch;
 }
 
@@ -80,7 +79,7 @@
 }
 
 #element.normal.normal {
-    highlight: none;
+    highlight: bold;
     background-color: @normal-background;
     text-color: @normal-foreground;
 }
@@ -126,7 +125,7 @@
 }
 
 #element.selected {
-    highlight: none;
+    highlight: bold;
 }
 
 #scrollbar {
@@ -170,4 +169,5 @@
     spacing: 0;
     text-color: @normal-foreground;
 }
+
 

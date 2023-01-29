@@ -1,9 +1,29 @@
-set recolor-darkcolor \#FFFFFF
 map i recolor
 set page-padding 1
 map I zoom in
 map U zoom out
 set selection-clipboard clipboard
-set default-bg rgba(0,0,0,0.80)
-set recolor-lightcolor rgba(0,0,0,0)
 set recolor
+
+set recolor-darkcolor \#ffffff
+set recolor-lightcolor rgba(14,16,17,0)
+set default-bg rgba(14,16,17,0.99)
+
+set incremental-search "true"
+
+set font "Fira Code"
+
+/* # colors */
+/**/
+/* set default-bg "#17181c" */
+/* set default-fg "#cecfdf" */
+/* set recolor-darkcolor "#cecfdf" */
+/* set recolor-lightcolor "#17181c" */
+/* set highlight-color "#7cb1ec" */
+/* set highlight-active-color "#94dc8b" */
+/* set inputbar-bg "#22242b" */
+/* set inputbar-fg "#cecfdf" */
+/**/
+/* set recolor true */
+/* map i recolor */
+/* map <C-Space> toggle_statusbar */

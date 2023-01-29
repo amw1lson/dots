@@ -3,11 +3,12 @@
 # [user@hostname]-[~]
 # >>>
 autoload -U colors && colors
-PS1="%{$fg[white]%}%B[%b%{$fg[green]%}%n%{$fg[white]%}%B@%b%{$fg[green]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[green]%}%~%{$fg[white]%}%B]%b
-%{$fg[white]%}>>>%{$reset_color%} "
-PS1="%{$fg[cyan]%}%1d %{$fg[green]%}>%{$reset_color%} "
-PS1="%{$fg[magenta]%}%1d
-%{$fg[red]%}>%{$fg[cyan]%}>%{$fg[white]%}>%{$reset_color%} "
+# PS1="%{$fg[white]%}%B[%b%{$fg[green]%}%n%{$fg[white]%}%B@%b%{$fg[green]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[green]%}%~%{$fg[white]%}%B]%b
+# %{$fg[white]%}>>>%{$reset_color%} "
+# PS1="%{$fg[cyan]%}%1d %{$fg[green]%}>%{$reset_color%} "
+PS1="%B%{$fg[magenta]%}λ ~%b %{$reset_color%}"
+# PS1="%{$fg[white]%}{%B%n%b@%{$fg[red]%}%m%{$fg[white]%}}-%{$fg[cyan]%}%~
+# %{$fg[white]%}>>> "
 # ZSH history file
 HISTSIZE=100
 SAVEHIST=100
@@ -99,6 +100,6 @@ if [ -e /home/austin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/austin/.n
 #FILE 00 # regular file: use no color at all
 #export LS_COLORS="di=01;38;5;241:ln=01;38;5;247:ex=01;38;5;160:"
 
+# Vivado setup
+source ~/tools/Xilinx/Vivado/2022.2/settings64.sh 
 
-
-[ -f "/home/austin/.ghcup/env" ] && source "/home/austin/.ghcup/env" # ghcup-env

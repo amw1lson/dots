@@ -80,11 +80,6 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["clipboard-image.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/clipboard-image.nvim",
@@ -125,11 +120,6 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/colorbuddy.nvim",
     url = "https://github.com/tjdevries/colorbuddy.nvim"
   },
-  ["dracula.nvim"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/dracula.nvim",
-    url = "https://github.com/Mofiqul/dracula.nvim"
-  },
   ["gruvbox.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
@@ -149,16 +139,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["monochrome.nvim"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/monochrome.nvim",
-    url = "https://github.com/kdheepak/monochrome.nvim"
-  },
-  ["no-clown-fiesta.nvim"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/no-clown-fiesta.nvim",
-    url = "https://github.com/aktersnurra/no-clown-fiesta.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -220,6 +200,16 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  ["onedark.nvim"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+    url = "https://github.com/navarasu/onedark.nvim"
+  },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -239,6 +229,17 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/sourcerer.vim",
     url = "https://github.com/xero/sourcerer.vim"
+  },
+  ["startup.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0" },
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/startup.nvim",
+    url = "https://github.com/startup-nvim/startup.nvim"
+  },
+  ["synthwave84.nvim"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/synthwave84.nvim",
+    url = "https://github.com/lunarvim/synthwave84.nvim"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -264,11 +265,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/vimtex",
     url = "https://github.com/lervag/vimtex"
-  },
-  ["zk-nvim"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/zk-nvim",
-    url = "https://github.com/mickael-menu/zk-nvim"
   }
 }
 
@@ -277,6 +273,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: startup.nvim
+time([[Config for startup.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0", "config", "startup.nvim")
+time([[Config for startup.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

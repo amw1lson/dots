@@ -39,7 +39,7 @@ set $right semicolon
 floating_modifier $modkey
 
 # start a terminal
-bindsym $modkey+Return exec --no-startup-id alacritty
+bindsym $modkey+Return exec --no-startup-id kitty
 
 # kill focused window
 bindsym $modkey+Shift+q kill
@@ -173,8 +173,8 @@ set $xcolor15 #86b589
 
 # set $fg #0abdc6
 # set $bg #093853
-set $fg #ff000000
-set $bg #ff000000
+set $fg #000000
+set $bg #000000
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #ffffff     $fg     $fg     
 client.focused_inactive $bg             $bg     #ffffff     $bg     $bg
@@ -336,11 +336,11 @@ bindsym $modkey+r mode "resize"
 bindsym $modkey+Shift+e mode "$mode_system"
 
 # Misc (above)
-new_window pixel 2
+new_window pixel 3
 
 # Border
 bindsym $modkey+b border normal
-bindsym $modkey+p border pixel 2
+bindsym $modkey+p border pixel 3
 
 # Floating dialogs
 for_window [window_role="pop-up"] floating enable
@@ -348,7 +348,7 @@ for_window [window_role="task_dialog"] floating enable
 
 
 # i3-gaps configuration
-gaps inner 25
+gaps inner 15
 gaps outer 0
 
 for_window [class="^.*"] border pixel 2
@@ -388,9 +388,11 @@ for_window [class="^.*"] border pixel 2
 #    bindsym Escape mode "default"
 #}
 # screenshots
+bindsym $modkey+F7 exec brightnessctl set 8%-
+bindsym $modkey+F8 exec brightnessctl set +8%
 bindsym $modkey+Print exec flameshot full
 bindsym Print exec flameshot gui
 exec --no-startup-id picom -f --blur-method dual_kawase --blur-strength 7
-exec --no-startup-id alacritty
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/kanagawa.png
+exec --no-startup-id kitty
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/dedsecOMG.jpg
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh
