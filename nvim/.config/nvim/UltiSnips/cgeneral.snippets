@@ -1,0 +1,15 @@
+snippet ;fn "function" A
+${1:<type>} ${2:<name>} (${3:<args>}){
+    ${4:<body>}
+}
+${0}
+endsnippet
+
+snippet ;dbg "debug printf macro" A
+#define DEBUG 0
+#ifdef DEBUG
+#define PRINT(f, ...)  {fprintf(stderr, "[DEBUG:%s:%s():%d] " f, __FILE__, __FUNCTION__, __LINE__, __VA_ARGS__) ; }
+#else
+#define PRINT(f, ...) { ; }
+#endif
+endsnippet
