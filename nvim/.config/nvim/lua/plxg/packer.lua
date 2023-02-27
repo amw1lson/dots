@@ -1,14 +1,18 @@
 vim.cmd [[packadd packer.nvim]]
 
+
 return require('packer').startup(function(use)
+
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     use { 'nyoom-engineering/oxocarbon.nvim' }
+
     --dap
     use 'mfussenegger/nvim-dap'
     use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
     use 'theHamsta/nvim-dap-virtual-text'
     use 'leoluz/nvim-dap-go'
+
     --lsp
     use "williamboman/mason.nvim"
     use 'hrsh7th/cmp-nvim-lsp'
@@ -19,17 +23,18 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
+
     --snippets
     use 'SirVer/ultisnips'
     use 'quangnguyen30192/cmp-nvim-ultisnips'
+
     --aesthetics
     use {
-        "startup-nvim/startup.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
-        config = function()
-            require "startup".setup()
-        end
+        'goolord/alpha-nvim',
+        requires = { 'nvim-tree/nvim-web-devicons' },
+        config = require('plxg.startup').config
     }
+    use { 'nvim-lualine/lualine.nvim' }
     use 'norcalli/nvim-colorizer.lua'
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -39,6 +44,7 @@ return require('packer').startup(function(use)
         'yamatsum/nvim-nonicons',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
+
     --misc plugs
     use 'lervag/vimtex'
     use 'nvim-lua/popup.nvim'
@@ -49,10 +55,13 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
+
     --navigation
+    use 'ggandor/leap.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-dap.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
     use { "nvim-telescope/telescope-file-browser.nvim" }
     use 'ThePrimeagen/harpoon'
+
 end)

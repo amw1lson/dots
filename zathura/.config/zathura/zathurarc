@@ -5,13 +5,17 @@ map U zoom out
 set selection-clipboard clipboard
 set recolor
 
-set recolor-darkcolor \#ffffff
-set recolor-lightcolor rgba(14,16,17,0)
-set default-bg rgba(14,16,17,0.99)
+set recolor-darkcolor \#dddddd
+set recolor-lightcolor \#161616
+set default-bg \#161616
 
 set incremental-search "true"
 
 set font "Fira Code"
+
+map <C-l> feedkeys ":blist <Tab>"
+
+map <C-m> feedkeys ":bmark"
 
 /* # colors */
 /**/

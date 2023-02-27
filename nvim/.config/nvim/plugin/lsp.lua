@@ -1,11 +1,11 @@
 local nnoremap = require("plxg.keymap").nnoremap
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 vim.diagnostic.config {
     underline = false
 }
-
-require("mason").setup()
-require("mason-lspconfig").setup()
 
 local lsp_defaults = {
     flags = {
@@ -15,10 +15,10 @@ local lsp_defaults = {
         vim.lsp.protocol.make_client_capabilities()
     ),
     on_attach = function(client, bufnr)
-        --vim.api.nvim_command('set updatetime=100')
+        -- vim.api.nvim_command('set updatetime=100')
         --vim.api.nvim_command('autocmd CursorHold * :lua vim.lsp.buf.hover({focusable = false})')
-        vim.api.nvim_command('autocmd BufWritePre * :lua vim.lsp.buf.format()')
-    end
+    end,
+    root_dir = function() return vim.fn.getcwd() end
 }
 
 local lspconfig = require('lspconfig')
@@ -31,13 +31,20 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 lspconfig.sumneko_lua.setup({
+    Lua = {
+        completion = {
+            workspaceWord = false,
+            showWord = 'disable',
+        },
+    },
     on_attach = lsp_defaults.on_attach,
     capabilities = capabilities
 })
 
 lspconfig.clangd.setup {
-    on_attach = function()
+    on_attach = function(client, bufnr)
         nnoremap("<C-h>", ":ClangdSwitchSourceHeader<CR>")
     end,
     capabilities = capabilities
@@ -51,7 +58,9 @@ lspconfig.arduino_language_server.setup {
         "-fqbn", "esp32:esp32:heltec_wifi_kit_32",
         "-cli", "/usr/bin/arduino-cli",
         "-clangd", "/usr/bin/clangd"
-    }
+    },
+    on_attach = lsp_defaults.attach,
+    capabilities = lsp_defaults.capabilities
 }
 
 lspconfig.texlab.setup {
@@ -67,47 +76,56 @@ lspconfig.pyright.setup {
 lspconfig.tsserver.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
 }
 
 lspconfig.ocamllsp.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
+    root_dir = lsp_defaults.root_dir,
 }
 
 lspconfig.hls.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
 }
 lspconfig.asm_lsp.setup {
     cmd = { "asm-lsp" },
     filetypes = { "asm", "vmasm" },
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
 }
 lspconfig.jdtls.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
 }
-
-lspconfig.svls.setup {
+lspconfig.rust_analyzer.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
-    root_dir = function(fname)
-        return vim.fn.getcwd()
-    end
+    settings = {
+        ['rust-analyzer'] = {
+            assist = {
+                importEnforceGranularity = true,
+                importPrefix = 'crate',
+            },
+            cargo = {
+                allFeatures = true,
+            },
+            checkOnSave = {
+                command = 'clippy',
+            },
+            inlayHints = { locationLinks = false },
+            diagnostics = {
+                enable = true,
+                experimental = {
+                    enable = true,
+                },
+            },
+        },
+    },
+    cmd = {
+        "rustup",
+        "run",
+        "stable",
+        "rust-analyzer"
+    },
 }

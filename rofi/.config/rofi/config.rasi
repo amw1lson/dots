@@ -1,6 +1,7 @@
 * {
     
-    font: "Liga SFMono Nerd Font 12";
+    font: "Liga SFMono Nerd Font Bold 12";
+    /* font: "Px437 IBM EGA 9x14 16"; */
     active-background: #00000000;
     active-foreground: @foreground;
     normal-background: #00000000;
@@ -24,17 +25,17 @@
 
     background-color: #00000000;
     foreground: #be95ff;
-    background: #000000;
-    sel-foreground: #08bdba;
-    sel-background: #000000;
-    border-color: #000000;
+    background: #161616;
+    sel-foreground: #3ddbd9;
+    sel-background: #161616;
+    border-color: #161616;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
-    border: 2;
-    border-color: #673AB7;
+    border: 3;
+    border-color: #be95ff;
     padding: 2.5ch;
 }
 
@@ -74,12 +75,13 @@
 }
 
 #element {
+    highlight: none;
     border: 0;
     padding: 1px;
 }
 
 #element.normal.normal {
-    highlight: bold;
+    highlight: none;
     background-color: @normal-background;
     text-color: @normal-foreground;
 }
@@ -94,6 +96,9 @@
     text-color: @active-foreground;
 }
 
+#element.selected {
+    highlight: none;
+}
 #element.selected.normal {
     background-color: @selected-normal-background;
     text-color: @selected-normal-foreground;
@@ -125,7 +130,7 @@
 }
 
 #element.selected {
-    highlight: bold;
+    highlight: none;
 }
 
 #scrollbar {

@@ -3,6 +3,7 @@ vim.opt.syntax = on
 vim.g.netrw_banner = 0
 vim.opt.swapfile = false
 vim.opt.mouse = "a"
+
 --buffer
 vim.opt.expandtab = true
 vim.opt.smartindent = true
@@ -31,15 +32,13 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
 vim.opt.termguicolors = true
 
--- vim.lsp.set_log_level('debug')
+vim.lsp.set_log_level('debug')
 
 require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
 
 require('colorizer').setup()
-require("startup").setup({ theme = "evil" })
-
 
 vim.cmd([[
 nnoremap <SPACE> <Nop>
@@ -64,7 +63,7 @@ hi DiagnosticVirtualTextInfo guifg=#bfbfbf guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextWarn guifg=#fff07c guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextError guifg=#ed474a guibg=NONE ctermbg=NONE
 hi @comment gui=NONE
-set colorcolumn=80
+" set colorcolumn=80
 let g:UltiSnipsExpandTrigger = ",,"
 let g:UltiSnipsJumpForwardTrigger = ",,"
 let g:UltiSnipsListSnippets = ""
