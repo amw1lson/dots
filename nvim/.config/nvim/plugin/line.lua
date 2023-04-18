@@ -31,7 +31,7 @@ require('lualine').setup {
         lualine_c = {
             { 'filename',
                 color = function(section)
-                    return { fg = vim.bo.modified and '#ff7eb6' or '#3ddbd9', gui = 'bold' }
+                    return { fg = vim.bo.modified and '#ff9e64' or '#7aa2f7', gui = 'bold' }
                 end,
             }
         },
@@ -42,6 +42,20 @@ require('lualine').setup {
         },
         lualine_y = { 'encoding' },
         lualine_z = { 'location' }
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {
+            {'filename',
+                color = function(section)
+                    return { fg = vim.bo.modified and '#e1a682' or '#9dafd4', gui = 'bold' }
+                end,
+            }
+        },
+        lualine_x = {'location'},
+        lualine_y = {},
+        lualine_z = {}
     },
     tabline = {},
     winbar = {},

@@ -5,7 +5,6 @@ return require('packer').startup(function(use)
 
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-    use { 'nyoom-engineering/oxocarbon.nvim' }
 
     --dap
     use 'mfussenegger/nvim-dap'
@@ -29,11 +28,13 @@ return require('packer').startup(function(use)
     use 'quangnguyen30192/cmp-nvim-ultisnips'
 
     --aesthetics
+    use 'JoosepAlviste/palenightfall.nvim'
     use {
         'goolord/alpha-nvim',
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = require('plxg.startup').config
     }
+    use 'voidekh/kyotonight.vim'
     use { 'nvim-lualine/lualine.nvim' }
     use 'norcalli/nvim-colorizer.lua'
     use {
@@ -44,6 +45,7 @@ return require('packer').startup(function(use)
         'yamatsum/nvim-nonicons',
         requires = { 'kyazdani42/nvim-web-devicons' }
     }
+    use "rebelot/kanagawa.nvim"
 
     --misc plugs
     use 'lervag/vimtex'

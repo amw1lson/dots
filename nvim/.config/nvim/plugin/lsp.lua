@@ -32,16 +32,6 @@ lspconfig.util.default_config = vim.tbl_deep_extend(
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-lspconfig.sumneko_lua.setup({
-    Lua = {
-        completion = {
-            workspaceWord = false,
-            showWord = 'disable',
-        },
-    },
-    on_attach = lsp_defaults.on_attach,
-    capabilities = capabilities
-})
 
 lspconfig.clangd.setup {
     on_attach = function(client, bufnr)

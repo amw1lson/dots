@@ -24,18 +24,19 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: #00000000;
-    foreground: #be95ff;
-    background: #161616;
-    sel-foreground: #3ddbd9;
-    sel-background: #161616;
-    border-color: #161616;
+    foreground: #a9b1d6;
+    background: #24283b;
+    sel-foreground: #7dcfff;
+    sel-background: #24283b;
+    border-color: #24283b;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
     border: 3;
-    border-color: #be95ff;
+    border-color: #24283b;
+    border-radius: 5;
     padding: 2.5ch;
 }
 

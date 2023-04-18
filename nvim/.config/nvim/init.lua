@@ -37,19 +37,17 @@ vim.lsp.set_log_level('debug')
 require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
-
 require('colorizer').setup()
-
 vim.cmd([[
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "?"
 
-colorscheme oxocarbon
+colo kyotonight
 set backupcopy=yes
 
-hi StatusLine gui=bold guifg=#3ddbd9 guibg=#0b0b0b
-hi StatusLineNC gui=bold guibg=#212121
+hi StatusLine gui=bold guifg=#FFFFFF guibg=#0b0b0b
+hi StatusLineNC gui=bold guibg=#212121 guifg=#FFFFFF
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE

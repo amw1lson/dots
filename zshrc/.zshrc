@@ -6,7 +6,7 @@ autoload -U colors && colors
 # PS1="%{$fg[white]%}%B[%b%{$fg[green]%}%n%{$fg[white]%}%B@%b%{$fg[green]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[green]%}%~%{$fg[white]%}%B]%b
 # %{$fg[white]%}>>>%{$reset_color%} "
 # PS1="%{$fg[cyan]%}%1d %{$fg[green]%}>%{$reset_color%} "
-PS1="%B%{$fg[magenta]%}λ ~%b %{$reset_color%}"
+PS1="%B%{$fg[blue]%}λ ~%b %{$reset_color%}"
 # PS1="[%{$fg[cyan]%}cerealkiller%{$fg[white]%}@%{$fg[cyan]%}morningstar %{$fg[magenta]%}%~%{$fg[white]%}] $ "
 # PS1="[%{$fg[magenta]%}%~%{$fg[cyan]%}] %{$fg[white]%}$ "
 # PS1="%{$fg[white]%}{%B%n%b@%{$fg[red]%}%m%{$fg[white]%}}-%{$fg[cyan]%}%~

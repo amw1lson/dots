@@ -4,30 +4,13 @@ map I zoom in
 map U zoom out
 set selection-clipboard clipboard
 set recolor
-
-set recolor-darkcolor \#dddddd
-set recolor-lightcolor \#161616
-set default-bg \#161616
-
 set incremental-search "true"
-
 set font "Fira Code"
-
 map <C-l> feedkeys ":blist <Tab>"
-
 map <C-m> feedkeys ":bmark"
-
-/* # colors */
-/**/
-/* set default-bg "#17181c" */
-/* set default-fg "#cecfdf" */
-/* set recolor-darkcolor "#cecfdf" */
-/* set recolor-lightcolor "#17181c" */
-/* set highlight-color "#7cb1ec" */
-/* set highlight-active-color "#94dc8b" */
-/* set inputbar-bg "#22242b" */
-/* set inputbar-fg "#cecfdf" */
-/**/
-/* set recolor true */
-/* map i recolor */
-/* map <C-Space> toggle_statusbar */
+set default-bg rgba(26,27,22,0.93) 
+set default-fg \#a9b1d6 
+set recolor-darkcolor \#a9b1d6
+set recolor-lightcolor rgba(26,27,22,0.0) 
+set highlight-color "#7cb1ec"
+set highlight-active-color "#94dc8b"
