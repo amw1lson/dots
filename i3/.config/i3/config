@@ -400,5 +400,5 @@ bindsym $modkey+s exec polybar-msg cmd show
 bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/parkinglot.jpg
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/offline-nord.png
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh
