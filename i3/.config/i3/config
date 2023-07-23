@@ -1,5 +1,4 @@
 
-
 # config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -174,7 +173,7 @@ set $xcolor15 #86b589
 # set $fg #0abdc6
 # set $bg #093853
 # set $fg #be95ff
-set $fg #565f89
+set $fg #dddddd
 set $bg #24283b
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #ffffff     $fg     $fg     
@@ -337,13 +336,12 @@ bindsym $modkey+r mode "resize"
 bindsym $modkey+Shift+e mode "$mode_system"
 
 # Misc (above)
-new_window pixel 3
+new_window pixel 0
+border_radius 10
 
 # Border
-border_radius 10
 bindsym $modkey+b border normal
-bindsym $modkey+p border pixel 3
-
+bindsym $modkey+p border pixel 0
 # Floating dialogs
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -355,6 +353,7 @@ for_window [class=".*"] border pixel 0
 gaps inner 23
 gaps outer 5
 smart_borders on
+#border_radius 0
 #set $mode_gaps Gaps: (o) outer, (i) inner
 #set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 #set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -399,6 +398,7 @@ bindsym $modkey+q exec polybar-msg cmd hide
 bindsym $modkey+s exec polybar-msg cmd show
 bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
-exec_always --no-startup-id picom -b
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/offline-nord.png
-exec_always --no-startup-id /home/austin/.config/polybar/launch.sh
+exec_always --no-startup-id picom -b 
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/drive.png
+exec_always --no-startup-id /home/austin/.config/polybar/launch.sh --material
+#exec_always --no-startup-id xborders -c /home/austin/.config/xborder/config.json

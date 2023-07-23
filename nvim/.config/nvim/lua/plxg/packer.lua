@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
     use 'quangnguyen30192/cmp-nvim-ultisnips'
 
     --aesthetics
+    use { 'rose-pine/neovim', as = 'rose-pine' }
     use 'JoosepAlviste/palenightfall.nvim'
     use {
         'goolord/alpha-nvim',

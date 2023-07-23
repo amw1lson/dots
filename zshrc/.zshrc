@@ -6,8 +6,7 @@ autoload -U colors && colors
 # PS1="%{$fg[white]%}%B[%b%{$fg[green]%}%n%{$fg[white]%}%B@%b%{$fg[green]%}%m%{$fg[white]%}%B]-%b%{$fg[white]%}%B[%b%{$fg[green]%}%~%{$fg[white]%}%B]%b
 # %{$fg[white]%}>>>%{$reset_color%} "
 # PS1="%{$fg[cyan]%}%1d %{$fg[green]%}>%{$reset_color%} "
-PS1="%B%{$fg[magenta]%}%~
-%{$fg[blue]%}λ ~%b %{$reset_color%}"
+#PS1="%B%{$fg[cyan]%}%~ %{$fg[cyan]%}$%b %{$reset_color%}"
 # PS1="[%{$fg[cyan]%}cerealkiller%{$fg[white]%}@%{$fg[cyan]%}morningstar %{$fg[magenta]%}%~%{$fg[white]%}] $ "
 # PS1="[%{$fg[magenta]%}%~%{$fg[cyan]%}] %{$fg[white]%}$ "
 # PS1="%{$fg[white]%}{%B%n%b@%{$fg[red]%}%m%{$fg[white]%}}-%{$fg[cyan]%}%~
@@ -104,7 +103,12 @@ if [ -e /home/austin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/austin/.n
 #export LS_COLORS="di=01;38;5;241:ln=01;38;5;247:ex=01;38;5;160:"
 
 # Vivado setup
-source ~/tools/Xilinx/Vivado/2022.2/settings64.sh 
+#source ~/tools/Xilinx/Vivado/2022.2/settings64.sh 
+#[ -f "/home/austin/.ghcup/env" ] && source "/home/austin/.ghcup/env" # ghcup-env
 
-
-[ -f "/home/austin/.ghcup/env" ] && source "/home/austin/.ghcup/env" # ghcup-env
+ZSH_THEME="robbyrussell"
+plugins=(
+    git
+    rake
+)
+source /usr/share/oh-my-zsh/oh-my-zsh.sh

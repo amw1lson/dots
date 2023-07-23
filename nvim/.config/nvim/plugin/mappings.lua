@@ -37,8 +37,7 @@ nnoremap("<C-p>", function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>gf", function() require('telescope.builtin').git_files() end)
 nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
 nnoremap("<leader>gs", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
-nnoremap("<leader>e", ":Ex<CR>")
-nnoremap("<leader>E", ":Telescope file_browser<CR>")
+nnoremap("<leader>e",":Telescope file_browser<CR>")
 
 --term stuff
 nnoremap("<leader>t", ":split | resize 10 | terminal<CR>")
@@ -64,6 +63,12 @@ vnoremap("K", ":move '<-2<CR>gv=gv<CR>")
 --vertical movement
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("<C-d>", "<C-d>zz")
+
+-- horizontal movement
+nnoremap("H", "0")
+nnoremap("L", "$")
+vnoremap("H", "0")
+vnoremap("L", "$")
 
 -- leap
 require('leap').add_default_mappings()

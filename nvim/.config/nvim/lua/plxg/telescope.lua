@@ -8,10 +8,7 @@ require('telescope').setup {
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         layout_strategy = 'horizontal',
-        layout_config = {
-            preview_cutoff = 10,
-            preview_width = 0.60,
-        },
+
     },
     pickers = {
         find_files = {
@@ -24,9 +21,21 @@ require('telescope').setup {
             override_file_sorter = true,
         },
         file_browser = {
-            theme = "ivy",
+
+            sorting_strategy = "ascending",
+            scroll_strategy = "cycle",
+            layout_config = {
+              prompt_position = "top",
+            },
+            border = true,
+            borderchars = {
+              prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
+              results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
+              preview = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+            },
+
             -- disables netrw and use telescope-file-browser in its place
-            hijack_netrw = false,
+            hijack_netrw = true,
             mappings = {
                 ["i"] = {
                     -- your custom insert mode mappings

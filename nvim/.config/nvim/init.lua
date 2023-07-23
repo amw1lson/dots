@@ -46,10 +46,11 @@ let maplocalleader = "?"
 colo kyotonight
 set backupcopy=yes
 
+hi Special gui=NONE
 hi StatusLine gui=bold guifg=#FFFFFF guibg=#0b0b0b
 hi StatusLineNC gui=bold guibg=#212121 guifg=#FFFFFF
 hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi Normal guibg=NONE ctermbg=NONE
+hi Normal gui=bold guifg=#d9d1d6 guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE

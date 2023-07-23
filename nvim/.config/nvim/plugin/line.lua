@@ -29,11 +29,11 @@ require('lualine').setup {
             },
         },
         lualine_c = {
-            { 'filename',
-                color = function(section)
-                    return { fg = vim.bo.modified and '#ff9e64' or '#7aa2f7', gui = 'bold' }
-                end,
-            }
+            -- { 'filename',
+            --     color = function(section)
+            --         return { fg = vim.bo.modified and '#ff9e64' or '#7aa2f7', gui = 'bold' }
+            --     end,
+            -- }
         },
         lualine_x = {
             { 'filetype',

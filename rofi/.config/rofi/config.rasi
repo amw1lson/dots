@@ -1,6 +1,5 @@
-* {
-    
-    font: "Liga SFMono Nerd Font Bold 12";
+* { 
+    font: "Liga SFMono Nerd Font Bold 14";
     /* font: "Px437 IBM EGA 9x14 16"; */
     active-background: #00000000;
     active-foreground: @foreground;
@@ -24,24 +23,26 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: #00000000;
-    foreground: #a9b1d6;
-    background: #24283b;
-    sel-foreground: #7dcfff;
-    sel-background: #24283b;
-    border-color: #24283b;
+    foreground: #d9d1d6;
+    background: #1a1b16;
+    sel-foreground: #f7768e;
+    sel-background: #1a1b16;
+    border-color: #1a1b16;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
-    border: 3;
-    border-color: #24283b;
-    border-radius: 5;
+    border: 2;
+    border-color: #eeeeee;
+    border-radius: 10;
     padding: 2.5ch;
 }
 
 #mainbox {
-    border: 0;
+    border: 3;
+    border-color: #1a1b16;
+    border-radius: 5;
     padding: 0;
 }
 

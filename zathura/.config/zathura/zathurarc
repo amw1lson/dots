@@ -2,15 +2,21 @@ map i recolor
 set page-padding 1
 map I zoom in
 map U zoom out
+
 set selection-clipboard clipboard
 set recolor
+
 set incremental-search "true"
-set font "Fira Code"
+set font "Liga SFMono Nerd Font Bold 12"
+
 map <C-l> feedkeys ":blist <Tab>"
 map <C-m> feedkeys ":bmark"
+
 set default-bg rgba(26,27,22,0.93) 
 set default-fg \#a9b1d6 
-set recolor-darkcolor \#a9b1d6
-set recolor-lightcolor rgba(26,27,22,0.0) 
+
+set recolor-lightcolor rgba(26,27,22,0.0)
+set recolor-darkcolor \#ba7284 
+
 set highlight-color "#7cb1ec"
 set highlight-active-color "#94dc8b"
