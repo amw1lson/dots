@@ -32,25 +32,32 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "no"
 vim.opt.termguicolors = true
 
-vim.lsp.set_log_level('debug')
 
 require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
+
+require("luasnip").config.set_config({ -- Setting LuaSnip config
+  history = true,
+  -- Enable autotriggered snippets
+  enable_autosnippets = true,
+})
+require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
+
 require('colorizer').setup()
 vim.cmd([[
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "?"
 
-colo kyotonight
+colo oxocarbon
 set backupcopy=yes
 
 hi Special gui=NONE
-hi StatusLine gui=bold guifg=#FFFFFF guibg=#0b0b0b
-hi StatusLineNC gui=bold guibg=#212121 guifg=#FFFFFF
+hi StatusLine gui=bold guifg=#33b1ff
+hi StatusLineNC gui=bold guifg=#82cfff
 hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi Normal gui=bold guifg=#d9d1d6 guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE  
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE
@@ -61,13 +68,9 @@ hi DiagnosticVirtualTextHint guifg=#52be65 guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextInfo guifg=#bfbfbf guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextWarn guifg=#fff07c guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextError guifg=#ed474a guibg=NONE ctermbg=NONE
+hi Comment gui=NONE
 hi @comment gui=NONE
 " set colorcolumn=80
-let g:UltiSnipsExpandTrigger = ",,"
-let g:UltiSnipsJumpForwardTrigger = ",,"
-let g:UltiSnipsListSnippets = ""
-let g:UltiSnipsSnippetDirectories=["/home/austin/.config/nvim/UltiSnips"]
-let g:vimtex_view_forward_search_on_start = 0
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 "gdb
 packadd termdebug

@@ -24,17 +24,25 @@ return require('packer').startup(function(use)
     use "neovim/nvim-lspconfig"
 
     --snippets
-    use 'SirVer/ultisnips'
-    use 'quangnguyen30192/cmp-nvim-ultisnips'
+    -- use 'SirVer/ultisnips'
+    -- use 'quangnguyen30192/cmp-nvim-ultisnips'
+    use({
+            "L3MON4D3/LuaSnip",
+            -- follow latest release.
+            tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+            -- install jsregexp (optional!:).
+            run = "make install_jsregexp"
+    })
+    use 'KeitaNakamura/tex-conceal.vim'
 
     --aesthetics
-    use { 'rose-pine/neovim', as = 'rose-pine' }
     use 'JoosepAlviste/palenightfall.nvim'
     use {
         'goolord/alpha-nvim',
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = require('plxg.startup').config
     }
+    use {'nyoom-engineering/oxocarbon.nvim'}
     use 'voidekh/kyotonight.vim'
     use { 'nvim-lualine/lualine.nvim' }
     use 'norcalli/nvim-colorizer.lua'

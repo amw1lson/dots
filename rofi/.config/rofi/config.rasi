@@ -23,25 +23,25 @@
     selected-urgent-foreground: @sel-foreground;
 
     background-color: #00000000;
-    foreground: #d9d1d6;
-    background: #1a1b16;
-    sel-foreground: #f7768e;
-    sel-background: #1a1b16;
-    border-color: #1a1b16;
+    foreground: #d0d0d0;
+    background: rgba(26,27,22,0.95);
+    sel-foreground: #be95ff;
+    sel-background: #001a1b16;
+    border-color: #001a1b16;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
-    border: 2;
-    border-color: #eeeeee;
+    border: 3;
+    border-color: #be95ff;
     border-radius: 10;
     padding: 2.5ch;
 }
 
 #mainbox {
     border: 3;
-    border-color: #1a1b16;
+    border-color: #001a1b16;
     border-radius: 5;
     padding: 0;
 }

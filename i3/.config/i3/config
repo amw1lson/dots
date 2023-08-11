@@ -173,8 +173,8 @@ set $xcolor15 #86b589
 # set $fg #0abdc6
 # set $bg #093853
 # set $fg #be95ff
-set $fg #dddddd
-set $bg #24283b
+set $fg #293146
+set $bg #1a1b16 
 # Class                 border          backgr  text    indic
 client.focused          $fg             $fg     #ffffff     $fg     $fg     
 client.focused_inactive $bg             $bg     #ffffff     $bg     $bg
@@ -337,7 +337,8 @@ bindsym $modkey+Shift+e mode "$mode_system"
 
 # Misc (above)
 new_window pixel 0
-border_radius 10
+#border_radius 10
+border_radius 0
 
 # Border
 bindsym $modkey+b border normal
@@ -350,10 +351,12 @@ for_window [window_role="task_dialog"] floating enable
 # i3-gaps configuration
 # gaps
 for_window [class=".*"] border pixel 0
-gaps inner 23
-gaps outer 5
+#for_window scratchpad border pixel 0
+gaps inner 0 
+# gaps inner 23
+gaps outer 0
+# gaps outer 5
 smart_borders on
-#border_radius 0
 #set $mode_gaps Gaps: (o) outer, (i) inner
 #set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 #set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
@@ -399,6 +402,6 @@ bindsym $modkey+s exec polybar-msg cmd show
 bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5%
 bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5%
 exec_always --no-startup-id picom -b 
-exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/drive.png
+exec_always --no-startup-id feh --bg-scale /home/austin/misc/backgrounds/tree-clearing.png
 exec_always --no-startup-id /home/austin/.config/polybar/launch.sh --material
 #exec_always --no-startup-id xborders -c /home/austin/.config/xborder/config.json

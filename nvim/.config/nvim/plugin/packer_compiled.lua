@@ -80,6 +80,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  LuaSnip = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
   ["alpha-nvim"] = {
     config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
     loaded = true,
@@ -105,11 +110,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lua",
     url = "https://github.com/hrsh7th/cmp-nvim-lua"
-  },
-  ["cmp-nvim-ultisnips"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips",
-    url = "https://github.com/quangnguyen30192/cmp-nvim-ultisnips"
   },
   ["cmp-path"] = {
     loaded = true,
@@ -201,6 +201,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  ["oxocarbon.nvim"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/oxocarbon.nvim",
+    url = "https://github.com/nyoom-engineering/oxocarbon.nvim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -220,11 +225,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["rose-pine"] = {
-    loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
   },
   ["telescope-dap.nvim"] = {
     loaded = true,
@@ -246,10 +246,10 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ultisnips = {
+  ["tex-conceal.vim"] = {
     loaded = true,
-    path = "/home/austin/.local/share/nvim/site/pack/packer/start/ultisnips",
-    url = "https://github.com/SirVer/ultisnips"
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/tex-conceal.vim",
+    url = "https://github.com/KeitaNakamura/tex-conceal.vim"
   },
   vimtex = {
     loaded = true,

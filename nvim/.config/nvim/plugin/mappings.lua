@@ -37,7 +37,7 @@ nnoremap("<C-p>", function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>gf", function() require('telescope.builtin').git_files() end)
 nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
 nnoremap("<leader>gs", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
-nnoremap("<leader>e",":Telescope file_browser<CR>")
+nnoremap("<leader>e",":Ex<CR>")
 
 --term stuff
 nnoremap("<leader>t", ":split | resize 10 | terminal<CR>")
@@ -84,3 +84,9 @@ nnoremap("<leader>nf", function() require("harpoon.ui").nav_file(4) end, silent)
 nnoremap("<leader>m", function() require("harpoon.mark").add_file() end)
 nnoremap("<leader>a", function() require("harpoon.ui").toggle_quick_menu() end)
 nnoremap("<leader>c", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
+
+-- snippets
+vim.api.nvim_set_keymap("i", "<C-f>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("s", "<C-f>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("i", "<C-F>", "<Plug>luasnip-prev-choice", {})
+vim.api.nvim_set_keymap("s", "<C-F>", "<Plug>luasnip-prev-choice", {})

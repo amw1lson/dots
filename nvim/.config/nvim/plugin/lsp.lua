@@ -53,19 +53,39 @@ lspconfig.arduino_language_server.setup {
     capabilities = lsp_defaults.capabilities
 }
 
-lspconfig.texlab.setup {
+lspconfig.texlab.setup{
     on_attach = lsp_defaults.attach,
-    capabilities = lsp_defaults.capabilities
+    capabilities = lsp_defaults.capabilities,
+    settings = {
+          texlab = {
+            auxDirectory = ".",
+            bibtexFormatter = "texlab",
+            build = {
+              args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+              executable = "latexmk",
+              forwardSearchAfter = false,
+              onSave = true
+            },
+            chktex = {
+              onEdit = false,
+              onOpenAndSave = false
+            },
+            diagnosticsDelay = 300,
+            formatterLineLength = 80,
+            forwardSearch = {
+              args = {}
+            },
+            latexFormatter = "latexindent",
+            latexindent = {
+              modifyLineBreaks = false
+            }
+          }
+    }
 }
 
 lspconfig.pyright.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities
-}
-
-lspconfig.tsserver.setup {
-    on_attach = lsp_defaults.attach,
-    capabilities = lsp_defaults.capabilities,
 }
 
 lspconfig.ocamllsp.setup {
@@ -84,10 +104,7 @@ lspconfig.asm_lsp.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
 }
-lspconfig.jdtls.setup {
-    on_attach = lsp_defaults.attach,
-    capabilities = lsp_defaults.capabilities,
-}
+
 lspconfig.rust_analyzer.setup {
     on_attach = lsp_defaults.attach,
     capabilities = lsp_defaults.capabilities,
@@ -119,3 +136,4 @@ lspconfig.rust_analyzer.setup {
         "rust-analyzer"
     },
 }
+
