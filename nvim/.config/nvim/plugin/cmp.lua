@@ -44,11 +44,11 @@ cmp.setup({
         -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp', keyword_length = 2 },
-        { name = 'nvim_lua', keyword_length = 2 },
+        { name = 'nvim_lsp', keyword_length = 1 },
+        { name = 'nvim_lua', keyword_length = 1 },
         -- { name = 'buffer', keyword_length = 4 },
-        { name = 'path', keyword_length = 4 },
-        { name = 'ultisnips', keyword_length = 2 }, -- For ultisnips users.
+        { name = 'path', keyword_length = 0 },
+        { name = 'ultisnips', keyword_length = 1 }, -- For ultisnips users.
     })
 })
 -- cmp.setup.cmdline(':', {

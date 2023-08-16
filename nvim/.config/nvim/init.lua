@@ -37,6 +37,8 @@ require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
 
+vim.lsp.set_log_level("debug")
+
 require("luasnip").config.set_config({ -- Setting LuaSnip config
   history = true,
   -- Enable autotriggered snippets
