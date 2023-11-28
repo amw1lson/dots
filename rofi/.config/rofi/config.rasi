@@ -1,5 +1,5 @@
 * { 
-    font: "Liga SFMono Nerd Font Bold 14";
+    font: "MesloLGS NF 14";
     /* font: "Px437 IBM EGA 9x14 16"; */
     active-background: #00000000;
     active-foreground: @foreground;
@@ -22,26 +22,27 @@
     selected-urgent-background: @sel-background;
     selected-urgent-foreground: @sel-foreground;
 
+    amazin: #33b1ff;
     background-color: #00000000;
-    foreground: #d0d0d0;
-    background: rgba(26,27,22,0.95);
-    sel-foreground: #be95ff;
-    sel-background: #001a1b16;
-    border-color: #001a1b16;
+    foreground: #f2f4f8;
+    background: #161616;
+    sel-foreground: @amazin;
+    sel-background: #161616;
+    border-color: #161616;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
     border: 3;
-    border-color: #be95ff;
+    border-color: @amazin;
     border-radius: 10;
     padding: 2.5ch;
 }
 
 #mainbox {
     border: 3;
-    border-color: #001a1b16;
+    border-color: #00101010;
     border-radius: 5;
     padding: 0;
 }
@@ -99,9 +100,10 @@
 }
 
 #element.selected {
-    highlight: none;
+    highlight: Bold;
 }
 #element.selected.normal {
+    highlight: Bold;
     background-color: @selected-normal-background;
     text-color: @selected-normal-foreground;
 }
@@ -109,11 +111,13 @@
 #element.selected.urgent {
     background-color: @selected-urgent-background;
     text-color: @selected-urgent-foreground;
+    highlight: Bold;
 }
 
 #element.selected.active {
     background-color: @selected-active-background;
     text-color: @selected-active-foreground;
+    highlight: Bold;
 }
 
 #element.alternate.normal {
@@ -132,7 +136,7 @@
 }
 
 #element.selected {
-    highlight: none;
+    highlight: Bold;
 }
 
 #scrollbar {
@@ -154,6 +158,7 @@
 #button.selected {
     background-color: @selected-normal-background;
     text-color: @selected-normal-foreground;
+    highlight: Bold;
 }
 
 #inputbar {
@@ -176,5 +181,3 @@
     spacing: 0;
     text-color: @normal-foreground;
 }
-
-

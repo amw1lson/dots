@@ -19,7 +19,7 @@ return {
     <>({ trig='<>', name='<>', dscr='<>'},
     fmta(<>,
     { <> }
-    )<>)<>,]],
+    )<>),<>]],
 			{
 				c(1, { t("s"), t("autosnippet") }),
 				i(2, "trig"),
@@ -75,7 +75,8 @@ return {
 	-- add snippet conditions
 	autosnippet(
 		"scond",
-		fmt([[{ condition = <>, show_condition = <> }]], { i(1, "math"), rep(1) }, { delimiters = "<>" })
+		fmt([[{ condition = <>, show_condition = <> }]], 
+                    { i(1, "math"), rep(1) }, { delimiters = "<>" })
 	),
 	-- special stuff - snippet regex, hide, switch priority
 	autosnippet("sreg", { t("regTrig = true, hidden = true") }),

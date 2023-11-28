@@ -37,7 +37,7 @@ nnoremap("<C-p>", function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>gf", function() require('telescope.builtin').git_files() end)
 nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
 nnoremap("<leader>gs", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
-nnoremap("<leader>e",":Ex<CR>")
+nnoremap("<leader>e",":Lex | vertical resize 30<CR>")
 
 --term stuff
 nnoremap("<leader>t", ":split | resize 10 | terminal<CR>")

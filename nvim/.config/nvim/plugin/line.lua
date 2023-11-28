@@ -1,10 +1,9 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'auto',
-        -- component_separators = { left = '', right = ''},
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        theme = 'kyotonight',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -22,22 +21,21 @@ require('lualine').setup {
         lualine_a = { 'mode' },
         lualine_b = {
             { 'branch',
-                icons_enabled = false,
+                icons_enabled = true,
                 color = function(section)
                     return { gui = 'bold' }
                 end
             },
         },
         lualine_c = {
-            { 'filename',
+            { 'filename' ,
                 color = function(section)
-                    return { fg = vim.bo.modified and '#ff7eb6' or '#33b1ff', gui = 'bold' }
-                end,
-            }
-        },
+                    return { fg = vim.bo.modified and '#ee5396' or '#42be65', gui = 'bold' }
+                end,}
+            },
         lualine_x = {
             { 'filetype',
-                icons_enabled = false,
+                icons_enabled = true,
             },
         },
         lualine_y = { 'encoding' },
@@ -49,9 +47,8 @@ require('lualine').setup {
         lualine_c = {
             {'filename',
                 color = function(section)
-                    return { fg = vim.bo.modified and '#e1a682' or '#9dafd4', gui = 'bold' }
-                end,
-            }
+                    return { fg = vim.bo.modified and '#ff7eb6' or '#62de85', gui = '' }
+                end,}
         },
         lualine_x = {'location'},
         lualine_y = {},

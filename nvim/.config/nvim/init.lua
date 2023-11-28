@@ -2,9 +2,7 @@
 vim.opt.syntax = on
 vim.g.netrw_banner = 0
 vim.opt.swapfile = false
-vim.opt.mouse = "a"
-
---buffer
+vim.opt.mouse = "a"--buffer
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 --window
@@ -12,7 +10,7 @@ vim.opt.wrap = false
 --other
 vim.opt.guicursor = ""
 vim.opt.shiftwidth = 4
-vim.opt.softtabstop = 4
+vim.opt.softtabstop = 2
 vim.opt.hidden = true
 vim.opt.ruler = true
 vim.opt.showmode = true
@@ -37,7 +35,7 @@ require("plxg.packer")
 require("plxg.telescope")
 require("plxg.keymap")
 
-vim.lsp.set_log_level("debug")
+--vim.lsp.set_log_level("debug")
 
 require("luasnip").config.set_config({ -- Setting LuaSnip config
   history = true,
@@ -52,12 +50,12 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 let maplocalleader = "?"
 
-colo oxocarbon
+colo kyotonight
 set backupcopy=yes
 
 hi Special gui=NONE
-hi StatusLine gui=bold guifg=#33b1ff
-hi StatusLineNC gui=bold guifg=#82cfff
+hi StatusLine gui=bold 
+hi StatusLineNC gui=bold 
 hi EndOfBuffer guibg=NONE ctermbg=NONE
 hi Normal guibg=NONE ctermbg=NONE  
 hi MsgArea guibg=NONE ctermbg=NONE
@@ -66,12 +64,13 @@ hi NormalNC guibg=NONE ctermbg=NONE
 hi CursorLine guibg=NONE ctermbg=NONE
 hi LineNr guibg=NONE ctermbg=NONE
 hi CursorLineNr guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextHint guifg=#52be65 guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextInfo guifg=#bfbfbf guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextWarn guifg=#fff07c guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextHint guifg=#52be65  guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextInfo guifg=#bfbfbf  guibg=NONE ctermbg=NONE
+hi DiagnosticVirtualTextWarn guifg=#fff07c  guibg=NONE ctermbg=NONE
 hi DiagnosticVirtualTextError guifg=#ed474a guibg=NONE ctermbg=NONE
 hi Comment gui=NONE
 hi @comment gui=NONE
+"hi Visual guifg=#0e1420 guibg=#9b9ea9
 " set colorcolumn=80
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 "gdb

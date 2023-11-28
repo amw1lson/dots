@@ -20,9 +20,9 @@ cmp.setup({
       end,
     },
     snippet = {
-        expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-        end,
+      expand = function(args)
+        require'luasnip'.lsp_expand(args.body)
+      end
     },
     window = {
         -- completion = cmp.config.window.bordered(),
@@ -48,7 +48,7 @@ cmp.setup({
         { name = 'nvim_lua', keyword_length = 1 },
         -- { name = 'buffer', keyword_length = 4 },
         { name = 'path', keyword_length = 0 },
-        { name = 'ultisnips', keyword_length = 1 }, -- For ultisnips users.
+        { name = 'luasnip', keyword_length = 1 }, 
     })
 })
 -- cmp.setup.cmdline(':', {
