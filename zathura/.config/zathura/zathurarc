@@ -4,7 +4,6 @@ map I zoom in
 map U zoom out
 
 set selection-clipboard clipboard
-set recolor
 
 set incremental-search "true"
 set font "Liga SFMono Nerd Font Bold 12"
@@ -12,11 +11,11 @@ set font "Liga SFMono Nerd Font Bold 12"
 map <C-l> feedkeys ":blist <Tab>"
 map <C-m> feedkeys ":bmark"
 
-set default-bg rgba(24,24,24,1.00)
-set default-fg \#f2f4f8 
+set default-bg rgba(24,24,24,0.91)
+set default-fg \#dadada 
 
-set recolor-lightcolor rgba(24,24,24,1.00)
-set recolor-darkcolor \#f2f4f8 
+set recolor-lightcolor rgba(24,24,24,0)
+set recolor-darkcolor \#dadada 
 
 set highlight-color "#7cb1ec"
 set highlight-active-color "#94dc8b"

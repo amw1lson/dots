@@ -1,5 +1,5 @@
 * { 
-    font: "MesloLGS NF 14";
+    font: "JetBrains Mono 16";
     /* font: "Px437 IBM EGA 9x14 16"; */
     active-background: #00000000;
     active-foreground: @foreground;
@@ -22,13 +22,13 @@
     selected-urgent-background: @sel-background;
     selected-urgent-foreground: @sel-foreground;
 
-    amazin: #33b1ff;
+    amazin: #c47fd5;
     background-color: #00000000;
-    foreground: #f2f4f8;
-    background: #161616;
+    foreground: #dadada;
+    background: #161616ee;
     sel-foreground: @amazin;
-    sel-background: #161616;
-    border-color: #161616;
+    sel-background: #16161600;
+    border-color: #16161600;
     spacing: 2;
 }
 

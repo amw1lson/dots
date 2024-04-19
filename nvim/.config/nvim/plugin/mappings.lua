@@ -1,8 +1,9 @@
 local nnoremap = require("plxg.keymap").nnoremap
 local vnoremap = require("plxg.keymap").vnoremap
 local tnoremap = require("plxg.keymap").tnoremap
-local xnoremap = require("plxg.keymap").xnoremap
+local inoremap = require("plxg.keymap").inoremap
 local nmap = require("plxg.keymap").nmap
+local ls = require("luasnip")
 
 --lsp config options
 vim.cmd([[
@@ -48,10 +49,13 @@ nnoremap("<leader>h", ":wincmd h<CR>")
 nnoremap("<leader>j", ":wincmd j<CR>")
 nnoremap("<leader>k", ":wincmd k<CR>")
 nnoremap("<leader>l", ":wincmd l<CR>")
-nnoremap("<leader>H", ":wincmd H<CR>")
-nnoremap("<leader>J", ":wincmd J<CR>")
-nnoremap("<leader>K", ":wincmd K<CR>")
-nnoremap("<leader>L", ":wincmd L<CR>")
+-- nnoremap("<leader>H", ":wincmd H<CR>")
+-- nnoremap("<leader>J", ":wincmd J<CR>")
+-- nnoremap("<leader>K", ":wincmd K<CR>")
+-- nnoremap("<leader>L", ":wincmd L<CR>")
+
+--common binding
+inoremap("<C-BS>", "<C-w>")
 
 --buffers
 nnoremap("<leader>D", ":bd!<CR>")
@@ -86,7 +90,23 @@ nnoremap("<leader>a", function() require("harpoon.ui").toggle_quick_menu() end)
 nnoremap("<leader>c", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
 
 -- snippets
+vim.keymap.set("i", "<C-k>", function()
+    require("luasnip.extras.select_choice")()
+end, silent)
 vim.api.nvim_set_keymap("i", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("i", "<C-F>", "<Plug>luasnip-prev-choice", {})
 vim.api.nvim_set_keymap("s", "<C-F>", "<Plug>luasnip-prev-choice", {})
+
+nnoremap('<leader>io',
+function()
+    local vault_name = "VAULTNAME"
+    local file_name = vim.fn.expand('%:r')
+    local command = string.format("!open 'obsidian://open?vault=%s&file=%s'", vault_name, file_name)
+    vim.fn.execute(command)
+end, { noremap = true, silent = true })
+
+-- vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
+vim.cmd("imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'")
+vim.cmd("inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>")
+nnoremap("<leader>vw", ":Telescope lsp_workspace_symbols<CR>")

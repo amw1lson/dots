@@ -1,7 +1,7 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'kyotonight',
+        theme = 'everblush',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -28,11 +28,8 @@ require('lualine').setup {
             },
         },
         lualine_c = {
-            { 'filename' ,
-                color = function(section)
-                    return { fg = vim.bo.modified and '#ee5396' or '#42be65', gui = 'bold' }
-                end,}
-            },
+            { 'filename', }
+        },
         lualine_x = {
             { 'filetype',
                 icons_enabled = true,

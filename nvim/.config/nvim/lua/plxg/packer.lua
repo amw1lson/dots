@@ -7,18 +7,11 @@ return require('packer').startup(function(use)
         requires = { 'nvim-tree/nvim-web-devicons' },
         config = require('plxg.startup').config
     }
-    use 'AlexvZyl/nordic.nvim'
     use 'folke/tokyonight.nvim'
-    use 'voidekh/kyotonight.vim'
-    use 'nyoom-engineering/oxocarbon.nvim'
-
-    use({
-      "neanias/everforest-nvim",
-      -- Optional; default configuration will be used if setup isn't called.
-      config = function()
-        require("everforest").setup()
-      end,
-    })
+    use 'marko-cerovac/material.nvim'
+    use {'nyoom-engineering/oxocarbon.nvim'}
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { 'Everblush/nvim', as = 'everblush' }
     use { 'nvim-lualine/lualine.nvim' }
     use 'norcalli/nvim-colorizer.lua'
     use {
@@ -40,8 +33,18 @@ return require('packer').startup(function(use)
     use 'ggandor/leap.nvim'
     use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-fzy-native.nvim'
-    use { "nvim-telescope/telescope-file-browser.nvim" }
+    use {'nvim-telescope/telescope-ui-select.nvim' }
     use 'ThePrimeagen/harpoon'
+    use {
+      "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        requires = {
+          "nvim-lua/plenary.nvim",
+          "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+          "MunifTanjim/nui.nvim",
+          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+      }
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     --lsp
@@ -63,4 +66,23 @@ return require('packer').startup(function(use)
     })
     use { 'saadparwaiz1/cmp_luasnip' }
     use 'KeitaNakamura/tex-conceal.vim'
+    use 'HiPhish/rainbow-delimiters.nvim'
+    -- obsidian
+    use({
+      "epwalsh/obsidian.nvim",
+      tag = "*",  -- recommended, use latest release instead of latest commit
+      requires = {
+        "nvim-lua/plenary.nvim",
+      },
+      config = function()
+        require("obsidian").setup({
+          workspaces = {
+              {
+                  name = "obsidian",
+                  path = "~/dev/obsidian"
+              },
+          },
+        })
+      end,
+    })
 end)

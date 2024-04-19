@@ -40,15 +40,18 @@ cmp.setup({
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = false }), 
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
         -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
-        { name = 'nvim_lsp', keyword_length = 1 },
-        { name = 'nvim_lua', keyword_length = 1 },
-        -- { name = 'buffer', keyword_length = 4 },
-        { name = 'path', keyword_length = 0 },
-        { name = 'luasnip', keyword_length = 1 }, 
+        -- Dont suggest Text from nvm_lsp
+        { name = "nvim_lsp",
+            entry_filter = function(entry, _)
+                return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+            end, keyword_length = 2},
+        { name = 'nvim_lua', keyword_length = 2 },
+        { name = 'path', keyword_length = 2 },
+        { name = 'luasnip', keyword_length = 2 },
     })
 })
 -- cmp.setup.cmdline(':', {

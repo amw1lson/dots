@@ -65,7 +65,6 @@ export PATH="$HOME/bin:/home/austin/.local/bin:/usr/lib/ccache/bin/:/sbin:/usr/b
 # alias
 alias sl="ls --color=auto"
 alias c="clear"
-alias cd..="cd .."
 alias curl="curl --user-agent 'noleak'"
 alias l="ls -ahls --color=auto"
 alias r="reset"
@@ -86,10 +85,11 @@ alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
 alias fgrep="fgrep --color=auto"
-alias todo="cat /home/austin/misc/todo.txt"
 alias zathura="zathura --fork"
 alias sd="shutdown -h now"
 alias rb="reboot"
+alias emacs="nvim"
+alias vtune="/opt/intel/vtune_profiler_2020.2.0.610396/bin64/vtune"
 
 
 export TERM=alacritty
@@ -126,3 +126,5 @@ plugins=(
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#
+eval "$(zoxide init zsh)"
