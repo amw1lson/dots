@@ -35,24 +35,12 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 
 
 lspconfig.clangd.setup {
+    cmd = {"/opt/clangd_18.1.3/bin/clangd"},
     on_attach = function(client, bufnr)
         -- client.server_capabilities.semanticTokensProvider = vim.NIL
         nnoremap("<C-h>", ":ClangdSwitchSourceHeader<CR>")
     end,
     capabilities = capabilities
-}
-
-
-lspconfig.arduino_language_server.setup {
-    cmd = {
-        "arduino-language-server",
-        "-cli-config", "/home/austin/.arduino15/arduino-cli.yaml",
-        "-fqbn", "esp32:esp32:heltec_wifi_kit_32",
-        "-cli", "/usr/bin/arduino-cli",
-        "-clangd", "/usr/bin/clangd"
-    },
-    on_attach = lsp_defaults.on_attach,
-    capabilities = lsp_defaults.capabilities
 }
 
 lspconfig.texlab.setup{

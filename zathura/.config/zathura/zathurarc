@@ -5,17 +5,46 @@ map U zoom out
 
 set selection-clipboard clipboard
 
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+set notification-error-bg       "#ff5555" # Red
+set notification-error-fg       "#dadada" # Foreground
+set notification-warning-bg     "#ffb86c" # Orange
+set notification-warning-fg     "#22292b" # Selection
+set notification-bg             "#212121" # Background
+set notification-fg             "#dadada" # Foreground
+set completion-bg               "#1f2628" # Background
+set completion-fg               "#6d7476" # Comment
+set completion-group-bg         "#212121" # Background
+set completion-group-fg         "#dadada" # Comment
+set completion-highlight-bg     "#6da4cd" # Selection
+set completion-highlight-fg     "#22292b" # Foreground
+set index-bg                    "#212121" # Background
+set index-fg                    "#dadada" # Foreground
+set index-active-bg             "#22292b" # Current Line
+set index-active-fg             "#dadada" # Foreground
+set inputbar-bg                 "#212121" # Background
+set inputbar-fg                 "#dadada" # Foreground
+set statusbar-bg                "#212121" # Background
+set statusbar-fg                "#dadada" # Foreground
+set highlight-color             "#ffb86c" # Orange
+set highlight-active-color      "#ff79c6" # Pink
+set default-bg                  rgba(33,33,33,0.93) # Background
+set default-fg                  "#dadada" # Foreground
+set render-loading              true
+set render-loading-fg           "#212121" # Background
+set render-loading-bg           "#dadada" # Foreground
+set recolor-lightcolor          "#212121" # Background
+set recolor-darkcolor           "#dadada" # Foreground
+
+set adjust-open width
+set recolor true
 set incremental-search "true"
 set font "Liga SFMono Nerd Font Bold 12"
 
 map <C-l> feedkeys ":blist <Tab>"
 map <C-m> feedkeys ":bmark"
 
-set default-bg rgba(24,24,24,0.91)
-set default-fg \#dadada 
-
-set recolor-lightcolor rgba(24,24,24,0)
-set recolor-darkcolor \#dadada 
-
-set highlight-color "#7cb1ec"
-set highlight-active-color "#94dc8b"
+#set highlight-color "#7cb1ec"
+#set highlight-active-color "#94dc8b"

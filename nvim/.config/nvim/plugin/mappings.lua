@@ -98,14 +98,6 @@ vim.api.nvim_set_keymap("s", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("i", "<C-F>", "<Plug>luasnip-prev-choice", {})
 vim.api.nvim_set_keymap("s", "<C-F>", "<Plug>luasnip-prev-choice", {})
 
-nnoremap('<leader>io',
-function()
-    local vault_name = "VAULTNAME"
-    local file_name = vim.fn.expand('%:r')
-    local command = string.format("!open 'obsidian://open?vault=%s&file=%s'", vault_name, file_name)
-    vim.fn.execute(command)
-end, { noremap = true, silent = true })
-
 -- vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
 vim.cmd("imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'")
 vim.cmd("inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>")

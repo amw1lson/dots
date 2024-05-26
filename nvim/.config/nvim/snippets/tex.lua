@@ -6,6 +6,7 @@ local sn = ls.snippet_node
 local isn = ls.indent_snippet_node
 local i = ls.insert_node
 local f = ls.function_node
+local t = ls.text_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmta = require("luasnip.extras.fmt").fmta
@@ -16,17 +17,14 @@ local no_backslash = utils.no_backslash
 local pipe = utils.pipe
 
 local mySnips = {
-
-    as({trig=';beg'}, fmta([[\begin{<>}
-    <>
-\end{<>}<>]],
+    as({trig=';beg'}, fmta("\\begin{<>} \n<>\n\\end{<>}<>",
     {   i(1, "env"),
         i(2, ""),
         rep(1),
         i(0),
     })),
 
-    as({trig=';op'}, fmta([[\langle <> \rangle <>]],
+    as({trig='langle'}, fmta([[\langle <> \rangle <>]],
     {   i(1, "ordered pair"),
         i(0),
     })),
@@ -59,7 +57,7 @@ local mySnips = {
         )
     ),
 
-    as({trig=';set', wordTrig = false},
+    as({trig='set', condition = is_math, wordTrig = false},
         fmta([[\{<>\}<>]],
         {   i(1, "contents"),
             i(0)}

@@ -35,7 +35,7 @@
 #window {
     background-color: @background;
     border: 3;
-    border-color: @amazin;
+    border-color: #71baf2;
     border-radius: 10;
     padding: 2.5ch;
 }

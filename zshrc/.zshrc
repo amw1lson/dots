@@ -90,6 +90,7 @@ alias sd="shutdown -h now"
 alias rb="reboot"
 alias emacs="nvim"
 alias vtune="/opt/intel/vtune_profiler_2020.2.0.610396/bin64/vtune"
+alias cd="z"
 
 
 export TERM=alacritty

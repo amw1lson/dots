@@ -57,6 +57,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/nvim-cmp'
     use "williamboman/mason-lspconfig.nvim"
     use "neovim/nvim-lspconfig"
+    use "onsails/lspkind.nvim"
     use({
             "L3MON4D3/LuaSnip",
             -- follow latest release.
@@ -75,14 +76,21 @@ return require('packer').startup(function(use)
         "nvim-lua/plenary.nvim",
       },
       config = function()
-        require("obsidian").setup({
-          workspaces = {
-              {
-                  name = "obsidian",
-                  path = "~/dev/obsidian"
-              },
-          },
-        })
-      end,
+            require("obsidian").setup({
+                  workspaces = {
+                      {
+                          name = "obsidian",
+                          path = "~/dev/obsidian"
+                      },
+                  },
+                  note_id_func = function(title)
+                    if (title == nil) then
+                        return "empty"
+                    else
+                        return title
+                    end
+                  end,
+            })
+        end,
     })
 end)
