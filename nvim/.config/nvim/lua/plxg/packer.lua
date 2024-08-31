@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
+    use { 'windwp/nvim-autopairs' }
     --misc plugs
     use 'lervag/vimtex'
     use 'nvim-lua/popup.nvim'
