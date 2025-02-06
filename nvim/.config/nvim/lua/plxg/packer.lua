@@ -2,23 +2,14 @@ vim.cmd [[packadd packer.nvim]]
 
 
 return require('packer').startup(function(use)
-    use {
-        'goolord/alpha-nvim',
-        requires = { 'nvim-tree/nvim-web-devicons' },
-        config = require('plxg.startup').config
-    }
-    use 'folke/tokyonight.nvim'
-    use 'marko-cerovac/material.nvim'
-    use {'nyoom-engineering/oxocarbon.nvim'}
-    use { "catppuccin/nvim", as = "catppuccin" }
-    use { 'Everblush/nvim', as = 'everblush' }
+    use 'ellisonleao/gruvbox.nvim'
     use { 'nvim-lualine/lualine.nvim' }
-    use 'norcalli/nvim-colorizer.lua'
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate'
     }
     use { 'windwp/nvim-autopairs' }
+
     --misc plugs
     use 'lervag/vimtex'
     use 'nvim-lua/popup.nvim'
@@ -43,7 +34,6 @@ return require('packer').startup(function(use)
           "nvim-lua/plenary.nvim",
           "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
           "MunifTanjim/nui.nvim",
-          -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
         }
       }
     -- Packer can manage itself

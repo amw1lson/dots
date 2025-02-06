@@ -1,9 +1,9 @@
 require('lualine').setup {
     options = {
         icons_enabled = true,
-        theme = 'everblush',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        theme = 'auto',
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {},
             winbar = {},
@@ -28,7 +28,11 @@ require('lualine').setup {
             },
         },
         lualine_c = {
-            { 'filename', }
+            {'filename'--[[ , ]]
+                -- color = function(section)
+                --     -- return { fg = vim.bo.modified and '#ff9e64' or '#9ece6a', gui = 'bold' }
+                -- end,
+                }
         },
         lualine_x = {
             { 'filetype',
@@ -42,10 +46,11 @@ require('lualine').setup {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-            {'filename',
-                color = function(section)
-                    return { fg = vim.bo.modified and '#ff7eb6' or '#62de85', gui = '' }
-                end,}
+            {'filename'--[[ , ]]
+                -- color = function(section)
+                --     return { fg = vim.bo.modified and '#ff9e64' or '#9ece6a', gui = '' }
+                -- end,
+            }
         },
         lualine_x = {'location'},
         lualine_y = {},

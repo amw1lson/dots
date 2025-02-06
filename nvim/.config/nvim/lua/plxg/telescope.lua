@@ -8,7 +8,6 @@ require('telescope').setup {
         grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
         qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
         layout_strategy = 'horizontal',
-
     },
     pickers = {
         find_files = {
@@ -23,7 +22,6 @@ require('telescope').setup {
         ["ui-select"] = {
               require("telescope.themes").get_dropdown {
               }
-
               -- pseudo code / specification for writing custom displays, like the one
               -- for "codeactions"
               -- specific_opts = {

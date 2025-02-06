@@ -16,7 +16,7 @@ autoload -U colors && colors
 #PS1="%B%{$fg[cyan]%}%~ %{$fg[cyan]%}$%b %{$reset_color%}"
 # PS1="[%{$fg[cyan]%}cerealkiller%{$fg[white]%}@%{$fg[cyan]%}morningstar %{$fg[magenta]%}%~%{$fg[white]%}] $ "
 # PS1="[%{$fg[magenta]%}%~%{$fg[cyan]%}] %{$fg[white]%}$ "
-# PS1="%{$fg[white]%}{%B%n%b@%{$fg[red]%}%m%{$fg[white]%}}-%{$fg[cyan]%}%~
+# PS1="%{$fg[white]%}{%B%n%b@%{$fg[red]git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting%}%m%{$fg[white]%}}-%{$fg[cyan]%}%~
 # %{$fg[white]%}>>> "
 # ZSH history file
 HISTSIZE=100
@@ -60,7 +60,6 @@ bindkey '^[[Z' undo                                             # Shift+tab undo
 
 export LD_PRELOAD=""
 export EDITOR="vim"
-export PATH="$HOME/bin:/home/austin/.local/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$HOME/.cargo/bin:$PATH"
 
 # alias
 alias sl="ls --color=auto"
@@ -91,7 +90,9 @@ alias rb="reboot"
 alias emacs="nvim"
 alias vtune="/opt/intel/vtune_profiler_2020.2.0.610396/bin64/vtune"
 alias cd="z"
+alias ff="find . -name"
 
+export PATH="$HOME/bin:/home/austin/.local/bin:/usr/lib/ccache/bin/:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/opt/bin:/usr/bin/core_perl:/usr/games/bin:$HOME/.cargo/bin:$PATH"
 
 export TERM=alacritty
 if [ -e /home/austin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/austin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
@@ -122,6 +123,7 @@ ZSH_THEME="simple"
 plugins=(
     git
     rake
+    zsh-syntax-highlighting
     # zsh-autosuggestions
 )
 source ~/.oh-my-zsh/oh-my-zsh.sh

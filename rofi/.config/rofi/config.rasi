@@ -22,20 +22,20 @@
     selected-urgent-background: @sel-background;
     selected-urgent-foreground: @sel-foreground;
 
-    amazin: #c47fd5;
+    amazin: #d79921;
     background-color: #00000000;
-    foreground: #dadada;
-    background: #161616ee;
+    foreground: #f9f5d7;
+    background: #1d2021ee;
     sel-foreground: @amazin;
-    sel-background: #16161600;
-    border-color: #16161600;
+    sel-background: #1d202100;
+    border-color: #d7992100;
     spacing: 2;
 }
 
 #window {
     background-color: @background;
     border: 3;
-    border-color: #71baf2;
+    border-color: #d79921;
     border-radius: 10;
     padding: 2.5ch;
 }

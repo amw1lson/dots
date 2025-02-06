@@ -16,11 +16,25 @@ local is_math = utils.in_latex_math
 local no_backslash = utils.no_backslash
 local pipe = utils.pipe
 
+local automath = function(trig, text)
+    return as(
+        {trig=trig, snippetType="autosnippet", condition=is_math},
+        {
+            t(text),
+        }
+    )
+end
+
 local mySnips = {
-    as({trig=';beg'}, fmta("\\begin{<>} \n<>\n\\end{<>}<>",
+    as({trig=';beg'}, fmta("\\begin{<>} \n    <>\n\\end{<>}<>",
     {   i(1, "env"),
         i(2, ""),
         rep(1),
+        i(0),
+    })),
+    as({trig=';al'}, fmta("\\begin{align*} \n    <>\n\\end{align*}<>",
+    {
+        i(1, ""),
         i(0),
     })),
 
@@ -32,21 +46,13 @@ local mySnips = {
     as({trig=';it'}, fmta([[\item <>]],
     { i(0), })),
 
-    as({trig=';pf'}, fmta([[\begin{tcolorbox}[colframe=blue]
-    \color{blue}
-    <>
-\end{tcolorbox}<>]],
-    {   i(1, "env"),
-        i(0)
-    })),
-
     as({trig='$'}, fmta([[$<>$<>]],
-    {   i(1, "math"),
+    {   i(1),
         i(0)
     })),
 
     as({trig='_',wordTrig = false, condition = is_math}, fmta([[_{<>}<>]],
-    {   i(1, "math"),
+    {   i(1),
         i(0)
     })),
 
@@ -57,13 +63,72 @@ local mySnips = {
         )
     ),
 
+    as({trig='cal', wordTrig=false,condition = is_math},
+    fmta([[\mathcal{<>}<>]],
+    {
+        i(1),
+        i(0)
+    })),
+    as({trig='bb', wordTrig=false, condition = is_math},
+    fmta([[\mathbb{<>}<>]],
+    {
+        i(1),
+        i(0)
+    })),
+    as({trig='fr', wordTrig=false, condition = is_math},
+    fmta("\\frac{<>}{<>}<>",
+    {   i(1, "num"),
+        i(2, "denom"),
+        i(0),
+    })),
     as({trig='set', condition = is_math, wordTrig = false},
         fmta([[\{<>\}<>]],
-        {   i(1, "contents"),
+        {   i(1, ""),
             i(0)}
         )
     ),
-
+    as({trig='tilde', condition = is_math, wordTrig = false},
+        fmta([[\widetilde{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='hat', condition = is_math, wordTrig = false},
+        fmta([[\hat{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='in', condition = is_math, wordTrig = false},
+        fmta([[\in <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='bar', condition = is_math, wordTrig = false},
+        fmta([[\bar{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='bf', condition = is_math, wordTrig = false},
+        fmta([[\mathbf{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='ceil', condition = is_math, wordTrig = false},
+        fmta([[\lceil <>\rceil<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='par', condition = is_math, wordTrig = false},
+        fmta([[\left( <>\right) <>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
     as({trig = '([%a%)%]%}])([%d])', regTrig = true, wordTrig = false, condition = is_math},
       fmta(
         "<>_{<><>}<>",
@@ -75,17 +140,23 @@ local mySnips = {
         }
       )
     ),
+    s(  {trig="cal", name='MathCal', condition=is_math},
+        fmta([[\mathcal{<>}<>]],
+            {   i(1,"A"),
+                i(0),
+            }, { delimiters = "<>" }
+        )
+    ),
+    s(  {trig="ex", name='Exists', condition=is_math},
+        fmta([[\exists<>]],
+            {
+                i(0),
+            }, { delimiters = "<>" }
+        )
+    ),
+
 }
 
-local gen_automath = function(trig, text) 
-    return as(
-        {trig=trig, snippetType="autosnippet", condition=is_math}, 
-        {
-            t(text),
-        }
-    )
-end
-    
 local automath_snips =
 {
     ['>a'] = '\\alpha',
@@ -111,16 +182,16 @@ local automath_snips =
     ['>K'] = '\\Kappa',
     ['>l'] = '\\lambda',
     ['>L'] = '\\Lambda',
-    ['>m'] = '\\mu',
-    ['>M'] = '\\Mu',
-    ['>n'] = '\\nu',
-    ['>N'] = '\\Nu',
+    ['mu'] = '\\mu',
+    ['Mu'] = '\\Mu',
+    ['nu'] = '\\nu',
+    ['Nu'] = '\\Nu',
     ['>x'] = '\\xi',
     ['>X'] = '\\Xi',
     ['>o'] = '\\omicron',
     ['>O'] = '\\Omicron',
-    ['>p'] = '\\pi',
-    ['>P'] = '\\Pi',
+    ['pi'] = '\\pi',
+    ['Pi'] = '\\Pi',
     ['>r'] = '\\rho',
     ['>R'] = '\\Rho',
     ['>s'] = '\\sigma',
@@ -141,7 +212,7 @@ local automath_snips =
 }
 
 for trigger,expansion in pairs(automath_snips) do
-    table.insert(mySnips, gen_automath(trigger, expansion))
+    table.insert(mySnips, automath(trigger, expansion))
 end
 
 return mySnips

@@ -82,7 +82,7 @@ cmp.setup({
 cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-        { name = 'buffer' }
+        { name = 'buffer', keyword_length = 3 }
     }
 })
 
@@ -90,9 +90,9 @@ cmp.setup.cmdline({ '/', '?' }, {
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-            { name = 'path' }
+            { name = 'path', keyword_length = 2 }
         }, {
-            { name = 'cmdline' }
+            { name = 'cmdline', keyword_length = 3 }
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
 })

@@ -77,6 +77,9 @@ vnoremap("L", "$")
 -- leap
 require('leap').add_default_mappings()
 
+-- obsidian.nvim
+nnoremap("<leader>ba", ":ObsidianBacklinks<CR>")
+
 -- harpoon mappings
 local silent = { silent = true }
 

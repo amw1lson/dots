@@ -17,14 +17,13 @@ return {
             )
         ),
     	s(  {trig="snipf", name='format snippet', dscr='format snippet for luasnip'}, 
-            fmt([[<>({ trig='<>', name='<>', dscr='<>'}, fmta(<>,{ <> } )<>),<>]],
+            fmt([[<>({ trig='<>', name='<>'}, fmta(<>,{ <> } )<>),<>]],
                 {   c(1, { t("s"), t("autosnippet") }),
                     i(2, "trig"),
                     i(3, "trig"),
-                    i(4, "dscr"),
-                    i(5, "fmt"),
-                    i(6, "inputs"),
-                    i(7, "opts"),
+                    i(4, "fmt"),
+                    i(5, "inputs"),
+                    i(6, "opts"),
                     i(0),
                 }, { delimiters = "<>" }
             )
