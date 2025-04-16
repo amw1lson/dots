@@ -10,6 +10,7 @@ local t = ls.text_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmta = require("luasnip.extras.fmt").fmta
+local fmt = require("luasnip.extras.fmt").fmt
 local utils = require("plxg.snippets")
 
 local is_math = utils.in_latex_math
@@ -26,7 +27,27 @@ local automath = function(trig, text)
 end
 
 local mySnips = {
-    as({trig=';beg'}, fmta("\\begin{<>} \n    <>\n\\end{<>}<>",
+    -- Template Snippets
+    s({trig='probtemp'}, fmta([[\usepackage{titlesec}
+\usepackage[many]{tcolorbox}
+\newtcbtheorem[]{problem}{}%
+    {enhanced,
+    colback = black!5, %white,
+    colbacktitle = black!5,
+    coltitle = black,
+    boxrule = 0pt,
+    frame hidden,
+    borderline west = {0.5mm}{0.0mm}{blue},
+    fonttitle = \bfseries\sffamily,
+    title=[#1],
+    breakable,
+    before skip = 3ex,
+    after skip = 3ex
+}{problem}
+\newcommand{\prob}[2]{\begin{problem*}{#1}{} {#2} \end{problem*}}<>]],
+    {   i(0),
+    })),
+    as({trig=';beg'}, fmta("\\begin{<>}<>\n\\end{<>}<>",
     {   i(1, "env"),
         i(2, ""),
         rep(1),
@@ -37,7 +58,12 @@ local mySnips = {
         i(1, ""),
         i(0),
     })),
-
+    as({trig=';pr'},
+    fmta("\\prob{<>}{<>}<>",
+    {   i(1, ""),
+        i(2, ""),
+        i(0),
+    })),
     as({trig='langle'}, fmta([[\langle <> \rangle <>]],
     {   i(1, "ordered pair"),
         i(0),
@@ -58,11 +84,17 @@ local mySnips = {
 
     as({trig='^', wordTrig = false, condition = is_math},
         fmta([[^{<>}<>]],
-        {   i(1, "math"),
+        {   i(1),
             i(0)}
         )
     ),
 
+    as({trig='sqr', wordTrig=false,condition = is_math},
+    fmta([[\sqrt{<>}<>]],
+    {
+        i(1),
+        i(0)
+    })),
     as({trig='cal', wordTrig=false,condition = is_math},
     fmta([[\mathcal{<>}<>]],
     {
@@ -77,54 +109,128 @@ local mySnips = {
     })),
     as({trig='fr', wordTrig=false, condition = is_math},
     fmta("\\frac{<>}{<>}<>",
-    {   i(1, "num"),
-        i(2, "denom"),
+    {   i(1, ""),
+        i(2, ""),
         i(0),
     })),
-    as({trig='set', condition = is_math, wordTrig = false},
+    as({trig='set', condition = is_math, wordTrig = true},
         fmta([[\{<>\}<>]],
         {   i(1, ""),
             i(0)}
         )
     ),
-    as({trig='tilde', condition = is_math, wordTrig = false},
+    as({trig='tilde', condition = is_math, wordTrig = true},
         fmta([[\widetilde{<>}<>]],
         {   i(1, ""),
             i(0)}
         )
     ),
-    as({trig='hat', condition = is_math, wordTrig = false},
+    as({trig='hat', condition = is_math, wordTrig = true},
         fmta([[\hat{<>}<>]],
         {   i(1, ""),
             i(0)}
         )
     ),
-    as({trig='in', condition = is_math, wordTrig = false},
+    as({trig='box', condition = is_math, wordTrig = true},
+        fmta([[\boxed{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='lim', condition = is_math, wordTrig = true},
+        fmta([[\lim_{<>}<>]],
+        {
+            i(1),
+            i(0)}
+        )
+    ),
+    as({trig='in ', condition = is_math, wordTrig = true},
         fmta([[\in <>]],
         {
             i(0)}
         )
     ),
-    as({trig='bar', condition = is_math, wordTrig = false},
-        fmta([[\bar{<>}<>]],
-        {   i(1, ""),
+    as({trig='int', condition = is_math, wordTrig = true},
+        fmta([[\int<>]],
+        {
             i(0)}
         )
     ),
-    as({trig='bf', condition = is_math, wordTrig = false},
+    as({trig='to', condition = is_math, wordTrig = true},
+        fmta([[\rightarrow <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='dto', condition = is_math, wordTrig = true},
+        fmta([[\xrightarrow{D} <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='pto', condition = is_math, wordTrig = true},
+        fmta([[\xrightarrow{P} <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='over', condition = is_math, wordTrig = true},
+        fmta([[\overrightarrow <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='ift', condition = is_math, wordTrig = true},
+        fmta([[\infty <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='bar', condition = is_math, wordTrig = true},
+        fmta([[\bar{<>}<>]],
+        {   
+            i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='bf', condition = is_math, wordTrig = true},
         fmta([[\mathbf{<>}<>]],
         {   i(1, ""),
             i(0)}
         )
     ),
-    as({trig='ceil', condition = is_math, wordTrig = false},
+    as({trig='tex', condition = is_math, wordTrig = true},
+        fmta([[\textnormal{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='ceil', condition = is_math, wordTrig = true},
         fmta([[\lceil <>\rceil<>]],
         {   i(1, ""),
             i(0)}
         )
     ),
-    as({trig='par', condition = is_math, wordTrig = false},
-        fmta([[\left( <>\right) <>]],
+    as({trig='par', condition = is_math, wordTrig = true},
+        fmta([[\left( <>\right)<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='dpr', condition = is_math, wordTrig = true},
+        fmta([[\partial <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='prop', condition = is_math, wordTrig = true},
+        fmta([[\propto <>]],
+        {
+            i(0)}
+        )
+    ),
+    as({trig='brac', condition = is_math, wordTrig = true},
+        fmta([[\left[ <>\right]<>]],
         {   i(1, ""),
             i(0)}
         )
@@ -188,8 +294,8 @@ local automath_snips =
     ['Nu'] = '\\Nu',
     ['>x'] = '\\xi',
     ['>X'] = '\\Xi',
-    ['>o'] = '\\omicron',
-    ['>O'] = '\\Omicron',
+    ['>o'] = '\\omega',
+    ['>O'] = '\\Omega',
     ['pi'] = '\\pi',
     ['Pi'] = '\\Pi',
     ['>r'] = '\\rho',

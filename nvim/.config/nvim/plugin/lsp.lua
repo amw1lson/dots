@@ -6,7 +6,8 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 
 vim.diagnostic.config {
-    underline = false
+    underline = false,
+    virtual_text = true
 }
 
 local lsp_defaults = {
@@ -70,6 +71,13 @@ lspconfig.texlab.setup{
     }
 }
 
+-- require('lspconfig').ruff.setup({
+--   init_options = {
+--     settings = {
+--       -- Server settings should go here
+--     }
+--   }
+-- })
 lspconfig.pyright.setup {
     on_attach = lsp_defaults.on_attach,
     capabilities = lsp_defaults.capabilities

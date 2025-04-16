@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/austin/.cache/nvim/packer_hererocks/2.1.1731601260/share/lua/5.1/?.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1731601260/share/lua/5.1/?/init.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1731601260/lib/luarocks/rocks-5.1/?.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1731601260/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/austin/.cache/nvim/packer_hererocks/2.1.1731601260/lib/lua/5.1/?.so"
+local package_path_str = "/home/austin/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1736781742/share/lua/5.1/?/init.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?.lua;/home/austin/.cache/nvim/packer_hererocks/2.1.1736781742/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/austin/.cache/nvim/packer_hererocks/2.1.1736781742/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -186,7 +191,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["obsidian.nvim"] = {
-    config = { "\27LJ\2\n)\0\1\2\0\1\0\a\v\0\0\0X\1\3€'\1\0\0L\1\2\0X\1\1€L\0\2\0K\0\1\0\nempty­\1\1\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0023\3\6\0=\3\a\2B\0\2\1K\0\1\0\17note_id_func\0\15workspaces\1\0\2\15workspaces\0\17note_id_func\0\1\0\2\tpath\19~/dev/obsidian\tname\robsidian\nsetup\robsidian\frequire\0" },
+    config = { "\27LJ\2\n)\0\1\2\0\1\0\a\v\0\0\0X\1\3€'\1\0\0L\1\2\0X\1\1€L\0\2\0K\0\1\0\nempty­\1\1\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0023\3\6\0=\3\a\2B\0\2\1K\0\1\0\17note_id_func\0\15workspaces\1\0\2\15workspaces\0\17note_id_func\0\1\0\2\tname\robsidian\tpath\19~/dev/obsidian\nsetup\robsidian\frequire\0" },
     loaded = true,
     path = "/home/austin/.local/share/nvim/site/pack/packer/start/obsidian.nvim",
     url = "https://github.com/epwalsh/obsidian.nvim"
@@ -239,14 +244,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: obsidian.nvim
-time([[Config for obsidian.nvim]], true)
-try_loadstring("\27LJ\2\n)\0\1\2\0\1\0\a\v\0\0\0X\1\3€'\1\0\0L\1\2\0X\1\1€L\0\2\0K\0\1\0\nempty­\1\1\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0023\3\6\0=\3\a\2B\0\2\1K\0\1\0\17note_id_func\0\15workspaces\1\0\2\15workspaces\0\17note_id_func\0\1\0\2\tpath\19~/dev/obsidian\tname\robsidian\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
-time([[Config for obsidian.nvim]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: obsidian.nvim
+time([[Config for obsidian.nvim]], true)
+try_loadstring("\27LJ\2\n)\0\1\2\0\1\0\a\v\0\0\0X\1\3€'\1\0\0L\1\2\0X\1\1€L\0\2\0K\0\1\0\nempty­\1\1\0\5\0\b\0\r6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0004\3\3\0005\4\3\0>\4\1\3=\3\5\0023\3\6\0=\3\a\2B\0\2\1K\0\1\0\17note_id_func\0\15workspaces\1\0\2\15workspaces\0\17note_id_func\0\1\0\2\tname\robsidian\tpath\19~/dev/obsidian\nsetup\robsidian\frequire\0", "config", "obsidian.nvim")
+time([[Config for obsidian.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

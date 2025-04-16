@@ -53,16 +53,23 @@ function M.in_latex_text(check_parent)
 end
 
 function M.in_latex_math()
-  local node = get_ts_node_at_cursor()
-  while node do
-    if TEXT_NODES[node:type()] then
-      return false
-    elseif MATH_NODES[node:type()] then
-      return true
+    local filetype = vim.bo.filetype
+    if filetype == "tex" then
+        return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
+    elseif filetype == "markdown" then
+        local node = get_ts_node_at_cursor()
+        while node do
+            if TEXT_NODES[node:type()] then
+                return false
+            elseif MATH_NODES[node:type()] then
+                return true
+            end
+            node = node:parent()
+        end
+        return false
+    else
+        return false
     end
-    node = node:parent()
-  end
-  return false
 end
 
 M.not_latex_math = function(treesitter)

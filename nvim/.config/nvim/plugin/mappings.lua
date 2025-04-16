@@ -2,6 +2,7 @@ local nnoremap = require("plxg.keymap").nnoremap
 local vnoremap = require("plxg.keymap").vnoremap
 local tnoremap = require("plxg.keymap").tnoremap
 local inoremap = require("plxg.keymap").inoremap
+local cnoremap = require("plxg.keymap").cnoremap
 local nmap = require("plxg.keymap").nmap
 local ls = require("luasnip")
 
@@ -12,18 +13,26 @@ filetype plugin on
 ]])
 
 --lsp mappings
-nnoremap("<leader>vi", function() vim.lsp.buf.implementation() end)
-nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
-nnoremap("<leader>vs", function() vim.lsp.buf.signature_help() end)
-nnoremap("<leader>vrf", function() vim.lsp.buf.references() end)
-nnoremap("<leader>vf", function() vim.lsp.buf.format() end)
-nnoremap("<leader>vrn", function() vim.lsp.buf.rename() end)
 nnoremap("K", function() vim.lsp.buf.hover() end)
-nnoremap("<leader>vc", function() vim.lsp.buf.code_action() end)
-nnoremap("<leader>vn", function() vim.diagnostic.goto_next() end)
-nnoremap("<leader>vp", function() vim.diagnostic.goto_prev() end)
-nnoremap("<leader>vd", ":Telescope lsp_document_symbols<CR>")
-nnoremap("<leader>vw", ":Telescope lsp_workspace_symbols<CR>")
+nnoremap("<leader>ga", function () vim.api.nvim_create_autocmd("BufWritePre", {
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end
+}) end)
+nnoremap("<leader>gc", function() vim.lsp.buf.code_action() end)
+nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
+nnoremap("<leader>ge", function() vim.diagnostic.setqflist() end)
+nnoremap("<leader>gf", function() vim.lsp.buf.format() end)
+nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
+nnoremap("<leader>gm", function() vim.lsp.buf.rename() end)
+nnoremap("<leader>gn", function() vim.diagnostic.goto_next() end)
+nnoremap("<leader>gp", function() vim.diagnostic.goto_prev() end)
+nnoremap("<leader>gr", function() vim.lsp.buf.references() end)
+nnoremap("<leader>gs", function() vim.lsp.buf.signature_help() end)
+
+--telescope
+nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
+nnoremap("<leader>gz", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
 
 -- buffer movement
 nnoremap("<leader>N", ":bnext<cr>")
@@ -32,13 +41,13 @@ nnoremap("<leader>P", ":bprev<cr>")
 --the keybind of all keybinds
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
---telescope
-nnoremap("<leader>gb", ":Telescope buffers<cr>")
-nnoremap("<C-p>", function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>gf", function() require('telescope.builtin').git_files() end)
-nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
-nnoremap("<leader>gs", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
+nnoremap("<C-f>", function() require('telescope.builtin').find_files() end)
 nnoremap("<leader>e",":Lex | vertical resize 30<CR>")
+--qflists
+nnoremap("<C-n>", ":cn<CR>")
+nnoremap("<C-p>", ":cp<CR>")
+nnoremap("<leader>cc", ":ccl<CR>")
+nnoremap("<leader>co", ":cope<CR>")
 
 --term stuff
 nnoremap("<leader>t", ":split | resize 10 | terminal<CR>")
@@ -56,6 +65,7 @@ nnoremap("<leader>l", ":wincmd l<CR>")
 
 --common binding
 inoremap("<C-BS>", "<C-w>")
+cnoremap("<C-BS>", "<C-w>")
 
 --buffers
 nnoremap("<leader>D", ":bd!<CR>")
@@ -79,6 +89,7 @@ require('leap').add_default_mappings()
 
 -- obsidian.nvim
 nnoremap("<leader>ba", ":ObsidianBacklinks<CR>")
+nnoremap("<leader>bn", ":ObsidianNew")
 
 -- harpoon mappings
 local silent = { silent = true }
@@ -90,7 +101,7 @@ nnoremap("<leader>nf", function() require("harpoon.ui").nav_file(4) end, silent)
 
 nnoremap("<leader>m", function() require("harpoon.mark").add_file() end)
 nnoremap("<leader>a", function() require("harpoon.ui").toggle_quick_menu() end)
-nnoremap("<leader>c", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
+nnoremap("<leader>u", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
 
 -- snippets
 vim.keymap.set("i", "<C-k>", function()

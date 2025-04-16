@@ -1,3 +1,10 @@
+require("gruvbox").setup({
+    overrides = {
+        ["@lsp.type.parameter"] = { fg = "#8ec07c"}, -- bright_aqua
+        ["markdownItalic"] = {fg = "#f2e5bc" }
+    }
+})
+require'colorizer'.setup()
 vim.cmd[[
 "general colo stuff
 colo gruvbox
@@ -9,10 +16,10 @@ hi Normal guibg=NONE ctermbg=NONE
 hi MsgArea guibg=NONE ctermbg=NONE
 hi ModeMsg guibg=NONE ctermbg=NONE
 hi NormalNC guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE
-hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE
+" hi DiagnosticVirtualTextHint guibg=NONE ctermbg=NONE
+" hi DiagnosticVirtualTextInfo guibg=NONE ctermbg=NONE
+" hi DiagnosticVirtualTextWarn guibg=NONE ctermbg=NONE
+" hi DiagnosticVirtualTextError guibg=NONE ctermbg=NONE
 hi Comment gui=NONE
 hi @comment gui=NONE
 hi CursorLine guibg=NONE
