@@ -1,10 +1,12 @@
 require("gruvbox").setup({
     overrides = {
         ["@lsp.type.parameter"] = { fg = "#8ec07c"}, -- bright_aqua
-        ["markdownItalic"] = {fg = "#f2e5bc" }
+        ["markdownItalic"] = {fg = "#f2e5bc" },
     }
 })
-require'colorizer'.setup()
+
+require("colorizer").setup()
+
 vim.cmd[[
 "general colo stuff
 colo gruvbox

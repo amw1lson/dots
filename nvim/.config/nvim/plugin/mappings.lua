@@ -6,12 +6,6 @@ local cnoremap = require("plxg.keymap").cnoremap
 local nmap = require("plxg.keymap").nmap
 local ls = require("luasnip")
 
---lsp config options
-vim.cmd([[
-set completeopt=menu,menuone,noselect,noinsert
-filetype plugin on
-]])
-
 --lsp mappings
 nnoremap("K", function() vim.lsp.buf.hover() end)
 nnoremap("<leader>ga", function () vim.api.nvim_create_autocmd("BufWritePre", {
@@ -85,11 +79,12 @@ vnoremap("H", "0")
 vnoremap("L", "$")
 
 -- leap
-require('leap').add_default_mappings()
+-- require('leap').add_default_mappings()
+vim.keymap.set({'n', 'x', 'o'}, 'z', '<Plug>(leap)')
+vim.keymap.set('n',             'Z', '<Plug>(leap-from-window)')
 
--- obsidian.nvim
-nnoremap("<leader>ba", ":ObsidianBacklinks<CR>")
-nnoremap("<leader>bn", ":ObsidianNew")
+--mini.surround
+nnoremap("saB", "sa{")
 
 -- harpoon mappings
 local silent = { silent = true }
@@ -104,15 +99,20 @@ nnoremap("<leader>a", function() require("harpoon.ui").toggle_quick_menu() end)
 nnoremap("<leader>u", function() require("harpoon.cmd-ui").toggle_quick_menu() end)
 
 -- snippets
-vim.keymap.set("i", "<C-k>", function()
-    require("luasnip.extras.select_choice")()
-end, silent)
+vim.keymap.set("i", "<C-k>", function() require("luasnip.extras.select_choice")() end, silent)
 vim.api.nvim_set_keymap("i", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("i", "<C-F>", "<Plug>luasnip-prev-choice", {})
 vim.api.nvim_set_keymap("s", "<C-F>", "<Plug>luasnip-prev-choice", {})
 
 -- vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
-vim.cmd("imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'")
+-- vim.cmd("imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'")
+inoremap("<Tab>", function()
+    if require('luasnip').expand_or_jumpable() then
+        require('luasnip').expand_or_jump()
+    else
+        require('neotab').tabout()
+    end
+end, silent)
 vim.cmd("inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>")
 nnoremap("<leader>vw", ":Telescope lsp_workspace_symbols<CR>")

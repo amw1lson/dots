@@ -5,6 +5,7 @@ local ELLIPSIS_CHAR = '…'
 local MAX_LABEL_WIDTH = 22
 local MIN_LABEL_WIDTH = 22
 
+local luasnip = require('luasnip')
 local lspkind = require("lspkind")
 lspkind.init({})
 cmp.setup({
@@ -66,7 +67,6 @@ cmp.setup({
         ['<C-Space>'] = cmp.mapping.complete(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
         -- Dont suggest Text from nvm_lsp

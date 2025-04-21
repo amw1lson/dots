@@ -1,0 +1,83 @@
+window#waybar {
+  padding: 0;
+  margin: 4px 4px 10px 10px;
+  /* margin:0px */
+}
+
+#waybar {
+  background: #1f1f1f/* rgba(25,25,25,1) */;
+  color: #f9f5d7;
+  /* font-family: "JetBrains Mono"; */
+  font-family: "Monaspace Neon";
+  /* border-radius: 6px; */
+  font-size: 19px;
+  margin: 0px;
+}
+
+#clock {
+    color: #b16286;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* .custom-spotify { */
+/*     margin: 10px; */
+/*     color: #62be65; */
+/* } */
+
+#workspaces {
+  margin: 10px 12px;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  color: #d65d0e;
+  font-family: "Symbols Nerd Font";
+}
+#workspaces button:hover {
+  padding: 0px 5px;
+  color: #1d2021;
+  background-color: #d65d0e;
+  font-family: "Symbols Nerd Font";
+}
+
+#workspaces button.persistent {
+  padding: 0px 5px;
+  color: #d65d0e;
+  font-family: "Symbols Nerd Font";
+}
+#workspaces button.active {
+  color: #d65d0e;
+}
+
+
+#tray {
+  margin: 8px 0px 6px 0px;
+  opacity: 0.80;
+}
+
+#tray > widget > image {
+  margin: 10px;
+}
+
+#battery {
+    color: #fabd2f;
+    font-weight: bold;
+    margin: 0px 20px;
+}
+
+#battery.charging{
+    color: #b8bb26;
+}
+
+#network {
+    font-weight: bold;
+    color: #cc241d;
+    margin: 10px;
+}
+
+#pulseaudio{
+    font-weight: bold;
+    color: #076678;
+    margin: 10px;
+}

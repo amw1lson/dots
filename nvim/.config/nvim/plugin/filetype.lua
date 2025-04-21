@@ -1,8 +1,3 @@
-vim.api.nvim_create_autocmd({"BufEnter", "BufFilePost"}, {
-  pattern = {"/home/austin/dev/obsidian/*.md"},
-  command = "ObsidianOpen",
-})
-
 local function set_markdown_wrap()
   vim.wo.wrap = true
   vim.wo.linebreak = true
@@ -42,9 +37,4 @@ vim.api.nvim_create_autocmd('BufEnter', {
 vim.api.nvim_create_autocmd('BufLeave', {
   pattern = {'*.md', '*.tex'},
   callback = reset_normal_keys,
-})
-
-vim.api.nvim_create_autocmd({"BufNewFile"}, {
-    pattern = {"/home/austin/dev/usaco/*.cpp"},
-    command = "0read /home/austin/dev/usaco/skeleton.cpp",
 })

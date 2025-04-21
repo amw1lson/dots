@@ -1,0 +1,111 @@
+// # 8 8 0 8
+[{
+    "position": "top",
+    "name": "main",
+    "height": 12, 
+    "output": ["eDP-1"],
+    "margin": "0 0 6 0", 
+    "modules-left": ["tray", "clock"],
+    "modules-center": ["hyprland/workspaces"], 
+    "modules-right": ["network", "pulseaudio", "battery"],
+
+    "clock": {
+        "format": "{:%I:%M %p}"
+    },
+    
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    },
+   
+   "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+          "default": "󱀝",
+          "active": "󰣏",
+        },
+        "persistent_workspaces":{
+          "1": [],
+          "2": [],
+          "3": [],
+          "4": []
+        },
+        "sort-by-number": true,
+        "on-click": "activate"
+    },
+    "battery": {
+        "format": "<span font='Symbols Nerd Font 11'>{icon}</span> {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": " ({H}h{M}m)",
+        "format-charging": "<span font='Symbols Nerd Font 11'></span>  <span font='Symbols Nerd Font 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Symbols Nerd Font'></span>  <span font='Symbols Nerd Font 11'>{icon}</span>  Charged",
+        "interval": 15,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false
+    },
+    
+    "network": {
+    "format-wifi": "<span font='Symbols Nerd Font 11'></span>  {essid}",
+    "format-ethernet": "<span font='Symbols Nerd Font 11'>󰤮</span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span font='Symbols Nerd Font 11'>󰤮</span> Disconnected",
+    "on-click": "~/.config/rofi/wifi.sh",
+            "tooltip-format-wifi": "<span font='Symbols Nerd Font 11'></span>  {signalStrength}% ⇅ {bandwidthDownBits}/{bandwidthUpBits}"
+    },
+    "pulseaudio": {
+            "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+            "format": "<span font='Symbols Nerd Font 11'>{icon}</span>  {volume}%",
+            "format-muted": "<span font='Symbols Nerd Font 11'>󰖁</span> Muted",
+            "format-icons": {
+            "headphone": "<span font='Symbols Nerd Font 11'></span>",
+            "default": ["", "", ""]
+            },
+    },
+    "wlr/taskbar": {
+	"format": "  {app_id}  ",
+	"tooltip-format": "{title}",
+  "on-click": "activate",
+	"on-click-right": "close",
+	"app_ids-mapping": {
+		"org.pwmt.zathura": "Zathura",
+    "org.wezfurlong.wezterm": "WezTerm",
+		"pavucontrol": "Pavu Control",
+		"firefox": "Firefox",
+    "nemo": "Nemo"
+		}
+	}
+},
+{
+    "position": "bottom",
+    "name": "main",
+    "height": 20, 
+    "output": ["HDMI-A-1"],
+    "margin": "8 0 0 0",
+    "modules-left": ["clock"],
+    "modules-center": ["hyprland/workspaces"], 
+    "modules-right": [],  
+    "clock": {
+        "format": "{:%I:%M %p}"
+    },
+   "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+          "default": "󱀝",
+          "active": "󰣏",
+          "focused": "󰫤",
+        },
+        "persistent_workspaces":{
+          "1󰫤": ["DP-1"],
+          "2": ["DP-1"],
+          "3": ["DP-1"],
+          "4": ["DP-1"],
+          "5": ["DP-1"],
+          "6": ["DP-1"]
+        },
+        "sort-by-number": true,
+        "on-click": "activate"
+    },
+}]
