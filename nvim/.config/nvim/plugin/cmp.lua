@@ -1,6 +1,5 @@
 local cmp = require('cmp')
 
-
 local ELLIPSIS_CHAR = '…'
 local MAX_LABEL_WIDTH = 22
 local MIN_LABEL_WIDTH = 22

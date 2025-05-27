@@ -1,9 +1,9 @@
-local nnoremap = require("plxg.keymap").nnoremap
-local vnoremap = require("plxg.keymap").vnoremap
-local tnoremap = require("plxg.keymap").tnoremap
-local inoremap = require("plxg.keymap").inoremap
-local cnoremap = require("plxg.keymap").cnoremap
-local nmap = require("plxg.keymap").nmap
+local nnoremap = require("austin.keymap").nnoremap
+local vnoremap = require("austin.keymap").vnoremap
+local tnoremap = require("austin.keymap").tnoremap
+local inoremap = require("austin.keymap").inoremap
+local cnoremap = require("austin.keymap").cnoremap
+local nmap = require("austin.keymap").nmap
 local ls = require("luasnip")
 
 --lsp mappings
@@ -13,9 +13,10 @@ nnoremap("<leader>ga", function () vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format({ async = false })
     end
 }) end)
+
 nnoremap("<leader>gc", function() vim.lsp.buf.code_action() end)
 nnoremap("<leader>gd", function() vim.lsp.buf.definition() end)
-nnoremap("<leader>ge", function() vim.diagnostic.setqflist() end)
+nnoremap("<leader>gq", function() vim.diagnostic.setqflist() end)
 nnoremap("<leader>gf", function() vim.lsp.buf.format() end)
 nnoremap("<leader>gi", function() vim.lsp.buf.implementation() end)
 nnoremap("<leader>gm", function() vim.lsp.buf.rename() end)
@@ -25,8 +26,10 @@ nnoremap("<leader>gr", function() vim.lsp.buf.references() end)
 nnoremap("<leader>gs", function() vim.lsp.buf.signature_help() end)
 
 --telescope
-nnoremap("<leader>gl", function() require('telescope.builtin').live_grep() end)
-nnoremap("<leader>gz", function() require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ") }) end)
+nnoremap("<leader>fj", function() require('telescope.builtin').live_grep() end)
+nnoremap("<leader>fs", function() require('telescope.builtin').grep_string({search = vim.fn.input("Search: ")}) end)
+nnoremap("<leader>fb", function() require('telescope.builtin').buffers() end)
+nnoremap("<leader>fw", function() require('telescope.builtin').lsp_workspace_symbols() end)
 
 -- buffer movement
 nnoremap("<leader>N", ":bnext<cr>")
@@ -78,14 +81,6 @@ nnoremap("L", "$")
 vnoremap("H", "0")
 vnoremap("L", "$")
 
--- leap
--- require('leap').add_default_mappings()
-vim.keymap.set({'n', 'x', 'o'}, 'z', '<Plug>(leap)')
-vim.keymap.set('n',             'Z', '<Plug>(leap-from-window)')
-
---mini.surround
-nnoremap("saB", "sa{")
-
 -- harpoon mappings
 local silent = { silent = true }
 
@@ -105,14 +100,9 @@ vim.api.nvim_set_keymap("s", "<C-f>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("i", "<C-F>", "<Plug>luasnip-prev-choice", {})
 vim.api.nvim_set_keymap("s", "<C-F>", "<Plug>luasnip-prev-choice", {})
 
--- vim.keymap.set({"i"}, "<Tab>", function() ls.expand() end, {silent = true})
--- vim.cmd("imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'")
 inoremap("<Tab>", function()
-    if require('luasnip').expand_or_jumpable() then
-        require('luasnip').expand_or_jump()
-    else
+    if not require('luasnip').expand_or_jump() then
         require('neotab').tabout()
     end
 end, silent)
 vim.cmd("inoremap <silent> <S-Tab> <cmd>lua require('luasnip').jump(-1)<Cr>")
-nnoremap("<leader>vw", ":Telescope lsp_workspace_symbols<CR>")

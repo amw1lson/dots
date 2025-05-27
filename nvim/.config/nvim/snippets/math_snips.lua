@@ -10,7 +10,7 @@ local t = ls.text_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmta = require("luasnip.extras.fmt").fmta
-local utils = require("plxg.snippets")
+local utils = require("austin.snippets")
 
 local is_math = utils.in_latex_math
 local no_backslash = utils.no_backslash

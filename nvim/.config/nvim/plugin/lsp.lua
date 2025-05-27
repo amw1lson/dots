@@ -1,4 +1,4 @@
-local nnoremap = require("plxg.keymap").nnoremap
+local nnoremap = require("austin.keymap").nnoremap
 local lspconfig = require('lspconfig')
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 

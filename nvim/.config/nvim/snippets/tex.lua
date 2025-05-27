@@ -11,9 +11,10 @@ local extras = require("luasnip.extras")
 local rep = extras.rep
 local fmta = require("luasnip.extras.fmt").fmta
 local fmt = require("luasnip.extras.fmt").fmt
-local utils = require("plxg.snippets")
+local utils = require("austin.snippets")
 
 local is_math = utils.in_latex_math
+local not_math = function() return not utils.in_latex_math() end
 local no_backslash = utils.no_backslash
 local pipe = utils.pipe
 
@@ -45,8 +46,14 @@ local mySnips = {
     after skip = 3ex
 }{problem}
 \newcommand{\prob}[2]{\begin{problem*}{#1}{} {#2} \end{problem*}}<>]],
-    {   i(0),
-    })),
+    {   i(0), })),
+    s({trig='mint'}, fmta([[\usepackage{fvextra}
+\usepackage{minted}
+\setminted{
+  bgcolor=black!3,
+  fontsize=\small
+}<>]],
+    {i(0)})),
     as({trig=';beg'}, fmta("\\begin{<>}<>\n\\end{<>}<>",
     {   i(1, "env"),
         i(2, ""),
@@ -71,11 +78,6 @@ local mySnips = {
 
     as({trig=';it'}, fmta([[\item <>]],
     { i(0), })),
-
-    as({trig='$'}, fmta([[$<>$<>]],
-    {   i(1),
-        i(0)
-    })),
 
     as({trig='_',wordTrig = false, condition = is_math}, fmta([[_{<>}<>]],
     {   i(1),
@@ -113,6 +115,19 @@ local mySnips = {
         i(2, ""),
         i(0),
     })),
+    as({trig='over', condition = is_math, wordTrig = true},
+        fmta([[\overset{<>}{<>}<>]],
+        {   i(1, ""),
+            i(2, ""),
+            i(0)}
+        )
+    ),
+    as({trig='xto', condition = is_math, wordTrig = true},
+        fmta([[\xrightarrow{<>}<>]],
+        {   i(1, ""),
+            i(0)}
+        )
+    ),
     as({trig='set', condition = is_math, wordTrig = true},
         fmta([[\{<>\}<>]],
         {   i(1, ""),
@@ -174,12 +189,6 @@ local mySnips = {
             i(0)}
         )
     ),
-    as({trig='over', condition = is_math, wordTrig = true},
-        fmta([[\overrightarrow <>]],
-        {
-            i(0)}
-        )
-    ),
     as({trig='ift', condition = is_math, wordTrig = true},
         fmta([[\infty <>]],
         {
@@ -190,6 +199,12 @@ local mySnips = {
         fmta([[\bar{<>}<>]],
         {   
             i(1, ""),
+            i(0)}
+        )
+    ),
+    as({trig='tbf', condition = not_math, wordTrig = true},
+        fmta([[\textbf{<>}<>]],
+        {   i(1, ""),
             i(0)}
         )
     ),

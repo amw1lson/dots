@@ -9,13 +9,6 @@ return {
 	-- LuaSnip Snippets
 	--]
 	-- format snippet
-    	s(  {trig="math", name='bruh', dscr=moment}, 
-            fmt([[<>,<>]],
-                {   c(1, { t("bruh"), t("moment") }),
-                    i(0),
-                }, { delimiters = "<>" }
-            )
-        ),
     	s(  {trig="snipf", name='format snippet', dscr='format snippet for luasnip'}, 
             fmt([[<>({ trig='<>', name='<>'}, fmta(<>,{ <> } )<>),<>]],
                 {   c(1, { t("s"), t("autosnippet") }),
