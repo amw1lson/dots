@@ -28,16 +28,10 @@ require('lualine').setup {
             },
         },
         lualine_c = {
-            {'filename'--[[ , ]]
-                -- color = function(section)
-                --     -- return { fg = vim.bo.modified and '#ff9e64' or '#9ece6a', gui = 'bold' }
-                -- end,
-                }
+            { 'filename' }
         },
         lualine_x = {
-            { 'filetype',
-                icons_enabled = true,
-            },
+            { 'filetype', icons_enabled = true },
         },
         lualine_y = { 'encoding' },
         lualine_z = { 'location' }
@@ -46,11 +40,7 @@ require('lualine').setup {
         lualine_a = {},
         lualine_b = {},
         lualine_c = {
-            {'filename'--[[ , ]]
-                -- color = function(section)
-                --     return { fg = vim.bo.modified and '#ff9e64' or '#9ece6a', gui = '' }
-                -- end,
-            }
+            {'filename'}
         },
         lualine_x = {'location'},
         lualine_y = {},

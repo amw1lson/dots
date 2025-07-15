@@ -39,7 +39,7 @@ nnoremap("<leader>P", ":bprev<cr>")
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
 nnoremap("<C-f>", function() require('telescope.builtin').find_files() end)
-nnoremap("<leader>e",":Lex | vertical resize 30<CR>")
+nnoremap("<leader>e",":Telescope file_browser path=%:p:h select_buffer=true<CR>")
 --qflists
 nnoremap("<C-n>", ":cn<CR>")
 nnoremap("<C-p>", ":cp<CR>")

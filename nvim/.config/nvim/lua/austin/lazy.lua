@@ -57,14 +57,13 @@ vim.opt.termguicolors = true
 return require('lazy').setup({
     -- aesthetics
     { 'ellisonleao/gruvbox.nvim' },
-    { 'norcalli/nvim-colorizer.lua' },
     { 'nvim-lualine/lualine.nvim' },
-    { 'KeitaNakamura/tex-conceal.vim' },
     { 'HiPhish/rainbow-delimiters.nvim' },
 
     -- reqs
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
+    { 'onsails/lspkind.nvim' },
 
     -- lsp
     { 'williamboman/mason.nvim' },
@@ -76,12 +75,7 @@ return require('lazy').setup({
     { 'hrsh7th/nvim-cmp' },
     { 'williamboman/mason-lspconfig.nvim' },
     { 'neovim/nvim-lspconfig' },
-    { 'onsails/lspkind.nvim' },
 
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
     { 'lervag/vimtex' },
     -- convenience
     { 
@@ -115,7 +109,6 @@ return require('lazy').setup({
             },
         }
     },
-    { 'ThePrimeagen/harpoon' },
     {
         'kawre/neotab.nvim',
         event = "InsertEnter",
@@ -136,11 +129,21 @@ return require('lazy').setup({
 
     { 'L3MON4D3/LuaSnip', },
     { 'saadparwaiz1/cmp_luasnip' },
-    { 'folke/flash.nvim' },
-    { 'nvim-treesitter/nvim-treesitter-context' },
 
+    { 'nvim-treesitter/nvim-treesitter', },
+    {
+        'nvim-treesitter/nvim-treesitter-context',
+        opts = {
+            max_lines=5,
+        },
+    },
+    { 'ThePrimeagen/harpoon' },
     -- telescope
     { 'nvim-telescope/telescope.nvim' },
     { 'nvim-telescope/telescope-fzy-native.nvim' },
     { 'nvim-telescope/telescope-ui-select.nvim'  },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 })

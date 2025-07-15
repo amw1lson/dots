@@ -9,40 +9,24 @@ local lspkind = require("lspkind")
 lspkind.init({})
 cmp.setup({
     formatting = {
-    fields = { 'abbr', 'kind', 'menu' },
-    format = lspkind.cmp_format({
-      mode = 'symbol_text',
-      maxwidth = 22, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
-                     -- can also be a function to dynamically calculate max width such as 
-                     -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
-      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-      show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-
-      -- The function below will be called before any actual modifications from lspkind
-      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-      before = function(entry, vim_item)
-        local label = vim_item.abbr
-        local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-        if truncated_label ~= label then
-          vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-        elseif string.len(label) < MIN_LABEL_WIDTH then
-          local padding = string.rep(' ', MIN_LABEL_WIDTH - string.len(label))
-          vim_item.abbr = label .. padding
-        end
-        return vim_item
-      end,
-    })
-      -- format = function(entry, vim_item)
-      --   local label = vim_item.abbr
-      --   local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-      --   if truncated_label ~= label then
-      --     vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-      --   elseif string.len(label) < MIN_LABEL_WIDTH then
-      --     local padding = string.rep(' ', MIN_LABEL_WIDTH - string.len(label))
-      --     vim_item.abbr = label .. padding
-      --   end
-      --   return vim_item
-      -- end,
+        fields = { 'abbr', 'kind', 'menu' },
+        format = lspkind.cmp_format({
+          mode = 'symbol_text',
+          maxwidth = 22, 
+          ellipsis_char = '...',
+          show_labelDetails = true,
+          before = function(entry, vim_item)
+            local label = vim_item.abbr
+            local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+            if truncated_label ~= label then
+              vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+            elseif string.len(label) < MIN_LABEL_WIDTH then
+              local padding = string.rep(' ', MIN_LABEL_WIDTH - string.len(label))
+              vim_item.abbr = label .. padding
+            end
+            return vim_item
+          end,
+        }) 
     },
     snippet = {
       expand = function(args)

@@ -1,5 +1,6 @@
 local luasnip = require("luasnip")
 
+
 luasnip.config.set_config({ -- Setting LuaSnip config
   history = true,
   -- Enable autotriggered snippets

@@ -4,21 +4,29 @@ require("gruvbox").setup({
         ["markdownItalic"] = {fg = "#f2e5bc" },
     }
 })
-require("colorizer").setup()
-vim.cmd[[
-"general colo stuff
-colo gruvbox
-hi Special gui=NONE
-hi StatusLine gui=bold 
-hi StatusLineNC gui=bold 
-hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi Normal guibg=NONE ctermbg=NONE  
-hi MsgArea guibg=NONE ctermbg=NONE
-hi ModeMsg guibg=NONE ctermbg=NONE
-hi NormalNC guibg=NONE ctermbg=NONE
-hi Comment gui=NONE
-hi @comment gui=NONE
-hi CursorLine guibg=NONE
-hi CursorLineNr guibg=NONE
-hi MatchParen guibg=#2f2f2f guifg=NONE ctermfg=NONE
-]]
+
+local function update_hl(name, overrides)
+  local ok, existing = pcall(vim.api.nvim_get_hl, 0, { name = name, link = false })
+  if not ok then
+    existing = {}
+  end
+  for k, v in pairs(overrides) do
+    existing[k] = v
+  end
+  vim.api.nvim_set_hl(0, name, existing)
+end
+
+vim.cmd.colorscheme("gruvbox")
+update_hl("Special",        { bold = false, italic = false, underline = false }) 
+update_hl("StatusLine",     { bold = true })
+update_hl("StatusLineNC",   { bold = true })
+update_hl("EndOfBuffer",    { bg = "None", ctermbg = "None" })
+update_hl("Normal",         { bg = "None", ctermbg = "None" })
+update_hl("MsgArea",        { bg = "None", ctermbg = "None" })
+update_hl("ModeMsg",        { bg = "None", ctermbg = "None" })
+update_hl("NormalNC",       { bg = "None", ctermbg = "None" })
+update_hl("Comment",        { bold = false, italic = false, underline = false })
+update_hl("@comment",       { bold = false, italic = false, underline = false })
+update_hl("CursorLine",     { bg = "None" })
+update_hl("CursorLineNr",   { bg = "None" })
+update_hl("MatchParen",     { bold = false, italic = false, underline = false })
