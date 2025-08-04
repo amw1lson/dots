@@ -161,8 +161,10 @@ return require('lazy').setup({
             {"<leader>s", function () require("snipe").open_buffer_menu() end}
         },
         config = function()
-            require'snipe'.setup()
-        end
+            require'snipe'.setup({
+                ui = { position = "center" }
+            })
+        end,
     },
     {
         'ibhagwan/fzf-lua',
