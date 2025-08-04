@@ -4,7 +4,6 @@ local ELLIPSIS_CHAR = '…'
 local MAX_LABEL_WIDTH = 22
 local MIN_LABEL_WIDTH = 22
 
-local luasnip = require('luasnip')
 local lspkind = require("lspkind")
 lspkind.init({})
 cmp.setup({
@@ -12,10 +11,10 @@ cmp.setup({
         fields = { 'abbr', 'kind', 'menu' },
         format = lspkind.cmp_format({
           mode = 'symbol_text',
-          maxwidth = 22, 
+          maxwidth = 22,
           ellipsis_char = '...',
           show_labelDetails = true,
-          before = function(entry, vim_item)
+          before = function(_, vim_item)
             local label = vim_item.abbr
             local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
             if truncated_label ~= label then
@@ -26,12 +25,7 @@ cmp.setup({
             end
             return vim_item
           end,
-        }) 
-    },
-    snippet = {
-      expand = function(args)
-        require'luasnip'.lsp_expand(args.body)
-      end
+        })
     },
     window = {
         -- completion = cmp.config.window.bordered(),

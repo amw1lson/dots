@@ -1,9 +1,0 @@
-#!/bin/sh
-template="/home/austin/.tex/templates/$BASH_ARGV.tex"
-set -- "${@:1:$(($#-1))}"
-case "$*" in
-    *.tex) filename="$*";;
-    *) filename="$*.tex";;
-esac
-cp "$template" "$filename" && nvim "$filename"
-exit 0

@@ -17,7 +17,7 @@ local function update_hl(name, overrides)
 end
 
 vim.cmd.colorscheme("gruvbox")
-update_hl("Special",        { bold = false, italic = false, underline = false }) 
+update_hl("Special",        { bold = false, italic = false, underline = false })
 update_hl("StatusLine",     { bold = true })
 update_hl("StatusLineNC",   { bold = true })
 update_hl("EndOfBuffer",    { bg = "None", ctermbg = "None" })
