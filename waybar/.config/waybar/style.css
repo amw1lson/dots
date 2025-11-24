@@ -8,7 +8,8 @@ window#waybar {
   background: #1f1f1f/* rgba(25,25,25,1) */;
   color: #f9f5d7;
   /* font-family: "JetBrains Mono"; */
-  font-family: "Monaspace Neon";
+  /* font-family: "Monaspace Neon"; */
+  font-family: "Fira Code SemiBold";
   /* border-radius: 6px; */
   font-size: 19px;
   margin: 0px;

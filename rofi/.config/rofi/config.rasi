@@ -1,5 +1,5 @@
 * { 
-    font: "JetBrains Mono 16";
+    font: "Fira Code SemiBold 14";
     /* font: "Px437 IBM EGA 9x14 16"; */
     active-background: #00000000;
     active-foreground: @foreground;

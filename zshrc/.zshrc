@@ -62,10 +62,10 @@ export LD_PRELOAD=""
 export EDITOR="vim"
 
 # alias
-alias sl="ls --color=auto"
+alias sl="eza --color=auto"
 alias c="clear"
 alias curl="curl --user-agent 'noleak'"
-alias l="ls -ahls --color=auto"
+alias l="eza -ahls --color=auto"
 alias r="reset"
 alias shred="shred -zf"
 alias egrep="egrep --color=auto"
@@ -79,7 +79,7 @@ alias free="free -h"
 alias du="du -h"
 alias vi="nvim"
 alias vim="nvim"
-alias ls="ls --color=auto"
+alias ls="eza --color=auto"
 alias dir="dir --color=auto"
 alias vdir="vdir --color=auto"
 alias grep="grep --color=auto"
@@ -127,7 +127,8 @@ plugins=(
     git
     rake
     zsh-syntax-highlighting
-    # zsh-autosuggestions
+    zsh-autosuggestions
+    fzf-tab
 )
 source ~/.oh-my-zsh/oh-my-zsh.sh
 
@@ -160,5 +161,24 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 _gen_fzf_default_opts
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# NOTE: don't use escape sequences (like '%F{red}%d%f') here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# custom fzf flags
+# NOTE: fzf-tab does not follow FZF_DEFAULT_OPTS by default
+zstyle ':fzf-tab:*' fzf-flags --color=fg:1,fg+:2 --bind=tab:accept
+# To make fzf-tab follow FZF_DEFAULT_OPTS.
+# NOTE: This may lead to unexpected behavior since some flags break this plugin. See Aloxaf/fzf-tab#455.
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# switch group using `<` and `>`
+zstyle ':fzf-tab:*' switch-group '<' '>'
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
