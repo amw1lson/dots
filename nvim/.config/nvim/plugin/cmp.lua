@@ -50,10 +50,10 @@ cmp.setup({
         { name = "nvim_lsp",
             entry_filter = function(entry, _)
                 return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
-            end, keyword_length = 2},
-        { name = 'nvim_lua', keyword_length = 2 },
-        { name = 'path', keyword_length = 2 },
-        { name = 'luasnip', keyword_length = 2 },
+            end, keyword_length = 1},
+        { name = 'nvim_lua', keyword_length = 1 },
+        { name = 'path', keyword_length = 1 },
+        { name = 'luasnip', keyword_length = 1 },
     })
 })
 cmp.setup.cmdline({ '/', '?' }, {

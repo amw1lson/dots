@@ -156,45 +156,39 @@ return require('lazy').setup({
         }
     },
     {
-        'leath-dub/snipe.nvim',
-        keys = {
-            {"<leader>s", function () require("snipe").open_buffer_menu() end}
-        },
-        config = function()
-            require'snipe'.setup({
-                ui = { position = "center" }
-            })
-        end,
-    },
-    {
-        'ibhagwan/fzf-lua',
+        'folke/snacks.nvim',
+        priority = 1000,
+        lazy = false,
         opts = {
-            keymap = { fzf = { ['ctrl-h'] = 'backward-kill-word', } },
-            winopts = { preview = { default = 'bat' }, },
+            picker = {
+                enabled = true,
+                matcher = {
+                    frecency = true,
+                }
+            },
+            indent = {
+                enabled = true,
+                animate = { enabled = false, },
+            },
+            input = {
+                enabled = true,
+            },
+            words = {
+                enabled = true,
+                modes = {'n'},
+            }
         },
         keys = {
-            { "<leader>E", function() require'fzf-lua'.files() end },
-            { "<leader>e", function() require'fzf-lua'.files({cwd = vim.fn.expand("%:p:h:h")}) end },
-            { "<leader>fj", function() require'fzf-lua'.live_grep({cwd = vim.fn.expand("%:p:h:h")}) end },
-            { "<leader>fb", function() require'fzf-lua'.buffers() end},
-            { "<leader>fk", function() require'fzf-lua'.git_files() end},
-            {
-                "<leader>d",
-                function()
-                    require('fzf-lua').fzf_exec(
-                        "fd . ~ --type d --exclude .git",
-                        {
-                            prompt = 'dirs> ',
-                            actions = {
-                                ['default'] = function(selected)
-                                    local path = selected[1]
-                                    require'fzf-lua'.files({cwd = path})
-                                end,
-                            }
-                        }
-                    )
-                end
-            },
+            { "<leader>fp", function() Snacks.picker() end },
+            { "<leader>e", function() Snacks.picker.files() end },
+            { "<leader>fj", function() Snacks.picker.grep() end },
+            { "<leader>fb", function() Snacks.picker.buffers() end },
+            { "<leader>fd", function() Snacks.picker.diagnostics_buffer() end },
+            { "<leader>fg", function() Snacks.picker.gh_pr() end },
+            { "<leader>fl", function() Snacks.picker.lines() end },
+            { "<leader>fr", function() Snacks.picker.lsp_references() end },
+            { "<leader>fs", function() Snacks.picker.lsp_symbols() end },
+            { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end },
         }
-    },
+    }
 })
