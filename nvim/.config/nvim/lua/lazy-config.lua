@@ -259,6 +259,9 @@ return require('lazy').setup({
                 end,
             },
             completion = {
+                completion = {
+                    range = "full",
+                },
                 trigger = {
                     prefetch_on_insert = true,
                 },
