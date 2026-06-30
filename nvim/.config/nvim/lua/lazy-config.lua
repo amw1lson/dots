@@ -10,7 +10,7 @@ vim.opt.history = 1000
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevelstart = 99
 
-vim.opt.shiftwidth = 4
+vim.opt.shiftwidth = 8
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
@@ -82,7 +82,7 @@ return require('lazy').setup({
             { "gi", function() vim.lsp.buf.implementation() end },
             { "gd", function() vim.lsp.buf.definition() end },
             { "<leader>r", function() vim.lsp.buf.rename() end },
-            { "<leader>c", function() vim.lsp.code_action() end },
+            { "<leader>c", function() vim.lsp.buf.code_action() end },
             { "<leader>F", function() vim.lsp.buf.format() end },
             { "<leader>K", function() vim.diagnostic.open_float() end },
             { "<leader>J", function() vim.lsp.buf.hover() end },
